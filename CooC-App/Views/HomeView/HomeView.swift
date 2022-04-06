@@ -8,29 +8,63 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var searchText = ""
-    @State private var categoryIndex = 0
+    @State var hideNavigationBar = false
+    @State var offset: CGFloat = 0
+    @State var lastOffset: CGFloat = 0
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                FilterButtonList()
-                    .padding(.bottom, 10)
+            ZStack(alignment: .top) {
+                ScrollView {
+                        VStack {
+                            TopicListTitle(title: "🔥Popular Topics🔥")
+                                .padding(.horizontal, 15)
+                                .padding(.top, 130)
+                            TopicList()
+                                .padding(.bottom, 35)
+                            
+                            TopicListTitle(title: "⏰The Most Recent Topics⏰")
+                                .padding(.horizontal, 15)
+                            TopicList()
+                                .padding(.bottom, 35)
+                        }
+                        .overlay(
+                            GeometryReader { proxy -> Color in
+                                let minY = proxy.frame(in: .named("SCROLL")).minY
+                                DispatchQueue.main.async {
+                                    let durationOffset: CGFloat = 50
+                                    
+                                    if minY < offset {
+                                        if offset < 0 && -minY > (lastOffset + durationOffset) {
+                                            withAnimation(.easeOut.speed(1.5)) {
+                                                 hideNavigationBar = true
+                                            }
+                                            lastOffset = -offset
+                                        }
+                                    }
+                                    if minY > offset && -minY < (lastOffset - durationOffset){
+                                        withAnimation(.easeOut.speed(1.5)) {
+                                             hideNavigationBar = false
+                                        }
+                                        lastOffset = -offset
+                                    }
+                                    
+                                    self.offset = minY
+                                }
+                                return Color.clear
+                            }
+                        )
+                        
+                    }
+                .coordinateSpace(name: "SCROLL")
                 
-                TopicListTitle(title: "🔥Popular Topics🔥")
-                    .padding(.horizontal, 15)
-                TopicList()
-                    .padding(.bottom, 35)
-                
-                TopicListTitle(title: "⏰The Most Recent Topics⏰")
-                    .padding(.horizontal, 15)
-                TopicList()
-                    .padding(.bottom, 35)
+                CustomNavigationBar()
+                    .offset(y: hideNavigationBar ? -125 : -15)
             }
+            .navigationBarHidden(true)
+            }
+        .padding(.top, 1)
         }
-        
-        
-    }
 }
 
 struct HomeView_Previews: PreviewProvider {

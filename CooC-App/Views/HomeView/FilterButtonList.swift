@@ -18,6 +18,7 @@ struct FilterButtonList: View {
                     Text(categoryText[index])
                         .padding(.vertical, 5)
                         .frame(width: 85, height: 30)
+                        .font(.subheadline)
                         .foregroundColor(self.index == index ? .white : .black)
                         .background(
                             RoundedRectangle(cornerRadius: 8)

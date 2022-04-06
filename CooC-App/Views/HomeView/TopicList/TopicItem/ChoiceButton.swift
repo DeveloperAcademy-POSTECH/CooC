@@ -16,6 +16,7 @@ struct ChoiceButton: View {
         }) {
             Text(choiceText)
                 .foregroundColor(.black)
+                .fontWeight(.bold)
                 .frame(width: 150, height: 40)
                 .padding(.horizontal, 5)
                 .lineLimit(2)

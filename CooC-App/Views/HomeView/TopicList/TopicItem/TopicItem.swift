@@ -50,7 +50,7 @@ struct TopicItem: View {
                     }
                 }
             }
-            .padding(.top, 10)
+            .padding(.top, 5)
         }
     }
 }
