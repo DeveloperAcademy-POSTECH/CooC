@@ -17,11 +17,20 @@ struct EditProfile: View {
 
     var body: some View {
         VStack {
-            Image("profileImageDefault")
-                .resizable()
-                .frame(width: 160, height: 160)
-            //이미지 위로 보내야함 
-            .border(.gray, width: 5)
+            ZStack {
+                Image("profileImageDefault")
+                    .resizable()
+                    .frame(width: 160, height: 160)
+                //이미지 위로 보내야함
+                    .border(.gray, width: 5)
+                
+                Button(action: { print("Button 1") }) {
+                    Image(systemName: "play.circle")
+                        .imageScale(.large)
+                        .font(.largeTitle)
+                }
+                .foregroundColor(ColorManager.mainOrange)
+                
 
             VStack {
                 VStack{
