@@ -13,12 +13,23 @@ struct TopicItem: View {
     
     var body: some View {
         VStack {
-            Image(topic.imageName)
-                .resizable()
-                .frame(width: 260, height: 260)
-                .cornerRadius(26)
-                .shadow(radius: 4)
-                .padding(.top)
+            ZStack(alignment: .bottomTrailing) {
+                Image(topic.imageName)
+                    .resizable()
+                    .frame(width: 260, height: 260)
+                    .cornerRadius(26)
+                    .shadow(radius: 4)
+                    .padding(.top)
+                
+                Button(action: {
+                    // TODO: 장문형으로 보내기
+                }) {
+                    Image(systemName: "paperplane.circle.fill")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                }
+                .padding(10)
+            }
             
             Text(topic.title)
                 .font(.title3)
