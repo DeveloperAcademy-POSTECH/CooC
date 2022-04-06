@@ -17,6 +17,13 @@
 		B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368C227FC3AF40002BA0F /* HomeView.swift */; };
 		B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */; };
 		B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368C627FC3B060002BA0F /* MyPageView.swift */; };
+		B7C368CD27FD72D80002BA0F /* TopicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368CC27FD72D80002BA0F /* TopicItem.swift */; };
+		B7C368D027FD73580002BA0F /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368CF27FD73580002BA0F /* ChoiceButton.swift */; };
+		B7C368D227FD75460002BA0F /* TopicListTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368D127FD75460002BA0F /* TopicListTitle.swift */; };
+		B7C368D527FD79F40002BA0F /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368D427FD79F40002BA0F /* TopicList.swift */; };
+		B7C368D727FD7AB60002BA0F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368D627FD7AB60002BA0F /* TestView.swift */; };
+		B7C368D927FD7C780002BA0F /* TopicStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368D827FD7C780002BA0F /* TopicStructure.swift */; };
+		B7C368DE27FD87870002BA0F /* FilterButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368DD27FD87870002BA0F /* FilterButtonList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,13 @@
 		B7C368C227FC3AF40002BA0F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
 		B7C368C627FC3B060002BA0F /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		B7C368CC27FD72D80002BA0F /* TopicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicItem.swift; sourceTree = "<group>"; };
+		B7C368CF27FD73580002BA0F /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
+		B7C368D127FD75460002BA0F /* TopicListTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListTitle.swift; sourceTree = "<group>"; };
+		B7C368D427FD79F40002BA0F /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
+		B7C368D627FD7AB60002BA0F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		B7C368D827FD7C780002BA0F /* TopicStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicStructure.swift; sourceTree = "<group>"; };
+		B7C368DD27FD87870002BA0F /* FilterButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,12 +150,43 @@
 		B7C368C127FC3AE80002BA0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7C368CB27FD6A650002BA0F /* HomeView */,
 				B7C3689927FC3A9F0002BA0F /* ContentView.swift */,
-				B7C368C227FC3AF40002BA0F /* HomeView.swift */,
 				B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */,
 				B7C368C627FC3B060002BA0F /* MyPageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B7C368CB27FD6A650002BA0F /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				B7C368D327FD79DE0002BA0F /* TopicList */,
+				B7C368DD27FD87870002BA0F /* FilterButtonList.swift */,
+				B7C368C227FC3AF40002BA0F /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		B7C368CE27FD733A0002BA0F /* TopicItem */ = {
+			isa = PBXGroup;
+			children = (
+				B7C368CC27FD72D80002BA0F /* TopicItem.swift */,
+				B7C368CF27FD73580002BA0F /* ChoiceButton.swift */,
+			);
+			path = TopicItem;
+			sourceTree = "<group>";
+		};
+		B7C368D327FD79DE0002BA0F /* TopicList */ = {
+			isa = PBXGroup;
+			children = (
+				B7C368CE27FD733A0002BA0F /* TopicItem */,
+				B7C368D127FD75460002BA0F /* TopicListTitle.swift */,
+				B7C368D427FD79F40002BA0F /* TopicList.swift */,
+				B7C368D627FD7AB60002BA0F /* TestView.swift */,
+				B7C368D827FD7C780002BA0F /* TopicStructure.swift */,
+			);
+			path = TopicList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +321,16 @@
 			files = (
 				B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */,
 				B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */,
+				B7C368D027FD73580002BA0F /* ChoiceButton.swift in Sources */,
+				B7C368CD27FD72D80002BA0F /* TopicItem.swift in Sources */,
+				B7C368D227FD75460002BA0F /* TopicListTitle.swift in Sources */,
+				B7C368D527FD79F40002BA0F /* TopicList.swift in Sources */,
+				B7C368D727FD7AB60002BA0F /* TestView.swift in Sources */,
 				B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */,
+				B7C368D927FD7C780002BA0F /* TopicStructure.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,
 				B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */,
+				B7C368DE27FD87870002BA0F /* FilterButtonList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CooC-App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6VYPR8MZ57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -465,6 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CooC-App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6VYPR8MZ57;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

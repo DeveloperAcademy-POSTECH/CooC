@@ -9,9 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var searchText = ""
+    @State private var categoryIndex = 0
+    
     var body: some View {
         NavigationView {
             ScrollView {
+                FilterButtonList()
+                    .padding(.bottom, 10)
+                
                 TopicListTitle(title: "🔥Popular Topics🔥")
                     .padding(.horizontal, 15)
                 TopicList()
