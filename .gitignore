@@ -135,3 +135,6 @@ xcuserdata/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 CooC-App/Assets.xcassets/AppIcon.appiconset/Contents.json
+CooC-App.xcodeproj/project.pbxproj
+CooC-App.xcodeproj/project.pbxproj
+*.pbxproj
