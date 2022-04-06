@@ -24,9 +24,10 @@ struct ContentView: View {
                 }
                 .tag(Tab.Home)
             
-            LookAroundView()
+            TopicSeriesView()
                 .tabItem {
                     Label("Look Around", systemImage: "face.smiling.fill")
+              
                 }
                 .tag(Tab.LookAround)
             

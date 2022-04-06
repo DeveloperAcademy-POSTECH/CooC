@@ -17,6 +17,7 @@
 		B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368C227FC3AF40002BA0F /* HomeView.swift */; };
 		B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */; };
 		B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368C627FC3B060002BA0F /* MyPageView.swift */; };
+		BAAE359327FD6B2D00C1FB18 /* TopicSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE359227FD6B2D00C1FB18 /* TopicSeriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		B7C368C227FC3AF40002BA0F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
 		B7C368C627FC3B060002BA0F /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		BAAE359227FD6B2D00C1FB18 /* TopicSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSeriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				B7C3689927FC3A9F0002BA0F /* ContentView.swift */,
 				B7C368C227FC3AF40002BA0F /* HomeView.swift */,
+				BAAE359227FD6B2D00C1FB18 /* TopicSeriesView.swift */,
 				B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */,
 				B7C368C627FC3B060002BA0F /* MyPageView.swift */,
 			);
@@ -277,6 +280,7 @@
 				B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */,
 				B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */,
 				B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */,
+				BAAE359327FD6B2D00C1FB18 /* TopicSeriesView.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,
 				B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */,
 			);
