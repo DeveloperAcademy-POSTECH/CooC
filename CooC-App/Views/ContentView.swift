@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: Tab = .Main
+    @State private var selection: Tab = .Home
     
     enum Tab {
-        case Main
+        case Home
         case LookAround
         case MyPage
     }
     
     var body: some View {
         TabView(selection: $selection) {
-            MainView()
+            HomeView()
                 .tabItem {
-                    Label("Main", systemImage: "house.fill")
+                    Label("Home", systemImage: "house.fill")
                 }
-                .tag(Tab.Main)
+                .tag(Tab.Home)
             
             LookAroundView()
                 .tabItem {
