@@ -19,7 +19,7 @@ struct HomeView: View {
                         VStack {
                             TopicListTitle(title: "🔥Popular Topics🔥")
                                 .padding(.horizontal, 15)
-                                .padding(.top, 130)
+                                .padding(.top, 145)
                             TopicList()
                                 .padding(.bottom, 35)
                             
@@ -59,7 +59,7 @@ struct HomeView: View {
                 .coordinateSpace(name: "SCROLL")
                 
                 CustomNavigationBar()
-                    .offset(y: hideNavigationBar ? -125 : -15)
+                    .offset(y: hideNavigationBar ? -150 : -10)
             }
             .navigationBarHidden(true)
             }

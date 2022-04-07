@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchBar: View {
     var body: some View {
         NavigationLink(destination: {
-            Text("검색 페이지(결과 아님)")
+            SearchView()
         }) {
             HStack {
                 Image(systemName: "magnifyingglass")

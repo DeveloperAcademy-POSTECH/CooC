@@ -16,8 +16,6 @@ struct TopicList: View {
         Topic(imageName: "hiddenlake", title: "소개팅 나가는데, 의상 함 봐주세요", choices: ["굳", "우엑"]),
     ]
     
-    
-    
     var body: some View {
         TopicItem(topic: topicList[0])
     }
