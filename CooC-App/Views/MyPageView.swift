@@ -38,6 +38,8 @@ struct MyPageView: View {
                         }
                         
                         HStack(spacing: 30){
+                            Spacer().frame(width: 10)
+                            
                             Image("Men")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -60,15 +62,32 @@ struct MyPageView: View {
                                 Text("Category")
                                     .font(.body)
                                 
-                                Spacer().frame(height: 45)
+                                Spacer().frame(height: 10)
+
+                                HStack(spacing: 10){
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color.white)
+                                        .border(Color.orange)
+                                        .frame(width: 50, height: 25)
+                                    
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color.white)
+                                        .border(Color.orange)
+                                        .frame(width: 50, height: 25)
+                                    
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color.white)
+                                        .border(Color.orange)
+                                        .frame(width: 50, height: 25)
+                                }
+                                
+                                Spacer().frame(height: 10)
                             }
                             
                         }
                     }
                     
                 }
-                
-                Divider()
                 
                 HStack {
                     Button(action: {
@@ -110,6 +129,7 @@ struct MyPageView: View {
         }
     }
 }
+
 
 
 struct MyPageView_Previews: PreviewProvider {
