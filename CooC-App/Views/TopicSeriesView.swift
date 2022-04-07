@@ -74,6 +74,8 @@ struct SnapCarousel<Content: View, T: Identifiable> : View{
 }
 struct TopicSeriesView: View {
     @State var currentIndex: Int = 0
+    @State var optionButton1 : Bool = false
+    @State var optionButton2 : Bool = false
     @State var transitionView: Int = 0
     @State var posts : [Post] = []
     @State var textContent : String = ""
@@ -93,36 +95,85 @@ struct TopicSeriesView: View {
                         let size = proxy.size
                         VStack{
                             Text(post.postImage + " Title").frame(width: 300, height:20).border(Color.green)
+                            
+                            ZStack{
                         Image(post.postImage)
                             .resizable()
                             .frame(width: size.width, height: 300)
-                            .cornerRadius(12).padding(EdgeInsets(top:0, leading: 0,bottom:0,trailing:0)).overlay(
+                            .cornerRadius(12).padding(EdgeInsets(top:0, leading: 0,bottom:0,trailing:0))
+                            
                                     Button(action:{
                                         print(transitionView)
                                         if transitionView == 0{
                                         transitionView = 2}
                                         transitionView -= 1
-                                    }){  if transitionView == 0 {Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.white).frame(width: 30, height:30).position(x:250,y:250)}
-                                }
-                            ).overlay(    ZStack(alignment: .top) {
+                                    }){  if transitionView == 0 {
+                                        
+                                        Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.white).frame(width: 30, height:30)}
+                                    }.offset(x:100,y:100)
+                                
                                 if transitionView == 1 {
+                                    
+                                    ZStack{
                                     RoundedRectangle(cornerRadius: 20)
                                         .frame(height: UIScreen.main.bounds.height * 0.1).opacity(0.2)
                                         .transition(AnyTransition.scale.animation(.easeInOut))
-                                        .overlay(TextField("내용을 입력하세요", text: $textContent).foregroundColor(Color.white)  .accentColor(Color.white)).overlay(Button(action:{
-                                            print(transitionView)
+                                    TextField("내용을 입력하세요", text: $textContent).foregroundColor(Color.white)  .accentColor(Color.white)
+                                        Button(action:{
+                                                print(transitionView)
+                                                if transitionView == 0{
+                                                transitionView = 2}
+                                                transitionView -= 1
+                                                textContent = ""
+                                            }) {
+                                                if transitionView == 1 {Image(systemName: "x.circle.fill").resizable().foregroundColor(Color.white).frame(width: 30, height:30)}
+                                            }.offset(x:-120,y:-60)
+                                    Button(action:{
                                             if transitionView == 0{
                                             transitionView = 2}
                                             transitionView -= 1
+                                            textContent = ""
                                         }) {
-                                            if transitionView == 1 {Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.white).frame(width: 30, height:30).position(x:250,y:50)}
-                                        })
+                                            if transitionView == 1 {Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.white).frame(width: 30, height:30)}
+                                        }.offset(x:120,y:-60)
+                                    }
                                 }
+                                
+                                
+                                
+                            }
+                            .overlay(    ZStack(alignment: .top) {
+                    
                             }
                             .ignoresSafeArea(edges: .bottom))
                             Text(post.postImage + " Content").frame(width: 300, height:80).border(Color.purple)
-                            Rectangle().cornerRadius(15).overlay( Text(post.postImage + " option").foregroundColor(Color.white))
-                            Rectangle().cornerRadius(15).overlay( Text(post.postImage + " option").foregroundColor(Color.white))
+                            Button(action:{ optionButton1 = !optionButton1
+                                print(optionButton1)
+                            })
+                            {
+                                if optionButton1 == true{
+                                    Rectangle().cornerRadius(15).overlay( Text(post.postImage + " option").foregroundColor(Color.white))
+                                    
+                                }
+                                
+                                 else {
+                                     Rectangle().foregroundColor(Color.black).cornerRadius(15).overlay( Text(post.postImage + " option").foregroundColor(Color.white))
+                                }
+                            }
+                            
+                            Button(action:{ optionButton2 =  !optionButton2
+                         
+                            })
+                            {
+                                if optionButton2 == true{
+                                    Rectangle().cornerRadius(15).overlay( Text(post.postImage + " option").foregroundColor(Color.white))
+                                    
+                                }
+                                
+                                 else {
+                                     Rectangle().foregroundColor(Color.black).cornerRadius(15).overlay( Text(post.postImage + " option").foregroundColor(Color.white))
+                                }
+                            }
                         }.frame(width: size.width)
                     }
                 }
