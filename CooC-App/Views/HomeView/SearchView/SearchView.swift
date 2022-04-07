@@ -53,7 +53,7 @@ struct SearchView: View {
                         .frame(width: .infinity, height: 40)
                 )
                 
-                NavigationLink(destination: Text("검색 결과")) {
+                NavigationLink(destination: SearchResultView(searchText: searchText)) {
                     Text("Search")
                         .fontWeight(.bold)
                         .foregroundColor(.white)

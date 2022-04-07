@@ -16,48 +16,47 @@ struct HomeView: View {
         NavigationView {
             ZStack(alignment: .top) {
                 ScrollView {
-                        VStack {
-                            TopicListTitle(title: "🔥Popular Topics🔥")
-                                .padding(.horizontal, 15)
-                                .padding(.top, 150)
-                            TopicList()
-                                .padding(.top, 6)
-                                .padding(.bottom, 35)
+                    VStack {
+                        TopicListTitle(title: "🔥Popular Topics🔥")
+                            .padding(.horizontal, 15)
+                            .padding(.top, 150)
+                        TopicList()
+                            .padding(.top, 6)
+                            .padding(.bottom, 35)
                             
-                            TopicListTitle(title: "⏰The Most Recent Topics⏰")
-                                .padding(.horizontal, 15)
-                            TopicList()
-                                .padding(.top, 6)
-                                .padding(.bottom, 35)
-                        }
-                        .overlay(
-                            GeometryReader { proxy -> Color in
-                                let minY = proxy.frame(in: .named("SCROLL")).minY
-                                DispatchQueue.main.async {
-                                    let durationOffset: CGFloat = 50
+                        TopicListTitle(title: "⏰The Most Recent Topics⏰")
+                            .padding(.horizontal, 15)
+                        TopicList()
+                            .padding(.top, 6)
+                            .padding(.bottom, 35)
+                    }
+                    .overlay(
+                        GeometryReader { proxy -> Color in
+                            let minY = proxy.frame(in: .named("SCROLL")).minY
+                            DispatchQueue.main.async {
+                                let durationOffset: CGFloat = 50
                                     
-                                    if minY < offset {
-                                        if offset < 0 && -minY > (lastOffset + durationOffset) {
-                                            withAnimation(.easeOut.speed(1.5)) {
-                                                 hideNavigationBar = true
-                                            }
-                                            lastOffset = -offset
-                                        }
-                                    }
-                                    if minY > offset && -minY < (lastOffset - durationOffset){
+                                if minY < offset {
+                                    if offset < 0 && -minY > (lastOffset + durationOffset) {
                                         withAnimation(.easeOut.speed(1.5)) {
-                                             hideNavigationBar = false
+                                                hideNavigationBar = true
                                         }
                                         lastOffset = -offset
                                     }
-                                    
-                                    self.offset = minY
                                 }
-                                return Color.clear
+                                if minY > offset && -minY < (lastOffset - durationOffset){
+                                    withAnimation(.easeOut.speed(1.5)) {
+                                            hideNavigationBar = false
+                                    }
+                                    lastOffset = -offset
+                                }
+                                    
+                                self.offset = minY
                             }
-                        )
-                        
-                    }
+                            return Color.clear
+                        }
+                    )
+                }
                 .coordinateSpace(name: "SCROLL")
                 
                 CustomNavigationBar()
