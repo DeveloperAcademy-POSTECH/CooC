@@ -39,6 +39,7 @@ struct CustomNavigationBar: View {
                 .padding(.horizontal, 15)
             
             FilterButtonList()
+                .padding(.top, 5)
                 .padding(.bottom, 10)
         }
         .background(

@@ -19,7 +19,7 @@ struct HomeView: View {
                         VStack {
                             TopicListTitle(title: "🔥Popular Topics🔥")
                                 .padding(.horizontal, 15)
-                                .padding(.top, 155)
+                                .padding(.top, 150)
                             TopicList()
                                 .padding(.top, 6)
                                 .padding(.bottom, 35)
