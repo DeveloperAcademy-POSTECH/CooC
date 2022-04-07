@@ -14,13 +14,15 @@ struct EditProfile: View{
 }
 
 struct MyPageView: View {
-    let grayTitle = Color(red: 0.95, green: 0.95, blue: 0.95)
+    let titleBackground = Color(red: 240/255, green: 240/255, blue: 240/255)
+    let chosenButton = Color(red: 1, green: 152/255, blue: 0)
+    let notChosenButton = Color(red: 1, green: 214/255, blue: 146/255)
     
     var body: some View {
         NavigationView{
             VStack{
                 ZStack{
-                    grayTitle.frame(width: 390, height: 210)
+                    titleBackground.frame(width: 390, height: 210)
                     
                     VStack{
                         Spacer().frame(height: 15)
@@ -35,41 +37,65 @@ struct MyPageView: View {
                             }
                         }
                         
-                        HStack{
+                        HStack(spacing: 30){
                             Image("Men")
                                 .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .cornerRadius(20)
                                 .frame(width: 130, height: 130)
-                                .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 0))
+                                .padding(EdgeInsets(top: 10, leading: -80, bottom: 20, trailing: 0))
                             
-                        
-                            RoundedRectangle(cornerRadius: 20)
-                                .strokeBorder(Color.orange)
-                                .frame(width: 230, height: 130)
-                                .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 10))
+                            
+                            VStack(alignment: .leading){
+                                Text("Hi Hello")
+                                    .font(.title2)
                                 
+                                Spacer().frame(height: 5)
+                                
+                                Text("Nice to meet you")
+                                    .font(.body)
+                                
+                                Spacer().frame(height: 15)
+                                
+                                Text("Category")
+                                    .font(.body)
+                                
+                                Spacer().frame(height: 45)
+                            }
+                            
                         }
                     }
                     
                 }
                 
+                Divider()
                 
                 HStack {
                     Button(action: {
                         
                     }){
                         Text("OOO 님의 고민")
-                            .foregroundColor(.black)
-                            .padding()
-                            
+                            .font(.footnote)
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .frame(width: 180, height: 30)
+                            .background(chosenButton)
+                            .cornerRadius(12)
                     }
+                    
+                    Spacer().frame(width: 5)
                     
                     Button(action: {
                         
                     }){
                         Text("OOO 님이 응답한 고민")
-                            .foregroundColor(.black)
-                            .padding()
+                            .font(.footnote)
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .frame(width: 180, height: 30)
+                            .background(notChosenButton)
+                            .cornerRadius(12)
+                            
                     }
                     
                 }
@@ -84,6 +110,7 @@ struct MyPageView: View {
         }
     }
 }
+
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
