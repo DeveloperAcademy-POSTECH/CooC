@@ -15,6 +15,7 @@ struct TopicItem: View {
         VStack {
             Text(topic.title)
                 .font(.title3)
+                .fontWeight(.bold)
                 .padding(.top, 5)
             
             VStack {

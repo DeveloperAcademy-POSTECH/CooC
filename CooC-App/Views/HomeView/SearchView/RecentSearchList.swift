@@ -8,6 +8,20 @@
 import SwiftUI
 
 struct RecentSearchList: View {
+    let columns = [
+            GridItem(.flexible(), spacing: 30),
+            GridItem(.flexible(), spacing: 30),
+        ]
+    
+    let recentSearchText = [
+        "iPhone 13",
+        "MacBook Pro",
+        "Air Pods",
+        "iPods",
+        "Apple TV",
+        "Home Pod",
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -15,8 +29,26 @@ struct RecentSearchList: View {
                     .font(.title3)
                     .fontWeight(.bold)
                 Spacer()
+                
+                Button(action: {
+                    // TODO: 모두 지우기
+                }) {
+                    Image(systemName: "trash.fill")
+                }
+                .font(.title3)
             }
             .padding(.top, 20)
+            
+            ScrollView {
+                LazyVGrid(columns: columns,  spacing: 15) {
+                    ForEach(recentSearchText, id: \.self) { text in
+                        RecentSearchItem(text: text)
+                    }
+                }
+                .padding(.top, 20)
+            }
+            
+            
         }
         .padding(.horizontal, 15)
         

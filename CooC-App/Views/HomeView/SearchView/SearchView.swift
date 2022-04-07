@@ -13,13 +13,13 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 Button(action: {
                     self.mode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.backward")
                         .resizable()
-                        .foregroundColor(.gray)
+                        .foregroundColor(.orange)
                         .frame(width: 13, height: 25)
                 }
                 .padding(.trailing, 5)
@@ -33,12 +33,11 @@ struct SearchView: View {
                         }
                     }
                     
-                    
                     if searchText.count > 0 {
                         Button(action: {
                             searchText = ""
                         }) {
-                            Image(systemName: "x.circle.fill")
+                            Image(systemName: "xmark.circle.fill")
                                 .resizable()
                                 .frame(width: 18, height: 18)
                                 .foregroundColor(.gray)
@@ -54,14 +53,20 @@ struct SearchView: View {
                         .frame(width: .infinity, height: 40)
                 )
                 
-                Button(action: {
-                    self.mode.wrappedValue.dismiss()
-                }) {
-                    Text("Cancel")
-                        .font(.title3)
-                        .foregroundColor(.black)
+                NavigationLink(destination: Text("검색 결과")) {
+                    Text("Search")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(width: 70, height: 40)
+                        .padding(.horizontal, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.orange)
+                                .shadow(radius: 1)
+                                .frame(width: 80, height: 40)
+                        )
+                    
                 }
-                .padding(.leading, 10)
             }
             .padding(.horizontal, 15)
             .padding(.top, 15)
@@ -71,11 +76,7 @@ struct SearchView: View {
             Spacer()
         }
         .navigationBarHidden(true)
-        
-        
         }
-        
-    
 }
 
 struct SearchView_Previews: PreviewProvider {

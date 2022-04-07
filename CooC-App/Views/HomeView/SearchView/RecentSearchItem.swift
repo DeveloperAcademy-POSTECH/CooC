@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct RecentSearchItem: View {
+    var text = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack(spacing: 20) {
+                Text(text)
+                
+                Spacer()
+                
+                Image(systemName: "xmark")
+            }
+            .font(.subheadline)
+            
+            Divider()
+                .padding(.vertical, 10)
+        }
+        .frame(width: 170)
     }
 }
 
