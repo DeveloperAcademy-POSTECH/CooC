@@ -53,7 +53,7 @@ struct RecentSearchList: View {
             
             
         }
-        .padding(.horizontal, 15)
+        .padding(.horizontal, horizontalDefaultPadding)
         
     }
 }

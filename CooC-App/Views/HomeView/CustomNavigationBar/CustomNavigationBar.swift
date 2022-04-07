@@ -15,8 +15,8 @@ struct CustomNavigationBar: View {
                     Spacer()
                     
                     Text("Home")
+                        .bold()
                         .font(.title2)
-                        .fontWeight(.bold)
                     
                     Spacer()
                 }
@@ -36,7 +36,7 @@ struct CustomNavigationBar: View {
             .padding(.bottom, 5)
             
             SearchBar()
-                .padding(.horizontal, 15)
+                .padding(.horizontal, horizontalDefaultPadding)
             
             FilterButtonList()
                 .padding(.top, 5)

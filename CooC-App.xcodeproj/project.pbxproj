@@ -31,6 +31,7 @@
 		B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368F327FED4F10002BA0F /* SearchResultView.swift */; };
 		B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */; };
 		B7C368FC27FEF59A0002BA0F /* SearchTopicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */; };
+		B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368FD27FF3DD80002BA0F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		B7C368F327FED4F10002BA0F /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicList.swift; sourceTree = "<group>"; };
 		B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicItem.swift; sourceTree = "<group>"; };
+		B7C368FD27FF3DD80002BA0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,12 +177,13 @@
 		B7C368CB27FD6A650002BA0F /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				B7C368F227FED4C00002BA0F /* SearchResultView */,
-				B7C368E927FDDDDB0002BA0F /* SearchView */,
-				B7C368E627FDD5C50002BA0F /* CustomNavigationBar */,
-				B7C368D327FD79DE0002BA0F /* TopicList */,
-				B7C368DD27FD87870002BA0F /* FilterButtonList.swift */,
 				B7C368C227FC3AF40002BA0F /* HomeView.swift */,
+				B7C368E627FDD5C50002BA0F /* CustomNavigationBar */,
+				B7C368D127FD75460002BA0F /* TopicListTitle.swift */,
+				B7C368D327FD79DE0002BA0F /* TopicList */,
+				B7C368E927FDDDDB0002BA0F /* SearchView */,
+				B7C368F227FED4C00002BA0F /* SearchResultView */,
+				B7C368FD27FF3DD80002BA0F /* Constants.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -197,9 +200,8 @@
 		B7C368D327FD79DE0002BA0F /* TopicList */ = {
 			isa = PBXGroup;
 			children = (
-				B7C368CE27FD733A0002BA0F /* TopicItem */,
-				B7C368D127FD75460002BA0F /* TopicListTitle.swift */,
 				B7C368D427FD79F40002BA0F /* TopicList.swift */,
+				B7C368CE27FD733A0002BA0F /* TopicItem */,
 				B7C368D827FD7C780002BA0F /* TopicStructure.swift */,
 			);
 			path = TopicList;
@@ -210,6 +212,7 @@
 			children = (
 				B7C368E427FDD0950002BA0F /* CustomNavigationBar.swift */,
 				B7C368E727FDD5DA0002BA0F /* SearchBar.swift */,
+				B7C368DD27FD87870002BA0F /* FilterButtonList.swift */,
 			);
 			path = CustomNavigationBar;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */,
 				B7C368EB27FDDDED0002BA0F /* SearchView.swift in Sources */,
 				B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */,
+				B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,
 				B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */,
 				B7C368EF27FEA9750002BA0F /* RecentSearchList.swift in Sources */,

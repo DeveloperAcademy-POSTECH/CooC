@@ -16,17 +16,17 @@ struct SearchTopicItem: View {
                 Image(topic.image)
                     .resizable()
                     .frame(width: 100, height: 100)
-                    .cornerRadius(20)
+                    .cornerRadius(imageRadius)
                 
                 Text(topic.category)
                     .bold()
-                    .frame(width: 45, height: 22)
+                    .frame(width: 48, height: 22)
                     .font(.caption2)
                     .foregroundColor(.orange)
+                    .padding(.horizontal, 3)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: categoryRadius)
                             .fill(.white)
-                            .frame(width: 45, height: 22)
                             .shadow(radius: 1)
                     )
             }
@@ -55,7 +55,7 @@ struct SearchTopicItem: View {
                         .padding(.vertical, 4)
                         .foregroundColor(topic.isEnd ? .white : .black)
                         .background(
-                            RoundedRectangle(cornerRadius: 8)
+                            RoundedRectangle(cornerRadius: buttonRadius)
                                 .fill(topic.isEnd ? .orange : .white)
                                 .shadow(radius: 1)
                         )

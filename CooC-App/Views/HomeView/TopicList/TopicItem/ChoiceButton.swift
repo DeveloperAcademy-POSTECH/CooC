@@ -22,7 +22,7 @@ struct ChoiceButton: View {
                 .lineLimit(2)
                 .truncationMode(.tail)
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: buttonRadius)
                         .fill(.white)
                         .frame(width: 130, height: 40)
                         .shadow(radius: 2)

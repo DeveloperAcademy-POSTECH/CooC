@@ -13,8 +13,8 @@ struct TopicListTitle: View {
     var body: some View {
         HStack {
             Text(title)
+                .bold()
                 .font(.system(size: 24))
-                .fontWeight(.bold)
                 .lineLimit(2)
                 .truncationMode(.tail)
             

@@ -21,7 +21,7 @@ struct FilterButtonList: View {
                         .font(.subheadline)
                         .foregroundColor(self.index == index ? .white : .black)
                         .background(
-                            RoundedRectangle(cornerRadius: 8)
+                            RoundedRectangle(cornerRadius: categoryRadius)
                                 .fill(self.index == index ? .orange : .white)
                                 .frame(width: 85, height: 30)
                                 .shadow(radius: 1)
@@ -29,11 +29,11 @@ struct FilterButtonList: View {
                         .onTapGesture {
                             self.index = index
                         }
-                        .padding(.trailing, index == (categoryText.count - 1) ? 15 : 5)
+                        .padding(.trailing, index == (categoryText.count - 1) ? horizontalDefaultPadding : 5)
                 }
             }
             .padding(.vertical, 5)
-            .padding(.leading, 15)
+            .padding(.leading, horizontalDefaultPadding)
         }
     }
 }

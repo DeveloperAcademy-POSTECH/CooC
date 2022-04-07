@@ -30,7 +30,7 @@ struct SearchResultView: View {
                     SearchTopicList()
                 }
                 .padding(.top, 60)
-                .padding(.horizontal, 15)
+                .padding(.horizontal, horizontalDefaultPadding)
                 .padding(.bottom, 35)
                 .overlay(
                     GeometryReader { proxy -> Color in
@@ -60,7 +60,7 @@ struct SearchResultView: View {
             }
             .coordinateSpace(name: "SCROLL")
             
-            // 뒤로 가기 버튼이 있는 네비게이션 바
+            // 네비게이션 바(뒤로 가기)
             HStack {
                 Button(action: {
                     self.mode.wrappedValue.dismiss()
@@ -70,7 +70,7 @@ struct SearchResultView: View {
                         .foregroundColor(.orange)
                         .frame(width: 13, height: 25)
                 }
-                .padding(.leading, 15)
+                .padding(.leading, horizontalDefaultPadding)
                 Spacer()
             }
             .padding(.top, 15)

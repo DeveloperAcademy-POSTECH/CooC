@@ -13,6 +13,7 @@ struct HomeView: View {
     @State var lastOffset: CGFloat = 0
     
     init() {
+        // 바운스 활성 시 스크롤 에니메이션 에러가 발생합니다.
         UIScrollView.appearance().bounces = false
     }
     
@@ -22,22 +23,24 @@ struct HomeView: View {
                 ScrollView {
                     VStack {
                         TopicListTitle(title: "🔥Popular Topics🔥")
-                            .padding(.horizontal, 15)
-                            .padding(.top, 150)
+                            .padding(.horizontal, horizontalDefaultPadding)
+                            .padding(.top, 140)
                         TopicList()
                             .padding(.top, 6)
                             .padding(.bottom, 35)
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
-                            .padding(.horizontal, 15)
+                            .padding(.horizontal, horizontalDefaultPadding)
                         TopicList()
                             .padding(.top, 6)
                     }
                     .offset(y: hideNavigationBar ? -60 : 20)
+                    // 스크롤 에니메이션
                     .overlay(
                         GeometryReader { proxy -> Color in
                             let minY = proxy.frame(in: .named("SCROLL")).minY
                             DispatchQueue.main.async {
+                                // 내릴경우
                                 if minY < offset {
                                     if offset < 0 && -minY > lastOffset {
                                         withAnimation(.easeOut.speed(1.5)) {

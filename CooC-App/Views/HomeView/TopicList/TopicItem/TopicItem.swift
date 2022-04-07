@@ -23,9 +23,10 @@ struct TopicItem: View {
                     Image(topic.image)
                         .resizable()
                         .frame(width: 275, height: 275)
-                        .cornerRadius(26)
+                        .cornerRadius(imageRadius)
                         .shadow(radius: 4)
                     
+                    // 카테고리 및 장문 보내기 아이콘
                     HStack(alignment: .bottom) {
                         Text(topic.category)
                             .bold()
@@ -33,9 +34,8 @@ struct TopicItem: View {
                             .font(.caption)
                             .foregroundColor(.orange)
                             .background(
-                                RoundedRectangle(cornerRadius: 8)
+                                RoundedRectangle(cornerRadius: categoryRadius)
                                     .fill(.white)
-                                    .frame(width: 70, height: 25)
                                     .shadow(radius: 1)
                             )
                         
@@ -71,9 +71,9 @@ struct TopicItem: View {
             }
         }
         .padding(.vertical, 10)
-        .padding(.horizontal, 20)
+        .padding(.horizontal, horizontalDefaultPadding)
         .background(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: cardRadius)
                 .fill(.white)
                 .shadow(radius: 4)
         )

@@ -15,6 +15,7 @@ struct SearchView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
+                // 뒤로 가기
                 Button(action: {
                     self.mode.wrappedValue.dismiss()
                 }) {
@@ -25,6 +26,7 @@ struct SearchView: View {
                 }
                 .padding(.trailing, 5)
                 
+                // SearchBar
                 HStack(alignment: .top) {
                     ZStack(alignment: .topLeading) {
                         TextField("Search topics", text: $searchText)
@@ -49,11 +51,12 @@ struct SearchView: View {
                 .padding(.leading, 12)
                 .padding(.vertical, 3)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 6)
+                    RoundedRectangle(cornerRadius: searchBarRadius)
                         .stroke(.gray)
                         .frame(width: .infinity, height: 40)
                 )
                 
+                // Search 버튼
                 NavigationLink(destination: SearchResultView(searchText: searchText), isActive: $isText) {
                     Text("Search")
                         .fontWeight(.bold)
@@ -61,7 +64,7 @@ struct SearchView: View {
                         .frame(width: 70, height: 40)
                         .padding(.horizontal, 8)
                         .background(
-                            RoundedRectangle(cornerRadius: 8)
+                            RoundedRectangle(cornerRadius: buttonRadius)
                                 .fill(searchText.count > 0 ? .orange : .gray)
                                 .shadow(radius: 1)
                                 .frame(width: 80, height: 40)
@@ -72,7 +75,7 @@ struct SearchView: View {
                 }
                 .disabled(searchText.count > 0 ? false : true)
             }
-            .padding(.horizontal, 15)
+            .padding(.horizontal, horizontalDefaultPadding)
             .padding(.top, 15)
             
             RecentSearchList()
