@@ -13,45 +13,68 @@ struct TopicItem: View {
     
     var body: some View {
         VStack {
-            ZStack(alignment: .bottomTrailing) {
-                Image(topic.imageName)
-                    .resizable()
-                    .frame(width: 260, height: 260)
-                    .cornerRadius(26)
-                    .shadow(radius: 4)
-                    .padding(.top)
-                
-                Button(action: {
-                    // TODO: 장문형으로 보내기
-                }) {
-                    Image(systemName: "paperplane.circle.fill")
-                        .resizable()
-                        .frame(width: 35, height: 35)
-                }
-                .padding(10)
-            }
-            
             Text(topic.title)
                 .font(.title3)
-                .padding(.horizontal, 15)
-                .padding(.top, 10)
+                .padding(.top, 5)
             
-            VStack(alignment: .leading, spacing: 15) {
-                HStack(alignment: .center, spacing: 20) {
-                    ChoiceButton(choiceText: topic.choices[0])
-                    ChoiceButton(choiceText: topic.choices[1])
+            VStack {
+                ZStack(alignment: .bottom) {
+                    Image(topic.imageName)
+                        .resizable()
+                        .frame(width: 275, height: 275)
+                        .cornerRadius(26)
+                        .shadow(radius: 4)
+                    
+                    HStack(alignment: .bottom) {
+                        Text("Travel")
+                            .frame(width: 70, height: 25)
+                            .font(.caption)
+                            .foregroundColor(.orange)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.white)
+                                    .frame(width: 70, height: 25)
+                                    .shadow(radius: 1)
+                            )
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            // TODO: 장문형으로 보내기
+                        }) {
+                            Image(systemName: "paperplane.circle.fill")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                        }
+                        .padding(10)
+                    }
+                    .frame(width: 275)
                 }
-                if topic.choices.count > 2 {
-                    HStack(alignment: .center, spacing: 20) {
-                        ChoiceButton(choiceText: topic.choices[2])
-                        if topic.choices.count == 4 {
-                            ChoiceButton(choiceText: topic.choices[3])
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack(alignment: .center, spacing: 15) {
+                        ChoiceButton(choiceText: topic.choices[0])
+                        ChoiceButton(choiceText: topic.choices[1])
+                    }
+                    if topic.choices.count > 2 {
+                        HStack(alignment: .center, spacing: 5) {
+                            ChoiceButton(choiceText: topic.choices[2])
+                            if topic.choices.count == 4 {
+                                ChoiceButton(choiceText: topic.choices[3])
+                            }
                         }
                     }
                 }
+                .padding(.top, 5)
             }
-            .padding(.top, 5)
         }
+        .padding(.vertical, 10)
+        .padding(.horizontal, 20)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
+                .shadow(radius: 4)
+        )
     }
 }
 

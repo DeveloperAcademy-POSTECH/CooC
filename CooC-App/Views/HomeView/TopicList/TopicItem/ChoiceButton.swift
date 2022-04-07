@@ -15,16 +15,16 @@ struct ChoiceButton: View {
             
         }) {
             Text(choiceText)
+                .font(.subheadline)
                 .foregroundColor(.black)
                 .fontWeight(.bold)
-                .frame(width: 150, height: 40)
-                .padding(.horizontal, 5)
+                .frame(width: 130, height: 40)
                 .lineLimit(2)
                 .truncationMode(.tail)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.white)
-                        .frame(width: 150, height: 40)
+                        .frame(width: 130, height: 40)
                         .shadow(radius: 2)
                 )
         }

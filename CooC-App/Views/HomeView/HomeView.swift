@@ -19,13 +19,15 @@ struct HomeView: View {
                         VStack {
                             TopicListTitle(title: "🔥Popular Topics🔥")
                                 .padding(.horizontal, 15)
-                                .padding(.top, 145)
+                                .padding(.top, 155)
                             TopicList()
+                                .padding(.top, 6)
                                 .padding(.bottom, 35)
                             
                             TopicListTitle(title: "⏰The Most Recent Topics⏰")
                                 .padding(.horizontal, 15)
                             TopicList()
+                                .padding(.top, 6)
                                 .padding(.bottom, 35)
                         }
                         .overlay(
