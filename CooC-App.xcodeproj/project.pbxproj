@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0148E227FDB903000699D5 /* EditProfileUserCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0148E127FDB903000699D5 /* EditProfileUserCategory.swift */; };
 		5D8F1AAA27FD6A8D003B149E /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F1AA927FD6A8D003B149E /* EditProfile.swift */; };
 		5D8F1AAC27FD7B43003B149E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F1AAB27FD7B43003B149E /* Colors.xcassets */; };
 		5D8F1AAF27FD7CD6003B149E /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F1AAE27FD7CD6003B149E /* ColorManager.swift */; };
+		5DA2566227FECE84009E41BA /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2566127FECE84009E41BA /* PhotoPicker.swift */; };
 		B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */; };
 		B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689927FC3A9F0002BA0F /* ContentView.swift */; };
 		B7C3689C27FC3AA10002BA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7C3689B27FC3AA10002BA0F /* Assets.xcassets */; };
@@ -40,9 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0148E127FDB903000699D5 /* EditProfileUserCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileUserCategory.swift; sourceTree = "<group>"; };
 		5D8F1AA927FD6A8D003B149E /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		5D8F1AAB27FD7B43003B149E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5D8F1AAE27FD7CD6003B149E /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		5DA2566127FECE84009E41BA /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		B7C3689427FC3A9F0002BA0F /* CooC-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CooC-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooC_AppApp.swift; sourceTree = "<group>"; };
 		B7C3689927FC3A9F0002BA0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DA2565E27FEA433009E41BA /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5D8F1AA927FD6A8D003B149E /* EditProfile.swift */,
+				5DA2566127FECE84009E41BA /* PhotoPicker.swift */,
+				5D0148E127FDB903000699D5 /* EditProfileUserCategory.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 		B7C3688B27FC3A9F0002BA0F = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +124,7 @@
 				B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */,
 				5D8F1AAE27FD7CD6003B149E /* ColorManager.swift */,
 				B7C3689B27FC3AA10002BA0F /* Assets.xcassets */,
+				5D8F1AAB27FD7B43003B149E /* Colors.xcassets */,
 				B7C3689D27FC3AA10002BA0F /* Preview Content */,
 			);
 			path = "CooC-App";
@@ -143,12 +158,11 @@
 		B7C368C127FC3AE80002BA0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5DA2565E27FEA433009E41BA /* EditProfile */,
 				B7C3689927FC3A9F0002BA0F /* ContentView.swift */,
 				B7C368C227FC3AF40002BA0F /* HomeView.swift */,
 				B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */,
 				B7C368C627FC3B060002BA0F /* MyPageView.swift */,
-				5D8F1AA927FD6A8D003B149E /* EditProfile.swift */,
-				5D8F1AAB27FD7B43003B149E /* Colors.xcassets */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,10 +300,12 @@
 			files = (
 				5D8F1AAF27FD7CD6003B149E /* ColorManager.swift in Sources */,
 				B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */,
+				5DA2566227FECE84009E41BA /* PhotoPicker.swift in Sources */,
 				B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */,
 				B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,
 				B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */,
+				5D0148E227FDB903000699D5 /* EditProfileUserCategory.swift in Sources */,
 				5D8F1AAA27FD6A8D003B149E /* EditProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +472,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,6 +501,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
