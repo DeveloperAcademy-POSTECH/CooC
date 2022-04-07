@@ -1,5 +1,5 @@
 //
-//  EditProfile.swift
+//  EditProfileView.swift
 //  CooC-App
 //
 //  Created by Youngseo Yoon on 2022/04/06.
@@ -8,44 +8,17 @@
 import SwiftUI
 
 
-struct EditProfile: View {
+struct EditProfileView: View {
     @State private var userName: String = ""
     @State private var userEmail: String = ""
     @State private var userAboutMe: String = ""
+
     
-    @State private var isShowingPhotoPicker = false
-    @State private var avatarImage = UIImage(named: "profileImageDefault")!
     
     var body: some View {
-        VStack {
-            ZStack(alignment: .bottomTrailing) {
-                
-//                RoundedRectangle(cornerRadius: 25)
-//                    .frame(width: 170, height: 170, alignment: .center)
-                Image(uiImage: avatarImage)
-                    .resizable()
-                    .frame(width: 160, height: 160, alignment: .center)
-                    .clipShape(RoundedRectangle(cornerRadius: 25))
-                
-                //이미지 정렬 필요
-                
-                Circle()
-                    .frame(width: 42, height: 42)
-                    .foregroundColor(ColorManager.mainOrange)
-                Button(action: { isShowingPhotoPicker = true }) {
-                    Image(systemName: "photo.circle")
-                        .resizable()
-                }
-                .frame(width: 42, height: 42)
-                .accentColor(.white)
-                .sheet(isPresented: $isShowingPhotoPicker, content: {
-                    PhotoPicker(avatarImage: $avatarImage)
-                })
-            }
-            
-            
-            VStack {
-                
+        VStack(spacing: 30) {
+            UserImage()
+            VStack(spacing: 15) {
                 Text("Username")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15, weight: .regular))
@@ -54,7 +27,6 @@ struct EditProfile: View {
                 .disableAutocorrection(true)
                 .font(.subheadline)
                 Divider()
-                
                 
                 
                 Text("E-mail")
@@ -76,18 +48,20 @@ struct EditProfile: View {
                 .font(.subheadline)
                 Divider()
                 
-                EditProfileUserCategory()
+                UserCategory()
+                
                 
             }
             .padding()
+            .background(Color.white)
 
-            
+            Spacer()
         }
     }
 }
 
 struct EditProfile_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfile()
+        EditProfileView()
     }
 }

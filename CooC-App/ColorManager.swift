@@ -10,4 +10,5 @@ import SwiftUI
 
 struct ColorManager {
     static let mainOrange = Color("mainOrange")
+    static let grayBackground = Color("grayBackground")
 }

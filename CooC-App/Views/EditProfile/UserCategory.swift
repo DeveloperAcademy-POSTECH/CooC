@@ -1,5 +1,5 @@
 //
-//  EditProfileUserCategory.swift
+//  UserCategory.swift
 //  CooC-App
 //
 //  Created by Youngseo Yoon on 2022/04/06.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditProfileUserCategory: View {
+struct UserCategory: View {
     @State private var userInterest: String = ""
     
     
@@ -30,6 +30,6 @@ struct EditProfileUserCategory: View {
 
 struct EditProfileUserInfo_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileUserCategory()
+        UserCategory()
     }
 }
