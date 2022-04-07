@@ -29,6 +29,8 @@
 		B7C368EF27FEA9750002BA0F /* RecentSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368EE27FEA9750002BA0F /* RecentSearchList.swift */; };
 		B7C368F127FEAA170002BA0F /* RecentSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368F027FEAA170002BA0F /* RecentSearchItem.swift */; };
 		B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368F327FED4F10002BA0F /* SearchResultView.swift */; };
+		B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */; };
+		B7C368FC27FEF59A0002BA0F /* SearchTopicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		B7C368EE27FEA9750002BA0F /* RecentSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchList.swift; sourceTree = "<group>"; };
 		B7C368F027FEAA170002BA0F /* RecentSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchItem.swift; sourceTree = "<group>"; };
 		B7C368F327FED4F10002BA0F /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicList.swift; sourceTree = "<group>"; };
+		B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				B7C368F327FED4F10002BA0F /* SearchResultView.swift */,
+				B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */,
+				B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */,
 			);
 			path = SearchResultView;
 			sourceTree = "<group>";
@@ -367,8 +373,10 @@
 				B7C368D527FD79F40002BA0F /* TopicList.swift in Sources */,
 				B7C368F127FEAA170002BA0F /* RecentSearchItem.swift in Sources */,
 				B7C368E827FDD5DA0002BA0F /* SearchBar.swift in Sources */,
+				B7C368FC27FEF59A0002BA0F /* SearchTopicItem.swift in Sources */,
 				B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */,
 				B7C368D927FD7C780002BA0F /* TopicStructure.swift in Sources */,
+				B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */,
 				B7C368EB27FDDDED0002BA0F /* SearchView.swift in Sources */,
 				B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,

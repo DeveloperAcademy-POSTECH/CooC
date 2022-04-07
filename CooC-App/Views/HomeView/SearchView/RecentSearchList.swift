@@ -11,7 +11,7 @@ struct RecentSearchList: View {
     let columns = [
             GridItem(.flexible(), spacing: 30),
             GridItem(.flexible(), spacing: 30),
-        ]
+    ]
     
     let recentSearchText = [
         "iPhone 13",

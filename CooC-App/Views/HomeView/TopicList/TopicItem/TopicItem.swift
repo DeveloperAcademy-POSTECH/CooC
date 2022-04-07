@@ -20,14 +20,15 @@ struct TopicItem: View {
             
             VStack {
                 ZStack(alignment: .bottom) {
-                    Image(topic.imageName)
+                    Image(topic.image)
                         .resizable()
                         .frame(width: 275, height: 275)
                         .cornerRadius(26)
                         .shadow(radius: 4)
                     
                     HStack(alignment: .bottom) {
-                        Text("Travel")
+                        Text(topic.category)
+                            .bold()
                             .frame(width: 70, height: 25)
                             .font(.caption)
                             .foregroundColor(.orange)
@@ -81,6 +82,6 @@ struct TopicItem: View {
 
 struct TopicItem_Previews: PreviewProvider {
     static var previews: some View {
-        TopicItem(topic: Topic(imageName: "icybay", title: "저녁 메뉴 추천좀 해주세요", choices: ["돈까스", "치킨", "불고기"]))
+        Text("")
     }
 }

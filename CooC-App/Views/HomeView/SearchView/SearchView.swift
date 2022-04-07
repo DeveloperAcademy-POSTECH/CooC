@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @State private var isText = false
     @State private var searchText = ""
     
     var body: some View {
@@ -53,7 +54,7 @@ struct SearchView: View {
                         .frame(width: .infinity, height: 40)
                 )
                 
-                NavigationLink(destination: SearchResultView(searchText: searchText)) {
+                NavigationLink(destination: SearchResultView(searchText: searchText), isActive: $isText) {
                     Text("Search")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -61,12 +62,15 @@ struct SearchView: View {
                         .padding(.horizontal, 8)
                         .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(.orange)
+                                .fill(searchText.count > 0 ? .orange : .gray)
                                 .shadow(radius: 1)
                                 .frame(width: 80, height: 40)
                         )
-                    
+                        .onTapGesture {
+                            self.isText = searchText.count > 0 ? true : false
+                        }
                 }
+                .disabled(searchText.count > 0 ? false : true)
             }
             .padding(.horizontal, 15)
             .padding(.top, 15)
@@ -76,7 +80,7 @@ struct SearchView: View {
             Spacer()
         }
         .navigationBarHidden(true)
-        }
+    }
 }
 
 struct SearchView_Previews: PreviewProvider {

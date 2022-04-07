@@ -14,33 +14,44 @@ struct SearchResultView: View {
     @State var lastOffset: CGFloat = 0
     var searchText = ""
     
+    init(searchText: String) {
+        self.searchText = searchText
+        UIScrollView.appearance().bounces = false
+    }
+    
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Search : \(searchText)")
+                        .font(.title3)
+                        .bold()
                     
+                    SearchTopicList()
                 }
+                .padding(.top, 60)
+                .padding(.horizontal, 15)
+                .padding(.bottom, 35)
                 .overlay(
                     GeometryReader { proxy -> Color in
                         let minY = proxy.frame(in: .named("SCROLL")).minY
                         DispatchQueue.main.async {
-                            let durationOffset: CGFloat = 50
-                            
                             if minY < offset {
-                                if offset < 0 && -minY > (lastOffset + durationOffset) {
+                                if offset < 0 && -minY > lastOffset {
                                     withAnimation(.easeOut.speed(1.5)) {
                                          hideNavigationBar = true
                                     }
                                     lastOffset = -offset
                                 }
                             }
-                            if minY > offset && -minY < (lastOffset - durationOffset){
+                            
+                            if minY > offset && -minY < lastOffset {
                                 withAnimation(.easeOut.speed(1.5)) {
                                      hideNavigationBar = false
                                 }
                                 lastOffset = -offset
                             }
-                            
+
                             self.offset = minY
                         }
                         return Color.clear
@@ -48,6 +59,8 @@ struct SearchResultView: View {
                 )
             }
             .coordinateSpace(name: "SCROLL")
+            
+            // 뒤로 가기 버튼이 있는 네비게이션 바
             HStack {
                 Button(action: {
                     self.mode.wrappedValue.dismiss()
@@ -74,6 +87,6 @@ struct SearchResultView: View {
 
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultView()
+        SearchResultView(searchText: "")
     }
 }

@@ -24,7 +24,6 @@ struct RecentSearchItem: View {
             Divider()
                 .padding(.vertical, 10)
         }
-        .frame(width: 170)
     }
 }
 
