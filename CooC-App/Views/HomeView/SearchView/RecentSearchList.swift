@@ -42,7 +42,10 @@ struct RecentSearchList: View {
             ScrollView {
                 LazyVGrid(columns: columns,  spacing: 15) {
                     ForEach(recentSearchText, id: \.self) { text in
-                        RecentSearchItem(text: text)
+                        NavigationLink(destination: SearchResultView(searchText: text)) {
+                            RecentSearchItem(text: text)
+                                .foregroundColor(.black)
+                        }
                     }
                 }
                 .padding(.top, 20)
