@@ -18,10 +18,11 @@ struct MyPageView: View {
     let chosenButton = Color(red: 1, green: 152/255, blue: 0)
     let notChosenButton = Color(red: 1, green: 214/255, blue: 146/255)
     
-    @State var name: String = "Jun"
-    @State var introduce: String = "Nice to meet you"
+    let name = profileData[5].name
+    let introduce = profileData[5].introduce
+    let category = profileData[5].category
     
-    @State private var clickCheck1 = true
+    @State private var clickCheck = true
     
     var body: some View {
         NavigationView{
@@ -70,31 +71,16 @@ struct MyPageView: View {
                                 Spacer().frame(height: 10)
 
                                 HStack(spacing: 10){
-                                    Text("점심 메뉴")
-                                        .font(.system(size: 12))
-                                        .foregroundColor(Color.black)
-                                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-//                                        .frame(width: 50, height: 25)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .stroke(Color.orange, lineWidth: 2)
-                                        )
-                                    
-//                                    Rectangle()
-//                                        .fill(Color.white)
-//                                        .frame(width: 50, height: 25)
-//                                        .cornerRadius(15)
-//                                        .overlay
-                                    
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.white)
-                                        .border(Color.orange)
-                                        .frame(width: 50, height: 25)
-                                    
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.white)
-                                        .border(Color.orange)
-                                        .frame(width: 50, height: 25)
+                                    ForEach(category, id: \.self){
+                                        Text($0)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color.black)
+                                            .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 15)
+                                                    .stroke(Color.orange, lineWidth: 2)
+                                                )
+                                    }
                                 }
                                 
                                 Spacer().frame(height: 10)
@@ -108,56 +94,52 @@ struct MyPageView: View {
                 
                 HStack {
                     Button(action: {
-                        self.clickCheck1.toggle()
+                        self.clickCheck.toggle()
                     }){
                         Text("\(name) 님의 고민")
                             .font(.footnote)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(width: 180, height: 30)
-                            .background(self.clickCheck1 ? chosenButton : notChosenButton)
+                            .background(self.clickCheck ? chosenButton : notChosenButton)
                             .cornerRadius(12)
                     }
                     
                     
                     Button(action: {
-                        self.clickCheck1.toggle()
+                        self.clickCheck.toggle()
                     }){
                         Text("\(name) 님이 응답한 고민")
                             .font(.footnote)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(width: 180, height: 30)
-                            .background(self.clickCheck1 ?  notChosenButton : chosenButton)
+                            .background(self.clickCheck ?  notChosenButton : chosenButton)
                             .cornerRadius(12)
                             
                     }
                     
                 }
                 
-                if self.clickCheck1 {
+                if self.clickCheck {
                     List(0..<7) { row in
                         NavigationLink(destination: Text("Detail Question \(row+1)")){
                             Text("Question \(row+1)")
                         }
                     }
                 }
-                if self.clickCheck1 == false {
+                if self.clickCheck == false {
                     List(0..<9) { row in
                         NavigationLink(destination: Text("Detail Question \(row+1)")){
                             Text("Question \(row+1) that \(name) Answered")
                         }
                     }
                 }
-                
-                
             }
             .navigationBarTitle("My Page", displayMode : .inline)
         }
     }
 }
-
-
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
