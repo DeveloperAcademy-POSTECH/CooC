@@ -10,6 +10,7 @@ import SwiftUI
 struct TopicList: View {
     var body: some View {
         TopicItem(topic: topicData[6])
+            .padding(.horizontal, 15)
     }
 }
 

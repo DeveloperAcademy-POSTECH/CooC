@@ -8,31 +8,48 @@
 import SwiftUI
 
 struct ChoiceButton: View {
-    var choiceText: String
+    var text: String
+    var percentage: Int
+    @Binding var isTapped: Bool
     
     var body: some View {
-        Button(action: {
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: buttonRadius)
+                .fill(.orange)
+                .frame(width: isTapped ? (1.3 * CGFloat(percentage)) : 0, height: 40)
             
-        }) {
-            Text(choiceText)
-                .font(.subheadline)
-                .foregroundColor(.black)
-                .fontWeight(.bold)
+            HStack(spacing: 0) {
+                Text(text)
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .lineLimit(2)
+                    .truncationMode(.tail)
+                
+                Text(isTapped ? "\(percentage) %" : "")
+                    .font(.caption)
+                    .foregroundColor(.black)
+                    .padding(.leading, 3)
+            }
+            .frame(width: 130, height: 40)
+        }
+        .background(
+            RoundedRectangle(cornerRadius: buttonRadius)
+                .fill(.white)
                 .frame(width: 130, height: 40)
-                .lineLimit(2)
-                .truncationMode(.tail)
-                .background(
-                    RoundedRectangle(cornerRadius: buttonRadius)
-                        .fill(.white)
-                        .frame(width: 130, height: 40)
-                        .shadow(radius: 2)
-                )
+                .shadow(radius: 2)
+        )
+        .onTapGesture {
+            withAnimation {
+                isTapped = true
+            }
         }
     }
 }
 
 struct ChoiceButton_Previews: PreviewProvider {
     static var previews: some View {
-        ChoiceButton(choiceText: "")
+//        ChoiceButton(text: "", percentage: 50)
+        Text("")
     }
 }
