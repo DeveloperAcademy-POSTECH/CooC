@@ -59,16 +59,14 @@ struct SearchView: View {
                 // Search 버튼
                 NavigationLink(destination: SearchResultView(searchText: searchText), isActive: $isText) {
                     Text("Search")
+                        .font(.subheadline)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .frame(width: 70, height: 40)
-                        .padding(.horizontal, 8)
-                        .background(
-                            RoundedRectangle(cornerRadius: buttonRadius)
-                                .fill(searchText.count > 0 ? .orange : .gray)
-                                .shadow(radius: 1)
-                                .frame(width: 80, height: 40)
-                        )
+                        .padding(.horizontal, 6)
+                        .background(searchText.count > 0 ? .orange : .gray)
+                        .cornerRadius(buttonRadius)
+                        .shadow(radius: 1)
                         .onTapGesture {
                             self.isText = searchText.count > 0 ? true : false
                         }

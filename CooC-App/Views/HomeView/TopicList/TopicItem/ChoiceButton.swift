@@ -11,12 +11,13 @@ struct ChoiceButton: View {
     var text: String
     var percentage: Int
     @Binding var isTapped: Bool
+    @Binding var isOn: Bool
     
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: buttonRadius)
                 .fill(.orange)
-                .frame(width: isTapped ? (1.3 * CGFloat(percentage)) : 0, height: 40)
+                .frame(width: isTapped ? (1.2 * CGFloat(percentage)) : 0, height: isOn ? 30 : 25)
             
             HStack(spacing: 0) {
                 Text(text)
@@ -31,16 +32,13 @@ struct ChoiceButton: View {
                     .foregroundColor(.black)
                     .padding(.leading, 3)
             }
-            .frame(width: 130, height: 40)
+            .frame(width: isOn ? 120 : 95, height: isOn ? 30 : 25)
         }
-        .background(
-            RoundedRectangle(cornerRadius: buttonRadius)
-                .fill(.white)
-                .frame(width: 130, height: 40)
-                .shadow(radius: 2)
-        )
+        .background(.white)
+        .cornerRadius(buttonRadius)
+        .shadow(radius: 2)
         .onTapGesture {
-            withAnimation {
+            withAnimation() {
                 isTapped = true
             }
         }
@@ -49,7 +47,7 @@ struct ChoiceButton: View {
 
 struct ChoiceButton_Previews: PreviewProvider {
     static var previews: some View {
-//        ChoiceButton(text: "", percentage: 50)
+//        TopicList()
         Text("")
     }
 }

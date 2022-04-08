@@ -12,6 +12,9 @@ struct HomeView: View {
     @State var offset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     
+    @State var popularTopicIndex: Int = 0
+    @State var recentTopicIndex: Int = 0
+    
     init() {
         // 바운스 활성 시 스크롤 에니메이션 에러가 발생합니다.
         UIScrollView.appearance().bounces = false
@@ -25,13 +28,13 @@ struct HomeView: View {
                         TopicListTitle(title: "🔥Popular Topics🔥")
                             .padding(.horizontal, horizontalDefaultPadding)
                             .padding(.top, 140)
-                        TopicList()
+                        TopicList(index: $popularTopicIndex, items: topicData)
                             .padding(.top, 6)
                             .padding(.bottom, 35)
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
                             .padding(.horizontal, horizontalDefaultPadding)
-                        TopicList()
+                        TopicList(index: $recentTopicIndex, items: topicData)
                             .padding(.top, 6)
                     }
                     .offset(y: hideNavigationBar ? -60 : 20)

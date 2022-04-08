@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Topic {
+struct Topic : Identifiable {
+    var id = UUID()
     var image: String
     var title: String
     var contents: String
