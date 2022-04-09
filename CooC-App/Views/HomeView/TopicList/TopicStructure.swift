@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct Topic : Identifiable {
     var id = UUID()
@@ -18,6 +19,21 @@ struct Topic : Identifiable {
     var answerNumber: Int
     var choicePercentages: [Int]
 }
+
+final class HomeViewState: ObservableObject {
+    @Published var popularTopicIndex: Int = 0
+    @Published var recentTopicIndex: Int = 0
+    
+    @Published var popularTopicIsOn: [Bool] = [Bool](repeating: false, count: topicData.count)
+    @Published var recentTopicIsOn: [Bool] = [Bool](repeating: false, count: topicData.count)
+    
+    @Published var categoryIndex: Int = 0
+    
+    
+    @Published var currentIndices: [Int] = [0, 0]
+}
+
+var categoryText = ["All", "Fashion", "Food", "Travel", "Game", "Movie", "Life"]
 
 let topicData: [Topic] = [
     Topic(image: "chincoteague", title: "너무 더워요", contents: "여름 너무 싫어요", choices: ["인정", "참아"], category: "Life", isEnd: true, answerNumber: 4, choicePercentages: [16, 84]),

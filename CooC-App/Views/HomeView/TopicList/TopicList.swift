@@ -13,28 +13,26 @@ struct TopicList: View {
     var trailingSpace: CGFloat
     @Binding var index: Int
     
-    init(spacing: CGFloat = 20, trailingSpace: CGFloat = 100, index: Binding<Int>, items: [Topic]) {
+    init(spacing: CGFloat = 20, trailingSpace: CGFloat = 100, index: Binding<Int>, items: [Topic], itemKind: Int, isOn: Binding<[Bool]>) {
         self.list = items
         self.spacing = spacing
         self.trailingSpace = trailingSpace
         self._index = index
-        self.isOn = TopicList.initIsOn(count: items.count)
+        self.itemKind = itemKind
+        self._isOn = isOn
     }
     
     @GestureState var offset: CGFloat = 0
-    @State var currentIndex: Int = 0
+    @EnvironmentObject var homeViewState: HomeViewState
     
-    @State var isOn: [Bool]
+    var itemKind: Int
     
-    private static func initIsOn(count: Int) -> [Bool] {
-        return [Bool](repeating: false, count: count)
-    }
+    @Binding var isOn: [Bool]
     
     // 현재 토픽을 제외한 나머지 토픽의 크기를 줄입니다.
-    func update(index: Int) {
+    public func update(index: Int) {
         withAnimation {
             isOn[index] = true
-            
             if index > 0 {
                 isOn[index - 1] = false
             }
@@ -49,15 +47,15 @@ struct TopicList: View {
             let width = proxy.size.width - (trailingSpace - spacing)
             let adjustMentWidth = (trailingSpace / 2) - spacing
             
-            HStack(spacing: spacing) {
-                ForEach(list.indices) { currentListIndex in
+            HStack(alignment: .center, spacing: spacing) {
+                ForEach(list.indices, id: \.self) { currentListIndex in
                     TopicItem(topic: list[currentListIndex], isOn: $isOn[currentListIndex])
-                        .padding(.leading, currentIndex == 0 ? (UIScreen.main.bounds.width - 280) / 2 : 0) // 첫 번째 토픽에만 왼쪽에 패딩값을 주어 가운데에 배치시킵니다.
+                        .padding(.leading, homeViewState.currentIndices[itemKind] == 0 ? (UIScreen.main.bounds.width - 280) / 2 : 0) // 첫 번째 토픽에만 왼쪽에 패딩값을 주어 가운데에 배치시킵니다.
                         .frame(width: (proxy.size.width - trailingSpace))
                 }
             }
             .padding(.horizontal, spacing)
-            .offset(x: (CGFloat(currentIndex) * -width) + (currentIndex != 0 ? adjustMentWidth : 0 ) + offset)
+            .offset(x: (CGFloat(homeViewState.currentIndices[itemKind]) * -width) + (homeViewState.currentIndices[itemKind] != 0 ? adjustMentWidth : 0) + offset)
             .gesture(
                 DragGesture()
                     .updating($offset, body: { value, out, _ in
@@ -69,9 +67,9 @@ struct TopicList: View {
                         let progress = -offsetX / width
                         let roundIndex = progress.rounded()
                         
-                        currentIndex = max(min(currentIndex + Int(roundIndex), list.count - 1 ), 0)
-                        currentIndex = index
-                        update(index: currentIndex)
+                        homeViewState.currentIndices[itemKind] = max(min(homeViewState.currentIndices[itemKind] + Int(roundIndex), list.count - 1), 0)
+                        homeViewState.currentIndices[itemKind] = index
+                        update(index: homeViewState.currentIndices[itemKind])
                     })
                     .onChanged({ value in
                         let offsetX = value.translation.width
@@ -79,16 +77,13 @@ struct TopicList: View {
                         let progress = -offsetX / width
                         let roundIndex = progress.rounded()
                         
-                        index = max(min(currentIndex + Int(roundIndex), list.count - 1 ), 0)
+                        index = max(min(homeViewState.currentIndices[itemKind] + Int(roundIndex), list.count - 1), 0)
                         update(index: index)
                     })
             )
         }
         .frame(height: 370)
         .animation(.easeInOut, value: offset == 0)
-        .onAppear {
-            self.isOn[0] = true
-        }
     }
 }
 

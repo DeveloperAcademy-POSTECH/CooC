@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CooC_AppApp: App {
+    @StateObject private var topicModel = HomeViewState()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(topicModel)
         }
     }
 }

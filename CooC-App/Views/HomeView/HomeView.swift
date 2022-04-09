@@ -12,8 +12,17 @@ struct HomeView: View {
     @State var offset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     
-    @State var popularTopicIndex: Int = 0
-    @State var recentTopicIndex: Int = 0
+    @EnvironmentObject var homeViewState: HomeViewState
+    
+    var topicList: [Topic] {
+        topicData.filter { topic in
+            if homeViewState.categoryIndex == 0 {
+                return true
+            } else {
+                return topic.category == categoryText[homeViewState.categoryIndex]
+            }
+        }
+    }
     
     init() {
         // 바운스 활성 시 스크롤 에니메이션 에러가 발생합니다.
@@ -28,13 +37,13 @@ struct HomeView: View {
                         TopicListTitle(title: "🔥Popular Topics🔥")
                             .padding(.horizontal, horizontalDefaultPadding)
                             .padding(.top, 140)
-                        TopicList(index: $popularTopicIndex, items: topicData)
+                        TopicList(index: $homeViewState.popularTopicIndex, items: topicList, itemKind: 0, isOn: $homeViewState.popularTopicIsOn)
                             .padding(.top, 6)
-                            .padding(.bottom, 35)
+                            .padding(.bottom, 25)
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
                             .padding(.horizontal, horizontalDefaultPadding)
-                        TopicList(index: $recentTopicIndex, items: topicData)
+                        TopicList(index: $homeViewState.recentTopicIndex, items: topicList, itemKind: 1, isOn: $homeViewState.recentTopicIsOn)
                             .padding(.top, 6)
                     }
                     .offset(y: hideNavigationBar ? -60 : 20)
@@ -79,6 +88,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+//        HomeView()
+        Text("")
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomNavigationBar: View {
+    
     var body: some View {
         VStack {
             ZStack(alignment: .trailing) {
@@ -52,6 +53,7 @@ struct CustomNavigationBar: View {
 
 struct CustomNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomNavigationBar()
+//        CustomNavigationBar()
+        Text("")
     }
 }
