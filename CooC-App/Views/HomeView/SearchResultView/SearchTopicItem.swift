@@ -36,10 +36,12 @@ struct SearchTopicItem: View {
                     .lineLimit(2)
                     .padding(.top, 5)
                     .padding(.bottom, 1)
+                    .multilineTextAlignment(.leading)
                 
                 Text(topic.contents)
                     .font(.subheadline)
                     .lineLimit(2)
+                    .multilineTextAlignment(.leading)
                 
                 Spacer()
                 
@@ -58,7 +60,7 @@ struct SearchTopicItem: View {
                     
                     Image(systemName: "person.2.fill")
                     Text("\(topic.answerNumber)")
-                        .frame(width: 18)
+                        .frame(width: 20)
                 }
             }
             .foregroundColor(.black)

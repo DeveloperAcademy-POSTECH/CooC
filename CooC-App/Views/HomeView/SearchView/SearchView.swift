@@ -27,14 +27,8 @@ struct SearchView: View {
                 .padding(.trailing, 5)
                 
                 // SearchBar
-                HStack(alignment: .top) {
-                    ZStack(alignment: .topLeading) {
-                        TextField("Search topics", text: $searchText)
-                        if searchText.count == 0 {
-                            Text("Search topics")
-                                .foregroundColor(.gray)
-                        }
-                    }
+                HStack {
+                    TextField("Search topics", text: $searchText)
                     
                     if searchText.count > 0 {
                         Button(action: {

@@ -43,5 +43,5 @@ let topicData: [Topic] = [
     Topic(image: "twinlake", title: "여행지 추천 받아요", contents: "어디든 놀러가고 싶어요", choices: ["해운대", "설악산"], category: "Travel", isEnd: true, answerNumber: 9, choicePercentages: [50, 50]),
     Topic(image: "icybay", title: "저녁 메뉴 추천좀 해주세요", contents: "배가 너무 고픔", choices: ["돈까스", "치킨", "불고기"], category: "Food", isEnd: true, answerNumber: 9, choicePercentages: [29, 10, 61]),
     Topic(image: "umbagog", title: "요즘 게임 뭐가 핫함?", contents: "아 할거없다", choices: ["롤", "피파", "앨든링"], category: "Game", isEnd: false, answerNumber: 7, choicePercentages: [20, 70, 10]),
-    Topic(image: "hiddenlake", title: "소개팅 나가는데, 의상 함 봐주세요", contents: "두근두근", choices: ["굳", "우엑"], category: "Life", isEnd: true, answerNumber: 25, choicePercentages: [11, 89]),
+    Topic(image: "hiddenlake", title: "소개팅 나가는데, 의상 함 봐주세요", contents: "이번에 잘 보이고 싶네요ㅎㅎ 아 너무 두근되는데 어떡하지 하 너무 떨려 후후ㅜ훟후", choices: ["굳", "우엑"], category: "Life", isEnd: true, answerNumber: 25, choicePercentages: [11, 89]),
 ]
