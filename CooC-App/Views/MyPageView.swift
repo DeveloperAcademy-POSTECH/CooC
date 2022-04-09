@@ -18,9 +18,11 @@ struct MyPageView: View {
     let chosenButton = Color(red: 1, green: 152/255, blue: 0)
     let notChosenButton = Color(red: 1, green: 214/255, blue: 146/255)
     
-    let name = profileData[5].name
-    let introduce = profileData[5].introduce
-    let category = profileData[5].category
+    let name = profileData[2].name
+    let introduce = profileData[2].introduce
+    let category = profileData[2].category
+    
+    let questionList = storyListData
     
     @State private var clickCheck = true
     
@@ -88,9 +90,7 @@ struct MyPageView: View {
                             
                         }
                     }
-                    
                 }
-                
                 
                 HStack {
                     Button(action: {
@@ -120,19 +120,22 @@ struct MyPageView: View {
                     }
                     
                 }
-                
+        
                 if self.clickCheck {
-                    List(0..<7) { row in
-                        NavigationLink(destination: Text("Detail Question \(row+1)")){
-                            Text("Question \(row+1)")
-                        }
+                    List{
+                        ForEach(0..<questionList[0].count, id: \.self){ row in
+                                NavigationLink(destination: Text(questionList[0][row].detail)){
+                                    Text(questionList[0][row].title)
+                                }
+                            }
                     }
-                }
-                if self.clickCheck == false {
-                    List(0..<9) { row in
-                        NavigationLink(destination: Text("Detail Question \(row+1)")){
-                            Text("Question \(row+1) that \(name) Answered")
-                        }
+                } else {
+                    List{
+                        ForEach(0..<questionList[1].count){ row in
+                                NavigationLink(destination: Text(questionList[1][row].detail)){
+                                    Text(questionList[1][row].title)
+                                }
+                            }
                     }
                 }
             }
