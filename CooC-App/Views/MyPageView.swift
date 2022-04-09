@@ -126,6 +126,9 @@ struct MyPageView: View {
                         ForEach(0..<questionList[0].count, id: \.self){ row in
                                 NavigationLink(destination: Text(questionList[0][row].detail)){
                                     Text(questionList[0][row].title)
+                                        .frame(width: 200, alignment: .leading)
+                                    Text(String(questionList[0][row].date))
+                                        .foregroundColor(Color.gray)
                                 }
                             }
                     }
@@ -134,6 +137,9 @@ struct MyPageView: View {
                         ForEach(0..<questionList[1].count){ row in
                                 NavigationLink(destination: Text(questionList[1][row].detail)){
                                     Text(questionList[1][row].title)
+                                        .frame(width: 200, alignment: .leading)
+                                    Text(String(questionList[1][row].date))
+                                        .foregroundColor(Color.gray)
                                 }
                             }
                     }
