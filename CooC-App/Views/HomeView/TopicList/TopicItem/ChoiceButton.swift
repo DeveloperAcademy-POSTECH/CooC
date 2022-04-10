@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ChoiceButton: View {
+    var topicId: UUID
     var text: String
     var percentage: Int
     @Binding var isTapped: Bool
     @Binding var isOn: Bool
+    @EnvironmentObject var homeViewState: HomeViewState
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -40,6 +42,7 @@ struct ChoiceButton: View {
         .onTapGesture {
             withAnimation() {
                 isTapped = true
+                homeViewState.submit(id: topicId)
             }
         }
     }

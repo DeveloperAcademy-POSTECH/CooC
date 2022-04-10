@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct Topic : Identifiable {
+struct Topic : Identifiable, Equatable {
     var id = UUID()
     var image: String
     var title: String
@@ -18,9 +18,8 @@ struct Topic : Identifiable {
     var isEnd: Bool
     var answerNumber: Int
     var choicePercentages: [Int]
+    var isSubmitted = false
 }
-
-
 
 var categoryText = ["All", "Fashion", "Food", "Travel", "Game", "Movie", "Life"]
 

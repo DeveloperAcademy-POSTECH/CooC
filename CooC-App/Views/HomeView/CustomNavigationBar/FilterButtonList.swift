@@ -27,9 +27,10 @@ struct FilterButtonList: View {
                             homeViewState.popularTopicIndex = 0
                             homeViewState.recentTopicIndex = 0
                             homeViewState.currentIndices = [0, 0]
-                            homeViewState.popularTopicIsOn = [Bool](repeating: false, count: topicData.count)
+                            homeViewState.updateList()
+                            homeViewState.popularTopicIsOn = [Bool](repeating: false, count: homeViewState.topicLists.count)
                             homeViewState.popularTopicIsOn[0] = true
-                            homeViewState.recentTopicIsOn = [Bool](repeating: false, count: topicData.count)
+                            homeViewState.recentTopicIsOn = [Bool](repeating: false, count: homeViewState.topicLists.count)
                             homeViewState.recentTopicIsOn[0] = true
                         }
                         .padding(.trailing, index == (categoryText.count - 1) ? horizontalDefaultPadding : 5)

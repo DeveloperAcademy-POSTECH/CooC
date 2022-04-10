@@ -14,16 +14,6 @@ struct HomeView: View {
     
     @EnvironmentObject var homeViewState: HomeViewState
     
-    var topicList: [Topic] {
-        topicData.filter { topic in
-            if homeViewState.categoryIndex == 0 {
-                return true
-            } else {
-                return topic.category == categoryText[homeViewState.categoryIndex]
-            }
-        }
-    }
-    
     init() {
         // 바운스 활성 시 스크롤 에니메이션 에러가 발생합니다.
         UIScrollView.appearance().bounces = false
@@ -37,13 +27,13 @@ struct HomeView: View {
                         TopicListTitle(title: "🔥Popular Topics🔥")
                             .padding(.horizontal, horizontalDefaultPadding)
                             .padding(.top, 140)
-                        TopicList(index: $homeViewState.popularTopicIndex, items: topicList, itemKind: 0, isOn: $homeViewState.popularTopicIsOn)
+                        TopicList(index: $homeViewState.popularTopicIndex, items: $homeViewState.topicLists, itemKind: 0, isOn: $homeViewState.popularTopicIsOn)
                             .padding(.top, 6)
                             .padding(.bottom, 25)
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
                             .padding(.horizontal, horizontalDefaultPadding)
-                        TopicList(index: $homeViewState.recentTopicIndex, items: topicList, itemKind: 1, isOn: $homeViewState.recentTopicIsOn)
+                        TopicList(index: $homeViewState.recentTopicIndex, items: $homeViewState.topicLists, itemKind: 1, isOn: $homeViewState.recentTopicIsOn)
                             .padding(.top, 6)
                     }
                     .offset(y: hideNavigationBar ? -60 : 20)

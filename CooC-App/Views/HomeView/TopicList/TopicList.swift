@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct TopicList: View {
-    var list: [Topic]
+    @Binding var list: [Topic]
     var spacing: CGFloat
     var trailingSpace: CGFloat
     @Binding var index: Int
     
-    init(spacing: CGFloat = 20, trailingSpace: CGFloat = 100, index: Binding<Int>, items: [Topic], itemKind: Int, isOn: Binding<[Bool]>) {
-        self.list = items
+    init(spacing: CGFloat = 20, trailingSpace: CGFloat = 100, index: Binding<Int>, items: Binding<[Topic]>, itemKind: Int, isOn: Binding<[Bool]>) {
+        self._list = items
         self.spacing = spacing
         self.trailingSpace = trailingSpace
         self._index = index
@@ -47,9 +47,9 @@ struct TopicList: View {
             let width = proxy.size.width - (trailingSpace - spacing)
             let adjustMentWidth = (trailingSpace / 2) - spacing
             
-            HStack(alignment: .center, spacing: spacing) {
+            HStack(spacing: spacing) {
                 ForEach(list.indices, id: \.self) { currentListIndex in
-                    TopicItem(topic: list[currentListIndex], isOn: $isOn[currentListIndex])
+                    TopicItem(topic: $list[currentListIndex], isOn: $isOn[currentListIndex])
                         .padding(.leading, homeViewState.currentIndices[itemKind] == 0 ? (UIScreen.main.bounds.width - 280) / 2 : 0) // 첫 번째 토픽에만 왼쪽에 패딩값을 주어 가운데에 배치시킵니다.
                         .frame(width: (proxy.size.width - trailingSpace))
                 }

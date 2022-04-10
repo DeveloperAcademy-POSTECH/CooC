@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TopicItem: View {
-    @State var isTapped = false
-    var topic: Topic
+    @Binding var topic: Topic
     @Binding var isOn: Bool
+    @EnvironmentObject var homeViewState: HomeViewState
     
     var body: some View {
         VStack(spacing: 5) {
@@ -28,13 +28,13 @@ struct TopicItem: View {
                 if isOn {
                     Text("Submitted")
                         .bold()
-                        .frame(width: isTapped ? 255 : 0, height: isTapped ? 255 : 0)
+                        .frame(width: topic.isSubmitted ? 255 : 0, height: topic.isSubmitted ? 255 : 0)
                         .background(.ultraThinMaterial)
                         .cornerRadius(imageRadius)
                 } else {
-                    Text(isTapped ? "Submitted" : "")
+                    Text(topic.isSubmitted ? "Submitted" : "")
                         .bold()
-                        .frame(width: isTapped ? 200 : 0, height: isTapped ? 200 : 0)
+                        .frame(width: topic.isSubmitted ? 200 : 0, height: topic.isSubmitted ? 200 : 0)
                         .background(.ultraThinMaterial)
                         .cornerRadius(imageRadius)
                 }
@@ -57,7 +57,7 @@ struct TopicItem: View {
                     }) {
                         Image(systemName: "paperplane.circle.fill")
                             .resizable()
-                            .frame(width: isTapped ? 0 : 35, height: isTapped ? 0 : 35)
+                            .frame(width: topic.isSubmitted ? 0 : 35, height: topic.isSubmitted ? 0 : 35)
                             .background(
                                 Circle()
                                     .fill(.white)
@@ -70,14 +70,14 @@ struct TopicItem: View {
             
             VStack(alignment: .leading, spacing: 10) {
                 HStack(alignment: .center, spacing: 15) {
-                    ChoiceButton(text: topic.choices[0], percentage: topic.choicePercentages[0], isTapped: $isTapped, isOn: $isOn)
-                    ChoiceButton(text: topic.choices[1], percentage: topic.choicePercentages[1], isTapped: $isTapped, isOn: $isOn)
+                    ChoiceButton(topicId: topic.id, text: topic.choices[0], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn)
+                    ChoiceButton(topicId: topic.id, text: topic.choices[1], percentage: topic.choicePercentages[1], isTapped: $topic.isSubmitted, isOn: $isOn)
                 }
                 if topic.choices.count > 2 {
                     HStack(alignment: .center, spacing: 15) {
-                        ChoiceButton(text: topic.choices[2], percentage: topic.choicePercentages[2], isTapped: $isTapped, isOn: $isOn)
+                        ChoiceButton(topicId: topic.id, text: topic.choices[2], percentage: topic.choicePercentages[2], isTapped: $topic.isSubmitted, isOn: $isOn)
                         if topic.choices.count == 4 {
-                            ChoiceButton(text: topic.choices[3], percentage: topic.choicePercentages[0], isTapped: $isTapped, isOn: $isOn)
+                            ChoiceButton(topicId: topic.id, text: topic.choices[3], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn)
                         }
                     }
                 }
