@@ -14,7 +14,6 @@ struct EditProfileView: View {
     @State private var userAboutMe: String = ""
 
     
-    
     var body: some View {
         VStack(spacing: 30) {
             UserImage()
