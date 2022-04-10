@@ -32,6 +32,8 @@
 		B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */; };
 		B7C368FC27FEF59A0002BA0F /* SearchTopicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */; };
 		B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368FD27FF3DD80002BA0F /* Constants.swift */; };
+		B7C3690428029E4C0002BA0F /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3690328029E4C0002BA0F /* SearchViewState.swift */; };
+		B7C369062802A0910002BA0F /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C369052802A0910002BA0F /* HomeViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		B7C368F727FEDAF20002BA0F /* SearchTopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicList.swift; sourceTree = "<group>"; };
 		B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicItem.swift; sourceTree = "<group>"; };
 		B7C368FD27FF3DD80002BA0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B7C3690328029E4C0002BA0F /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
+		B7C369052802A0910002BA0F /* HomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				B7C368E927FDDDDB0002BA0F /* SearchView */,
 				B7C368F227FED4C00002BA0F /* SearchResultView */,
 				B7C368FD27FF3DD80002BA0F /* Constants.swift */,
+				B7C369052802A0910002BA0F /* HomeViewState.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				B7C368EA27FDDDED0002BA0F /* SearchView.swift */,
 				B7C368EE27FEA9750002BA0F /* RecentSearchList.swift */,
 				B7C368F027FEAA170002BA0F /* RecentSearchItem.swift */,
+				B7C3690328029E4C0002BA0F /* SearchViewState.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				B7C368D027FD73580002BA0F /* ChoiceButton.swift in Sources */,
 				B7C368CD27FD72D80002BA0F /* TopicItem.swift in Sources */,
 				B7C368D227FD75460002BA0F /* TopicListTitle.swift in Sources */,
+				B7C369062802A0910002BA0F /* HomeViewState.swift in Sources */,
 				B7C368E527FDD0950002BA0F /* CustomNavigationBar.swift in Sources */,
 				B7C368D527FD79F40002BA0F /* TopicList.swift in Sources */,
 				B7C368F127FEAA170002BA0F /* RecentSearchItem.swift in Sources */,
@@ -381,6 +388,7 @@
 				B7C368D927FD7C780002BA0F /* TopicStructure.swift in Sources */,
 				B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */,
 				B7C368EB27FDDDED0002BA0F /* SearchView.swift in Sources */,
+				B7C3690428029E4C0002BA0F /* SearchViewState.swift in Sources */,
 				B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */,
 				B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,

@@ -20,18 +20,7 @@ struct Topic : Identifiable {
     var choicePercentages: [Int]
 }
 
-final class HomeViewState: ObservableObject {
-    @Published var popularTopicIndex: Int = 0
-    @Published var recentTopicIndex: Int = 0
-    
-    @Published var popularTopicIsOn: [Bool] = [Bool](repeating: false, count: topicData.count)
-    @Published var recentTopicIsOn: [Bool] = [Bool](repeating: false, count: topicData.count)
-    
-    @Published var categoryIndex: Int = 0
-    
-    
-    @Published var currentIndices: [Int] = [0, 0]
-}
+
 
 var categoryText = ["All", "Fashion", "Food", "Travel", "Game", "Movie", "Life"]
 
