@@ -13,6 +13,7 @@ struct HomeView: View {
     @State var lastOffset: CGFloat = 0
     
     @EnvironmentObject var homeViewState: HomeViewState
+    @EnvironmentObject var searchViewState: SearchViewState
     
     init() {
         // 바운스 활성 시 스크롤 에니메이션 에러가 발생합니다.
@@ -71,6 +72,9 @@ struct HomeView: View {
                     .offset(y: hideNavigationBar ? -150 : -10)
             }
             .navigationBarHidden(true)
+            .onAppear {
+                searchViewState.currentSearchText = ""
+            }
         }
         .padding(.top, 1)
     }
