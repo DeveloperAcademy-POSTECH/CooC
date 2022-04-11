@@ -17,6 +17,7 @@ struct TopicItem: View {
             Text(topic.title)
                 .font(.title3)
                 .fontWeight(.bold)
+                .lineLimit(2)
             
             ZStack(alignment: .bottom) {
                 Image(topic.image)

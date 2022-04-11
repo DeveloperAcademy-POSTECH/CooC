@@ -30,7 +30,7 @@ struct HomeView: View {
                             .padding(.top, 140)
                         TopicList(index: $homeViewState.popularTopicIndex, items: $homeViewState.topicLists, itemKind: 0, isOn: $homeViewState.popularTopicIsOn)
                             .padding(.top, 6)
-                            .padding(.bottom, 25)
+                            .padding(.bottom, 35)
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
                             .padding(.horizontal, horizontalDefaultPadding)
