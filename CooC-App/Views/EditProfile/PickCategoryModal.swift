@@ -14,16 +14,20 @@ struct PickCategoryModal: View {
     
     var body: some View {
         List {
-            ForEach(0..<categoryData.count, id: \.self) {
-//                Image(systemName: checked ? "checkmark.square.fill" : "square")
-//                    .foregroundColor(checked ? ColorManager.mainOrange : ColorManager.mainOrange)
-//                    .onTapGesture {
-//                        self.checked.toggle()
-//                    }
-                Text(categoryData[$0].title)
-                    .padding(4)
-                    .foregroundColor(ColorManager.mainOrange)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
+            ForEach(0..<categoryData.count) { row in
+                HStack{
+                    Image(systemName: checked ? "checkmark.square.fill" : "square")
+                        .foregroundColor(checked ? ColorManager.mainOrange : ColorManager.mainOrange)
+                        .onTapGesture {
+                            self.checked.toggle()
+                        }
+                    Text(categoryData[row].title)
+                        .padding(4)
+                        .foregroundColor(ColorManager.mainOrange)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
+                }
+                
+                
             }
 //            }
             

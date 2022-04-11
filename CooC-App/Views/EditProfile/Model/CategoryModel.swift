@@ -13,7 +13,7 @@ struct Category: Hashable {
     var isChecked: Bool
 }
 
-let categoryData: [Category] = [
+var categoryData: [Category] = [
     
     Category(title: "Animals", isChecked: false),
     Category(title: "Book", isChecked: false),
