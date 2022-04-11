@@ -8,22 +8,23 @@
 import Foundation
 
 
-struct Category: Hashable {
+struct Category: Identifiable {
+    var id = UUID().uuidString
     let title: String
-    var isChecked: Bool
+    var checked: Bool
 }
 
-var categoryData: [Category] = [
+var categoryData = [
     
-    Category(title: "Animals", isChecked: false),
-    Category(title: "Book", isChecked: false),
-    Category(title: "Electronics", isChecked: false),
-    Category(title: "Fashion", isChecked: false),
-    Category(title: "Food", isChecked: false),
-    Category(title: "Life", isChecked: false),
-    Category(title: "Travel", isChecked: false),
-    Category(title: "Tools", isChecked: false),
-    Category(title: "WorkOut", isChecked: false)
+    Category(title: "Animals", checked: false),
+    Category(title: "Book", checked: false),
+    Category(title: "Electronics", checked: false),
+    Category(title: "Fashion", checked: false),
+    Category(title: "Food", checked: false),
+    Category(title: "Life", checked: false),
+    Category(title: "Travel", checked: false),
+    Category(title: "Tools", checked: false),
+    Category(title: "WorkOut", checked: false)
 ]
 
 
