@@ -10,8 +10,7 @@ import SwiftUI
 struct UserProfile: View {
     let titleBackground = Color(red: 224/255, green: 224/255, blue: 224/255)
     
-    @State private var profileName : String = "Jun"
-    @State private var profileIntroduce : String = "I'm Still Hungry"
+    @EnvironmentObject var userProfileData: UserProfileData
     
     var body: some View {
         VStack{
@@ -24,7 +23,7 @@ struct UserProfile: View {
                     HStack{
                         Spacer().frame(width: 340)
                         
-                        NavigationLink(destination: EditProfileView(userName: $profileName, userAboutMe: $profileIntroduce)){
+                        NavigationLink(destination: EditProfileView()){
                             Image(systemName: "square.and.pencil")
                                 .font(.system(size: 25))
                                 .foregroundColor(.orange)
@@ -43,12 +42,12 @@ struct UserProfile: View {
                         
                         
                         VStack(alignment: .leading){
-                            Text(profileName)
+                            Text(userProfileData.profileName)
                                 .font(.title2)
                             
                             Spacer().frame(height: 5)
                             
-                            Text(profileIntroduce)
+                            Text(userProfileData.profileIntroduce)
                                 .font(.body)
                             
                             Spacer().frame(height: 15)

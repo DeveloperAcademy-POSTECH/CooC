@@ -12,6 +12,9 @@ struct UserQuestionList: View {
     let notChosenButton = Color(red: 1, green: 214/255, blue: 146/255)
     let questionList = storyListData
     
+    @EnvironmentObject var userProfileData: UserProfileData
+
+    
     @State private var profileName : String = "Jun"
     
     @State private var clickCheck = true
@@ -22,7 +25,7 @@ struct UserQuestionList: View {
             Button(action: {
                 self.clickCheck.toggle()
             }){
-                Text("\(profileName) 님의 고민")
+                Text("\(userProfileData.profileName) 님의 고민")
                     .font(.footnote)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -35,7 +38,7 @@ struct UserQuestionList: View {
             Button(action: {
                 self.clickCheck.toggle()
             }){
-                Text("\(profileName) 님이 응답한 고민")
+                Text("\(userProfileData.profileName) 님이 응답한 고민")
                     .font(.footnote)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -49,7 +52,7 @@ struct UserQuestionList: View {
 
         if self.clickCheck {
             List{
-                ForEach(0..<questionList[0].count, id: \.self){ row in
+                ForEach(0..<questionList[0].count){ row in
                         NavigationLink(destination: Text(questionList[0][row].detail)){
                             Text(questionList[0][row].title)
                                 .frame(width: 200, alignment: .leading)
