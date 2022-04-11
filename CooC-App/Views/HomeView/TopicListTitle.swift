@@ -17,7 +17,6 @@ struct TopicListTitle: View {
                 .font(.system(size: 24))
                 .lineLimit(2)
                 .truncationMode(.tail)
-            
             Spacer()
         }
     }

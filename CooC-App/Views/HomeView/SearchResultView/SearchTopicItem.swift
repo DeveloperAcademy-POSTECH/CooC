@@ -24,11 +24,9 @@ struct SearchTopicItem: View {
                     .font(.caption2)
                     .foregroundColor(.orange)
                     .padding(.horizontal, 3)
-                    .background(
-                        RoundedRectangle(cornerRadius: categoryRadius)
-                            .fill(.white)
-                            .shadow(radius: 1)
-                    )
+                    .background(.white)
+                    .cornerRadius(categoryRadius)
+                    .shadow(radius: 1)
             }
             
             VStack(alignment: .leading) {
@@ -38,10 +36,12 @@ struct SearchTopicItem: View {
                     .lineLimit(2)
                     .padding(.top, 5)
                     .padding(.bottom, 1)
+                    .multilineTextAlignment(.leading)
                 
                 Text(topic.contents)
                     .font(.subheadline)
                     .lineLimit(2)
+                    .multilineTextAlignment(.leading)
                 
                 Spacer()
                 
@@ -54,15 +54,13 @@ struct SearchTopicItem: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .foregroundColor(topic.isEnd ? .white : .black)
-                        .background(
-                            RoundedRectangle(cornerRadius: buttonRadius)
-                                .fill(topic.isEnd ? .orange : .white)
-                                .shadow(radius: 1)
-                        )
+                        .background(topic.isEnd ? .orange : .white)
+                        .cornerRadius(buttonRadius)
+                        .shadow(radius: 1)
                     
                     Image(systemName: "person.2.fill")
                     Text("\(topic.answerNumber)")
-                        .frame(width: 18)
+                        .frame(width: 20)
                 }
             }
             .foregroundColor(.black)

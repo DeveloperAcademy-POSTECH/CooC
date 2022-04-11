@@ -13,9 +13,13 @@ struct SearchResultView: View {
     @State var offset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     var searchText = ""
+    var topicList: [Topic]
     
     init(searchText: String) {
         self.searchText = searchText
+        self.topicList = topicData.filter { topic in
+            topic.title.contains(searchText) || topic.contents.contains(searchText)
+        }
         UIScrollView.appearance().bounces = false
     }
     
@@ -23,11 +27,11 @@ struct SearchResultView: View {
         ZStack(alignment: .top) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 15) {
-                    Text("Search : \(searchText)")
+                    Text("Search: \(searchText)")
                         .font(.title3)
                         .bold()
                     
-                    SearchTopicList()
+                    SearchTopicList(topicList: self.topicList)
                 }
                 .padding(.top, 60)
                 .padding(.horizontal, horizontalDefaultPadding)
@@ -87,6 +91,6 @@ struct SearchResultView: View {
 
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultView(searchText: "")
+        SearchResultView(searchText: "가")
     }
 }
