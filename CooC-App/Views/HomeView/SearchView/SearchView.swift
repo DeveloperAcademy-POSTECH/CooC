@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var isText = false
-    @State private var searchText = ""
+    @EnvironmentObject var searchViewState: SearchViewState
     
     var body: some View {
         VStack {
@@ -27,18 +27,12 @@ struct SearchView: View {
                 .padding(.trailing, 5)
                 
                 // SearchBar
-                HStack(alignment: .top) {
-                    ZStack(alignment: .topLeading) {
-                        TextField("Search topics", text: $searchText)
-                        if searchText.count == 0 {
-                            Text("Search topics")
-                                .foregroundColor(.gray)
-                        }
-                    }
+                HStack {
+                    TextField("Search topics", text: $searchViewState.currentSearchText)
                     
-                    if searchText.count > 0 {
+                    if searchViewState.currentSearchText.count > 0 {
                         Button(action: {
-                            searchText = ""
+                            searchViewState.currentSearchText = ""
                         }) {
                             Image(systemName: "xmark.circle.fill")
                                 .resizable()
@@ -57,23 +51,25 @@ struct SearchView: View {
                 )
                 
                 // Search 버튼
-                NavigationLink(destination: SearchResultView(searchText: searchText), isActive: $isText) {
+                NavigationLink(destination: SearchResultView(searchText: searchViewState.currentSearchText), isActive: $isText) {
                     Text("Search")
+                        .font(.subheadline)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .frame(width: 70, height: 40)
-                        .padding(.horizontal, 8)
-                        .background(
-                            RoundedRectangle(cornerRadius: buttonRadius)
-                                .fill(searchText.count > 0 ? .orange : .gray)
-                                .shadow(radius: 1)
-                                .frame(width: 80, height: 40)
-                        )
+                        .padding(.horizontal, 6)
+                        .background(searchViewState.currentSearchText.count > 0 ? .orange : .gray)
+                        .cornerRadius(buttonRadius)
+                        .shadow(radius: 1)
                         .onTapGesture {
-                            self.isText = searchText.count > 0 ? true : false
+                            self.isText = searchViewState.currentSearchText.count > 0 ? true : false
+                            if self.isText {
+                                searchViewState.recentSearchTexts = [searchViewState.currentSearchText] + (UserDefaults.standard.array(forKey: "recentSearch") ?? []) as! [String]
+                                UserDefaults.standard.set(searchViewState.recentSearchTexts, forKey: "recentSearch")
+                            }
                         }
                 }
-                .disabled(searchText.count > 0 ? false : true)
+                .disabled(searchViewState.currentSearchText.count > 0 ? false : true)
             }
             .padding(.horizontal, horizontalDefaultPadding)
             .padding(.top, 15)

@@ -12,6 +12,9 @@ struct HomeView: View {
     @State var offset: CGFloat = 0
     @State var lastOffset: CGFloat = 0
     
+    @EnvironmentObject var homeViewState: HomeViewState
+    @EnvironmentObject var searchViewState: SearchViewState
+    
     init() {
         // 바운스 활성 시 스크롤 에니메이션 에러가 발생합니다.
         UIScrollView.appearance().bounces = false
@@ -25,13 +28,13 @@ struct HomeView: View {
                         TopicListTitle(title: "🔥Popular Topics🔥")
                             .padding(.horizontal, horizontalDefaultPadding)
                             .padding(.top, 140)
-                        TopicList()
+                        TopicList(index: $homeViewState.popularTopicIndex, items: $homeViewState.topicLists, itemKind: 0, isOn: $homeViewState.popularTopicIsOn)
                             .padding(.top, 6)
                             .padding(.bottom, 35)
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
                             .padding(.horizontal, horizontalDefaultPadding)
-                        TopicList()
+                        TopicList(index: $homeViewState.recentTopicIndex, items: $homeViewState.topicLists, itemKind: 1, isOn: $homeViewState.recentTopicIsOn)
                             .padding(.top, 6)
                     }
                     .offset(y: hideNavigationBar ? -60 : 20)
@@ -69,6 +72,9 @@ struct HomeView: View {
                     .offset(y: hideNavigationBar ? -150 : -10)
             }
             .navigationBarHidden(true)
+            .onAppear {
+                searchViewState.currentSearchText = ""
+            }
         }
         .padding(.top, 1)
     }
@@ -76,6 +82,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+//        HomeView()
+        Text("")
     }
 }

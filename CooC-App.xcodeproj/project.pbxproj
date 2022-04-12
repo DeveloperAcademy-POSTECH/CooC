@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BCF4E9B2801900100DF46C7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF4E9A2801900100DF46C7 /* UserProfile.swift */; };
+		8BCF4E9D2801978A00DF46C7 /* UserQuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF4E9C2801978A00DF46C7 /* UserQuestionList.swift */; };
+		8BCF4F1928040C2700DF46C7 /* profileObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF4F1828040C2700DF46C7 /* profileObservable.swift */; };
+		8BDA712A280089A100F34ADA /* ProfileExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA7129280089A100F34ADA /* ProfileExample.swift */; };
 		B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */; };
 		B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689927FC3A9F0002BA0F /* ContentView.swift */; };
 		B7C3689C27FC3AA10002BA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7C3689B27FC3AA10002BA0F /* Assets.xcassets */; };
@@ -34,6 +38,8 @@
 		B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C368FD27FF3DD80002BA0F /* Constants.swift */; };
 		E092A8242803F2E900C743CF /* TopicResultDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092A8232803F2E900C743CF /* TopicResultDetailPage.swift */; };
 		E092A8262803F66D00C743CF /* detailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092A8252803F66D00C743CF /* detailData.swift */; };
+		B7C3690428029E4C0002BA0F /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3690328029E4C0002BA0F /* SearchViewState.swift */; };
+		B7C369062802A0910002BA0F /* HomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C369052802A0910002BA0F /* HomeViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8BCF4E9A2801900100DF46C7 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		8BCF4E9C2801978A00DF46C7 /* UserQuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionList.swift; sourceTree = "<group>"; };
+		8BCF4F1828040C2700DF46C7 /* profileObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileObservable.swift; sourceTree = "<group>"; };
+		8BDA7129280089A100F34ADA /* ProfileExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExample.swift; sourceTree = "<group>"; };
 		B7C3689427FC3A9F0002BA0F /* CooC-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CooC-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooC_AppApp.swift; sourceTree = "<group>"; };
 		B7C3689927FC3A9F0002BA0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +94,8 @@
 		B7C368FD27FF3DD80002BA0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E092A8232803F2E900C743CF /* TopicResultDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicResultDetailPage.swift; sourceTree = "<group>"; };
 		E092A8252803F66D00C743CF /* detailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailData.swift; sourceTree = "<group>"; };
+		B7C3690328029E4C0002BA0F /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
+		B7C369052802A0910002BA0F /* HomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +123,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BCF4E912801830200DF46C7 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				B7C368C627FC3B060002BA0F /* MyPageView.swift */,
+				8BCF4E9A2801900100DF46C7 /* UserProfile.swift */,
+				8BCF4E9C2801978A00DF46C7 /* UserQuestionList.swift */,
+				8BCF4F1828040C2700DF46C7 /* profileObservable.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		B7C3688B27FC3A9F0002BA0F = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +159,6 @@
 			children = (
 				B7C368C127FC3AE80002BA0F /* Views */,
 				B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */,
-				B7C3689B27FC3AA10002BA0F /* Assets.xcassets */,
 				B7C3689D27FC3AA10002BA0F /* Preview Content */,
 			);
 			path = "CooC-App";
@@ -176,6 +198,9 @@
 				B7C368C627FC3B060002BA0F /* MyPageView.swift */,
 				E092A8232803F2E900C743CF /* TopicResultDetailPage.swift */,
 				E092A8252803F66D00C743CF /* detailData.swift */,
+				8BCF4E912801830200DF46C7 /* MyPage */,
+				8BDA7129280089A100F34ADA /* ProfileExample.swift */,
+				B7C3689B27FC3AA10002BA0F /* Assets.xcassets */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +215,7 @@
 				B7C368E927FDDDDB0002BA0F /* SearchView */,
 				B7C368F227FED4C00002BA0F /* SearchResultView */,
 				B7C368FD27FF3DD80002BA0F /* Constants.swift */,
+				B7C369052802A0910002BA0F /* HomeViewState.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -229,6 +255,7 @@
 				B7C368EA27FDDDED0002BA0F /* SearchView.swift */,
 				B7C368EE27FEA9750002BA0F /* RecentSearchList.swift */,
 				B7C368F027FEAA170002BA0F /* RecentSearchItem.swift */,
+				B7C3690328029E4C0002BA0F /* SearchViewState.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -373,11 +400,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BCF4F1928040C2700DF46C7 /* profileObservable.swift in Sources */,
 				B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */,
 				B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */,
 				B7C368D027FD73580002BA0F /* ChoiceButton.swift in Sources */,
 				B7C368CD27FD72D80002BA0F /* TopicItem.swift in Sources */,
+				8BDA712A280089A100F34ADA /* ProfileExample.swift in Sources */,
 				B7C368D227FD75460002BA0F /* TopicListTitle.swift in Sources */,
+				B7C369062802A0910002BA0F /* HomeViewState.swift in Sources */,
 				B7C368E527FDD0950002BA0F /* CustomNavigationBar.swift in Sources */,
 				B7C368D527FD79F40002BA0F /* TopicList.swift in Sources */,
 				B7C368F127FEAA170002BA0F /* RecentSearchItem.swift in Sources */,
@@ -385,9 +415,12 @@
 				B7C368E827FDD5DA0002BA0F /* SearchBar.swift in Sources */,
 				B7C368FC27FEF59A0002BA0F /* SearchTopicItem.swift in Sources */,
 				B7C368C727FC3B060002BA0F /* MyPageView.swift in Sources */,
+				8BCF4E9B2801900100DF46C7 /* UserProfile.swift in Sources */,
 				B7C368D927FD7C780002BA0F /* TopicStructure.swift in Sources */,
 				B7C368F827FEDAF20002BA0F /* SearchTopicList.swift in Sources */,
 				B7C368EB27FDDDED0002BA0F /* SearchView.swift in Sources */,
+				8BCF4E9D2801978A00DF46C7 /* UserQuestionList.swift in Sources */,
+				B7C3690428029E4C0002BA0F /* SearchViewState.swift in Sources */,
 				B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */,
 				B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,
