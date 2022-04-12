@@ -26,7 +26,7 @@ struct UserCategory: View {
             }) {
                 Text("카테고리 고르기 모달 팝업")
             }.sheet(isPresented: self.$showCategoryModal) {
-                PickCategoryModal()
+                PickCategoryModal(showCategoryModal: $showCategoryModal)
             }
 
             
