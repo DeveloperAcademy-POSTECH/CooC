@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
 
-    @Binding var avatarImage: UIImage
+    @EnvironmentObject var userProfileData: UserProfileData
+//    @Binding var avatarImage: UIImage
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
@@ -35,7 +36,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.editedImage] as? UIImage {
-                photoPicker.avatarImage = image
+                photoPicker.userProfileData.profilePicture = image
             } else {
                 //사진이 아닌 비디오 등을 골랐을 때 error alert를 표시할건가?
             }

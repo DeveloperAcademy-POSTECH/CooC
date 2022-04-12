@@ -10,7 +10,8 @@ import SwiftUI
 
 struct PickCategoryModal: View {
     @Binding var showCategoryModal: Bool
-    @State private var isChecked: [Bool] = [false, false, false, false, false, false, false, false, false]
+//    @State private var isChecked: [Bool] = [false, false, false, false, false, false, false, false, false]
+    @EnvironmentObject var userProfileData: UserProfileData
     
     var body: some View {
         CategoryNavigationBar()
@@ -19,10 +20,10 @@ struct PickCategoryModal: View {
                 HStack {
                     ZStack {
                         Circle()
-                            .stroke(isChecked[index] ? ColorManager.mainOrange : Color.gray, lineWidth: 1)
+                            .stroke(userProfileData.isChecked[index] ? ColorManager.mainOrange : Color.gray, lineWidth: 1)
                             .frame(width: 20, height: 20)
                         
-                        if isChecked[index] {
+                        if userProfileData.isChecked[index] {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.system(size: 20))
                                 .foregroundColor(ColorManager.mainOrange)
@@ -35,8 +36,8 @@ struct PickCategoryModal: View {
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
                 }
                 .onTapGesture(perform: {
-                    isChecked[index].toggle()
-                    print("체크된 값 \(categoryData[index].title), \(isChecked[index])")
+                    userProfileData.isChecked[index].toggle()
+//                    print("체크된 값 \(categoryData[index].title), \(isChecked[index])")
                 })
             }
         }

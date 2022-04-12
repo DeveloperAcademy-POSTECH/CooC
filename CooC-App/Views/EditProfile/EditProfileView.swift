@@ -9,10 +9,11 @@ import SwiftUI
 
 
 struct EditProfileView: View {
-    @State private var userName: String = ""
-    @State private var userEmail: String = ""
-    @State private var userAboutMe: String = ""
-    
+//    @State private var userName: String = ""
+//    @State private var userEmail: String = ""
+//    @State private var userAboutMe: String = ""
+    @EnvironmentObject var userProfileData: UserProfileData
+
     
     var body: some View {
         EditProfileNavigationBar()
@@ -23,30 +24,41 @@ struct EditProfileView: View {
                 Text("Username")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15, weight: .regular))
+                    .foregroundColor(ColorManager.subCobaltBlue)
                 TextField(
-                    "45세 아조씨", text: $userName)
+                    "45세 아조씨", text: $userProfileData.profileName)
                 .disableAutocorrection(true)
-                .font(.subheadline)
+                .font(.subheadline.bold())
+                .foregroundColor(ColorManager.subCobaltBlue)
+
                 Divider()
                 
                 
                 Text("E-mail")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15, weight: .regular))
+                    .foregroundColor(ColorManager.subCobaltBlue)
+
                 TextField(
-                    "oldman45@gmail.com", text: $userEmail)
+                    "oldman45@gmail.com", text: $userProfileData.profileEmail)
                 .disableAutocorrection(true)
-                .font(.subheadline)
+                .font(.subheadline.bold())
+                .foregroundColor(ColorManager.subCobaltBlue)
+
                 Divider()
                 
                 
                 Text("About me")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15, weight: .regular))
+                    .foregroundColor(ColorManager.subCobaltBlue)
+
                 TextField(
-                    "안녕 45살 소년이에요.", text: $userAboutMe)
+                    "안녕 45살 소년이에요.", text: $userProfileData.profileIntroduce)
                 .disableAutocorrection(true)
-                .font(.subheadline)
+                .font(.subheadline.bold())
+                .foregroundColor(ColorManager.subCobaltBlue)
+
                 Divider()
                 
                 UserCategory()
