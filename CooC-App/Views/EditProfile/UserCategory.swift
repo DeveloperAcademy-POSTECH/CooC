@@ -29,7 +29,8 @@ struct UserCategory: View {
             
             Divider()
             
-        }.accentColor(ColorManager.mainOrange)
+        }
+        .accentColor(ColorManager.mainOrange)
     }
 }
 

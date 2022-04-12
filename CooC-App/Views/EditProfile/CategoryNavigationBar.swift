@@ -37,7 +37,8 @@ struct CategoryNavigationBar: View {
                     .foregroundColor(Color.orange)
                     .padding()
             }
-        }.accentColor(ColorManager.mainOrange)
+        }
+        .accentColor(ColorManager.mainOrange)
     }
 }
 
