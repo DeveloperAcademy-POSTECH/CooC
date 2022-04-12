@@ -35,14 +35,19 @@ struct UserProfile: View {
                     HStack(spacing: 30){
                         Spacer().frame(width: 10)
                         
-                        Image(uiImage: userProfileData.profilePicture)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(20)
-                            .frame(width: 130, height: 130)
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
-                            .padding(EdgeInsets(top: 10, leading: -80, bottom: 20, trailing: 0))
-                        
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 25)
+                                .frame(width: 140, height: 140)
+                                .foregroundColor(.white)
+                            Image(uiImage: userProfileData.profilePicture)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .cornerRadius(25)
+                                .frame(width: 130, height: 130)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                        }
+                        .frame(width: 140, alignment: .leading)
+                        .padding(EdgeInsets(top: 10, leading: -20, bottom: 20, trailing: 0))
                         
                         VStack(alignment: .leading){
                             Text(userProfileData.profileName)
@@ -72,6 +77,7 @@ struct UserProfile: View {
                             }
                             Spacer().frame(height: 10)
                         }
+                        .frame(width: 200, alignment: .leading)
                     }
                 }
             }
