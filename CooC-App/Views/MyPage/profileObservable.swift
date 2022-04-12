@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class UserProfileData: ObservableObject{
     @Published var profileName: String = "Jun"

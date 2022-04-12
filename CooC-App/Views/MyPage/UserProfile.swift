@@ -10,6 +10,8 @@ import SwiftUI
 struct UserProfile: View {
     let titleBackground = Color(red: 224/255, green: 224/255, blue: 224/255)
     
+    @State private var avatarImage = UIImage(named: "profileImageDefault")!
+    
     @EnvironmentObject var userProfileData: UserProfileData
     
     var body: some View {
@@ -33,7 +35,7 @@ struct UserProfile: View {
                     HStack(spacing: 30){
                         Spacer().frame(width: 10)
                         
-                        Image("Men")
+                        Image(uiImage: avatarImage)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .cornerRadius(20)
