@@ -11,7 +11,8 @@ import SwiftUI
 struct CooC_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TopicResultDetailPage()
+//            ContentView()
         }
     }
 }
