@@ -10,28 +10,26 @@ import SwiftUI
 struct UserCategory: View {
     @State private var userInterest: String = ""
     @State private var showCategoryModal: Bool = false
-//    @State private var checkboxPop = true
-
     
     var body: some View {
 
-        VStack {
+        VStack(alignment: .leading, spacing: 10) {
             Text("Interest")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 15, weight: .regular))
             Button(action: {
-                print("카테고리 고르기 버튼")
                 self.showCategoryModal = true
                 
             }) {
-                Text("카테고리 고르기 모달 팝업")
-            }.sheet(isPresented: self.$showCategoryModal) {
+                Text("Click to add category preferences")
+            }
+            .sheet(isPresented: self.$showCategoryModal) {
                 PickCategoryModal(showCategoryModal: $showCategoryModal)
             }
-
             
             Divider()
-        }
+            
+        }.accentColor(ColorManager.mainOrange)
     }
 }
 

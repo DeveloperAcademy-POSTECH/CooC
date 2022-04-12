@@ -10,6 +10,7 @@
 		5D0148E227FDB903000699D5 /* UserCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0148E127FDB903000699D5 /* UserCategory.swift */; };
 		5D10C0DD280543130080FF28 /* EditProfileNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D10C0DC280543130080FF28 /* EditProfileNavigationBar.swift */; };
 		5D10C0DF280544770080FF28 /* profileObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D10C0DE280544770080FF28 /* profileObservable.swift */; };
+		5D10C0E3280556270080FF28 /* CategoryNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D10C0E2280556270080FF28 /* CategoryNavigationBar.swift */; };
 		5D8F1AAA27FD6A8D003B149E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F1AA927FD6A8D003B149E /* EditProfileView.swift */; };
 		5D8F1AAC27FD7B43003B149E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D8F1AAB27FD7B43003B149E /* Colors.xcassets */; };
 		5D8F1AAF27FD7CD6003B149E /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F1AAE27FD7CD6003B149E /* ColorManager.swift */; };
@@ -65,6 +66,7 @@
 		5D0148E127FDB903000699D5 /* UserCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCategory.swift; sourceTree = "<group>"; };
 		5D10C0DC280543130080FF28 /* EditProfileNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileNavigationBar.swift; sourceTree = "<group>"; };
 		5D10C0DE280544770080FF28 /* profileObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileObservable.swift; sourceTree = "<group>"; };
+		5D10C0E2280556270080FF28 /* CategoryNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNavigationBar.swift; sourceTree = "<group>"; };
 		5D8F1AA927FD6A8D003B149E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		5D8F1AAB27FD7B43003B149E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5D8F1AAE27FD7CD6003B149E /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				5DA2566928016468009E41BA /* Model */,
 				5D8F1AA927FD6A8D003B149E /* EditProfileView.swift */,
 				5D10C0DC280543130080FF28 /* EditProfileNavigationBar.swift */,
+				5D10C0E2280556270080FF28 /* CategoryNavigationBar.swift */,
 				5DA2566127FECE84009E41BA /* PhotoPicker.swift */,
 				5DA2566327FF9420009E41BA /* UserImage.swift */,
 				5D0148E127FDB903000699D5 /* UserCategory.swift */,
@@ -441,6 +444,7 @@
 				5D0148E227FDB903000699D5 /* UserCategory.swift in Sources */,
 				5D8F1AAA27FD6A8D003B149E /* EditProfileView.swift in Sources */,
 				B7C368EF27FEA9750002BA0F /* RecentSearchList.swift in Sources */,
+				5D10C0E3280556270080FF28 /* CategoryNavigationBar.swift in Sources */,
 				B7C368DE27FD87870002BA0F /* FilterButtonList.swift in Sources */,
 				5D10C0DF280544770080FF28 /* profileObservable.swift in Sources */,
 			);

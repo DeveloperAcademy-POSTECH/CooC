@@ -1,15 +1,13 @@
 //
-//  EditProfileNavigationBar.swift
+//  CategoryNavigationBar.swift
 //  CooC-App
 //
-//  Created by 이영준 on 2022/04/09.
+//  Created by Youngseo Yoon on 2022/04/12.
 //
 
 import SwiftUI
 
-struct EditProfileNavigationBar: View {
-    // @EnvironmentObject var userProfileData: UserProfileData
-    
+struct CategoryNavigationBar: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -32,7 +30,6 @@ struct EditProfileNavigationBar: View {
             Spacer()
             
             Button(action: {
-                EditProfileView()
                 presentationMode.wrappedValue.dismiss()
             }){
                 Text("Done")
@@ -44,8 +41,8 @@ struct EditProfileNavigationBar: View {
     }
 }
 
-struct EditProfileNavigationBar_Previews: PreviewProvider {
+struct CategoryNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileNavigationBar()
+        CategoryNavigationBar()
     }
 }
