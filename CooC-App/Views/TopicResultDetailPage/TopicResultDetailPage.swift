@@ -9,68 +9,57 @@ import SwiftUI
 
 struct TopicResultDetailPage: View {
     let vote_seq: [String] =     ["A", "B", "C","D"] // 투표는 최대 4개가능하므로 4개 생성
-    let multiples = detailData[0].vote
-    
     func sum(numbers: [Float]) -> Float{
         return numbers.reduce(0, +)
     }
-    //let sum = multiples.reduce(0, +)
-    
         var body: some View {
-            //    @Binding var id: Int
-    //        self.id = 1001
-     
-
                 //NavigationView{
             
                     ScrollView() {
-                    VStack{
+                    VStack{ //이미지
                         Image("food")
                             .resizable()
                             .frame(width: 392, height: 300)
                             .clipShape(RoundedRectangle(cornerRadius: 0))
-                        VStack{
-                            
-                        
-                        HStack{
-                            Text("\(detailData[0].title)") //8자넘으면 밑으로 내려감
-                                .font(.system(size: 30))
-                                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            Spacer()
-                            Button(action: {
-                                print(multiples)
-                                print(sum(numbers: detailData[0].vote))
-                            }) {
-                                HStack {
-                                    Text("\(detailData[0].category)")
-                                        .fontWeight(.semibold)
-                                        .frame(width: 72, height: 30)
+                        VStack{ //Title
+                            HStack{
+                                Text("\(detailData[0].title)") //8자넘으면 밑으로 내려감
+                                    .font(.system(size: 30))
+                                    .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                Spacer()
+                                Button(action: {
+                                    print(sum(numbers: detailData[0].vote))
+                                }) {
+                                    HStack {
+                                        Text("\(detailData[0].category)")
+                                            .fontWeight(.semibold)
+                                            .frame(width: 72, height: 30)
+                                    }
+                                    .foregroundColor(.black)
+                                    .background(.white)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color.gray, lineWidth: 2)
+                                    )
                                 }
-                                .foregroundColor(.black)
-                                .background(.white)
-                                .cornerRadius(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color.gray, lineWidth: 2)
-                                )
-                            }
-                            Button(action: {
-                                print("진행중")
-                            }) {
-                                HStack {
-                                    Text("\(detailData[0].progress)")
-                                        .fontWeight(.semibold)
-                                        .frame(width: 72, height: 30)
+                                Button(action: {
+                                    print("진행중")
+                                }) {
+                                    HStack {
+                                        Text("\(detailData[0].progress)")
+                                            .fontWeight(.semibold)
+                                            .frame(width: 72, height: 30)
+                                    }
+                                    .foregroundColor(.black)
+                                    .background(.white)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color.gray, lineWidth: 2)
+                                    )
                                 }
-                                .foregroundColor(.black)
-                                .background(.white)
-                                .cornerRadius(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color.gray, lineWidth: 2)
-                                )
                             }
-                        }
                         //.padding(.horizontal)
                         HStack{ //날짜
                             Text("게시날짜 |")
@@ -86,10 +75,8 @@ struct TopicResultDetailPage: View {
                                 .frame(width: 300)
                                 .lineSpacing(4)
                                 Spacer()
-                            
                         }
                         .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        
                         
                             HStack{
                             NavigationLink(destination: LookAroundView()){
@@ -112,11 +99,12 @@ struct TopicResultDetailPage: View {
                             ForEach(0 ..< detailData[0].vote.count){ number in
                                     VStack{
                                         HStack{
-                                            Text("\(vote_seq[number]).\(detailData[0].vote_list[number])")
+                                            Text("\(vote_seq[number]). \(detailData[0].vote_list[number]) \(Int(detailData[0].vote[number]/sum(numbers:detailData[0].vote)*100))%")
+                                                .padding(.leading)
                                             Spacer()
                                         }
                                     }
-                                    HStack{
+                                    HStack{ // 투표 프로그래스뷰
                                         ProgressView(value: detailData[0].vote[number] ,total : sum(numbers:detailData[0].vote))
                                             .progressViewStyle(LinearProgressViewStyle(tint: .red))
                                             .padding(.leading)
@@ -135,40 +123,27 @@ struct TopicResultDetailPage: View {
                         .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                         ScrollView (.horizontal, showsIndicators: false,content: {
                             HStack{
-                                Button(action: {
-                                    print("Delete tapped!")
-                                }) {
-                                    HStack {
-                                        Text("돈까스는 무조건 치돈이죠")
-                                            .fontWeight(.semibold)
-                                            .frame(width: 160, height: 50)
+                                ForEach(0..<detailData[0].etc.count) {number in
+                                    Button(action: {
+                                        print("Delete tapped!")
+                                    }) {
+                                        HStack {
+                                            Text("\(detailData[0].etc[number])")
+                                                .fontWeight(.semibold)
+                                                .frame(width: 160, height: 50)
+                                        }
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(.white)
+                                        .cornerRadius(20)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .stroke(Color.gray, lineWidth: 5)
+                                                //.shadow(radius: 5)
+                                        )
                                     }
-                                    .padding()
-                                    .foregroundColor(.black)
-                                    .background(.white)
-                                    .cornerRadius(20)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 5)
-                                            .stroke(Color.black, lineWidth: 3)
-                                    )
                                 }
-                                Button(action: {
-                                    print("Delete tapped!")
-                                }) {
-                                    HStack {
-                                        Text("돈까스는 무조건 치돈이죠")
-                                            .fontWeight(.semibold)
-                                            .frame(width: 160, height: 50)
-                                    }
-                                    .padding()
-                                    .foregroundColor(.black)
-                                    .background(.white)
-                                    .cornerRadius(20)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 5)
-                                            .stroke(Color.black, lineWidth: 3)
-                                    )
-                                }
+                                .padding(.leading)
                                 Spacer()
                             }
                         })
@@ -176,7 +151,6 @@ struct TopicResultDetailPage: View {
                         .padding(.leading)
                     Spacer()
                             }
-                     
                     .frame(maxWidth: .infinity)
                 }
         }
