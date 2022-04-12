@@ -35,11 +35,12 @@ struct UserProfile: View {
                     HStack(spacing: 30){
                         Spacer().frame(width: 10)
                         
-                        Image(uiImage: avatarImage)
+                        Image(uiImage: userProfileData.profilePicture)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .cornerRadius(20)
                             .frame(width: 130, height: 130)
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
                             .padding(EdgeInsets(top: 10, leading: -80, bottom: 20, trailing: 0))
                         
                         
