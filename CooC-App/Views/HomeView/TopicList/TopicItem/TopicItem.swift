@@ -8,80 +8,94 @@
 import SwiftUI
 
 struct TopicItem: View {
-    var topic: Topic
-    
+    @Binding var topic: Topic
+    @Binding var isOn: Bool
+    @EnvironmentObject var homeViewState: HomeViewState
     
     var body: some View {
-        VStack {
+        VStack(spacing: 5) {
             Text(topic.title)
                 .font(.title3)
                 .fontWeight(.bold)
-                .padding(.top, 5)
+                .lineLimit(2)
             
-            VStack {
-                ZStack(alignment: .bottom) {
-                    Image(topic.image)
-                        .resizable()
-                        .frame(width: 275, height: 275)
+            ZStack(alignment: .bottom) {
+                Image(topic.image)
+                    .resizable()
+                    .frame(width: isOn ? 255 : 200, height: isOn ? 255 : 200)
+                    .cornerRadius(imageRadius)
+                    .shadow(radius: 4)
+                
+                if isOn {
+                    Text("Submitted")
+                        .bold()
+                        .frame(width: topic.isSubmitted ? 255 : 0, height: topic.isSubmitted ? 255 : 0)
+                        .background(.ultraThinMaterial)
                         .cornerRadius(imageRadius)
-                        .shadow(radius: 4)
-                    
-                    // 카테고리 및 장문 보내기 아이콘
-                    HStack(alignment: .bottom) {
-                        Text(topic.category)
-                            .bold()
-                            .frame(width: 70, height: 25)
-                            .font(.caption)
-                            .foregroundColor(.orange)
-                            .background(
-                                RoundedRectangle(cornerRadius: categoryRadius)
-                                    .fill(.white)
-                                    .shadow(radius: 1)
-                            )
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // TODO: 장문형으로 보내기
-                        }) {
-                            Image(systemName: "paperplane.circle.fill")
-                                .resizable()
-                                .frame(width: 35, height: 35)
-                        }
-                        .padding(10)
-                    }
-                    .frame(width: 275)
+                } else {
+                    Text(topic.isSubmitted ? "Submitted" : "")
+                        .bold()
+                        .frame(width: topic.isSubmitted ? 200 : 0, height: topic.isSubmitted ? 200 : 0)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(imageRadius)
                 }
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(alignment: .center, spacing: 15) {
-                        ChoiceButton(choiceText: topic.choices[0])
-                        ChoiceButton(choiceText: topic.choices[1])
+                // 카테고리 및 장문 보내기 아이콘
+                HStack(alignment: .bottom) {
+                    Text(topic.category)
+                        .bold()
+                        .frame(width: 70, height: 25)
+                        .font(.caption)
+                        .foregroundColor(.orange)
+                        .background(.white)
+                        .cornerRadius(categoryRadius)
+                        .shadow(radius: 1)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        // TODO: 장문형으로 보내기
+                    }) {
+                        Image(systemName: "paperplane.circle.fill")
+                            .resizable()
+                            .frame(width: topic.isSubmitted ? 0 : 35, height: topic.isSubmitted ? 0 : 35)
+                            .background(
+                                Circle()
+                                    .fill(.white)
+                            )
                     }
-                    if topic.choices.count > 2 {
-                        HStack(alignment: .center, spacing: 5) {
-                            ChoiceButton(choiceText: topic.choices[2])
-                            if topic.choices.count == 4 {
-                                ChoiceButton(choiceText: topic.choices[3])
-                            }
+                    .padding(10)
+                }
+                .frame(width: isOn ? 255 : 200)
+            }
+            
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(alignment: .center, spacing: 15) {
+                    ChoiceButton(topicId: topic.id, text: topic.choices[0], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn)
+                    ChoiceButton(topicId: topic.id, text: topic.choices[1], percentage: topic.choicePercentages[1], isTapped: $topic.isSubmitted, isOn: $isOn)
+                }
+                if topic.choices.count > 2 {
+                    HStack(alignment: .center, spacing: 15) {
+                        ChoiceButton(topicId: topic.id, text: topic.choices[2], percentage: topic.choicePercentages[2], isTapped: $topic.isSubmitted, isOn: $isOn)
+                        if topic.choices.count == 4 {
+                            ChoiceButton(topicId: topic.id, text: topic.choices[3], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn)
                         }
                     }
                 }
-                .padding(.top, 5)
             }
+            .padding(.top, 5)
         }
         .padding(.vertical, 10)
         .padding(.horizontal, horizontalDefaultPadding)
-        .background(
-            RoundedRectangle(cornerRadius: cardRadius)
-                .fill(.white)
-                .shadow(radius: 4)
-        )
+        .background(.white)
+        .cornerRadius(cardRadius)
+        .shadow(radius: 4)
     }
 }
 
 struct TopicItem_Previews: PreviewProvider {
     static var previews: some View {
+//        TopicItem(topic: topicData[3])
         Text("")
     }
 }

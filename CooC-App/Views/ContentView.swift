@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection: Tab = .Home
+    @EnvironmentObject var homeViewState: HomeViewState
     
     enum Tab {
         case Home
@@ -37,6 +38,10 @@ struct ContentView: View {
                 .tag(Tab.MyPage)
         }
         .accentColor(.orange)
+        .onAppear {
+            homeViewState.popularTopicIsOn[0] = true
+            homeViewState.recentTopicIsOn[0] = true
+        }
     }
 }
 

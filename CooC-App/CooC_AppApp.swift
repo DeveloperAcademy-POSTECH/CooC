@@ -9,10 +9,18 @@ import SwiftUI
 
 @main
 struct CooC_AppApp: App {
+    @StateObject private var userProfileData = UserProfileData()
+    @StateObject private var homeViewState = HomeViewState()
+    @StateObject private var searchViewState = SearchViewState()
+    
     var body: some Scene {
         WindowGroup {
-            //push 전 ContentView()로 변경하기
-            EditProfileView()
+            TopicResultDetailPage()
+//            ContentView()
+            ContentView()
+                .environmentObject(userProfileData)
+                .environmentObject(homeViewState)
+                .environmentObject(searchViewState)
         }
     }
 }
