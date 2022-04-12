@@ -15,9 +15,10 @@ struct EditProfileView: View {
     
     
     var body: some View {
+        EditProfileNavigationBar()
         VStack(spacing: 30) {
-            EditProfileNavigationBar()
             UserImage()
+                .navigationBarHidden(true)
             VStack(spacing: 15) {
                 Text("Username")
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -54,7 +55,6 @@ struct EditProfileView: View {
             }
             .padding()
             .background(Color.white)
-            .navigationTitle("EditProfile")
             
             Spacer()
         }
@@ -64,8 +64,6 @@ struct EditProfileView: View {
 
 struct EditProfile_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            EditProfileView()
-        }
+        EditProfileView()
     }
 }
