@@ -12,10 +12,11 @@ struct EditProfileView: View {
     @State private var userName: String = ""
     @State private var userEmail: String = ""
     @State private var userAboutMe: String = ""
-
+    
     
     var body: some View {
         VStack(spacing: 30) {
+            EditProfileNavigationBar()
             UserImage()
             VStack(spacing: 15) {
                 Text("Username")
@@ -53,14 +54,18 @@ struct EditProfileView: View {
             }
             .padding()
             .background(Color.white)
-
+            .navigationTitle("EditProfile")
+            
             Spacer()
         }
+        
     }
 }
 
 struct EditProfile_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        NavigationView{
+            EditProfileView()
+        }
     }
 }

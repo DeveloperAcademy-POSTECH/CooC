@@ -11,20 +11,18 @@ import Foundation
 struct Category: Identifiable {
     var id = UUID().uuidString
     let title: String
-    var checked: Bool
 }
 
 var categoryData = [
-    
-    Category(title: "Animals", checked: false),
-    Category(title: "Book", checked: false),
-    Category(title: "Electronics", checked: false),
-    Category(title: "Fashion", checked: false),
-    Category(title: "Food", checked: false),
-    Category(title: "Life", checked: false),
-    Category(title: "Travel", checked: false),
-    Category(title: "Tools", checked: false),
-    Category(title: "WorkOut", checked: false)
+    Category(title: "Animals"),
+    Category(title: "Book"),
+    Category(title: "Electronics"),
+    Category(title: "Fashion"),
+    Category(title: "Food"),
+    Category(title: "Life"),
+    Category(title: "Travel"),
+    Category(title: "Tools"),
+    Category(title: "WorkOut")
 ]
 
 

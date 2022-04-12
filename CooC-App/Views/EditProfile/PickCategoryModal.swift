@@ -9,15 +9,16 @@ import SwiftUI
 
 
 struct PickCategoryModal: View {
-    @Binding var checked: Bool
 
     
     var body: some View {
         List {
-            ForEach(categoryData) { filter in
-                CardView(filter: filter)
-                
-            }
+//            ForEach(categoryData) { filter in
+//                CardView(filter: $checkBox)
+//
+//            }
+            CardView()
+            
             
         }.listStyle(PlainListStyle())
     }
@@ -25,30 +26,34 @@ struct PickCategoryModal: View {
 }
 
 struct CardView: View {
-    @State var filter: Category
-    
-    var body: some View {
-        HStack {
-            ZStack {
-                Circle()
-                    .stroke(filter.checked ? ColorManager.mainOrange : Color.gray, lineWidth: 1)
-                    .frame(width: 20, height: 20)
-                
-                if filter.checked {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 20))
-                        .foregroundColor(ColorManager.mainOrange)
-                }
-            }
 
-            Text(filter.title)
-                .padding(4)
-                .foregroundColor(ColorManager.mainOrange)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
+    @State private var isChecked: [Bool] = [false, false, false, false, false, false, false, false, false]
+
+    var body: some View {
+        ForEach(0 ..< categoryData.count) { index in
+            HStack {
+                ZStack {
+                    Circle()
+                        .stroke(isChecked[index] ? ColorManager.mainOrange : Color.gray, lineWidth: 1)
+                        .frame(width: 20, height: 20)
+                    
+                    if isChecked[index] {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(ColorManager.mainOrange)
+                    }
+                }
+
+                Text(categoryData[index].title)
+                    .padding(4)
+                    .foregroundColor(ColorManager.mainOrange)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
+            }
+            .onTapGesture(perform: {
+                isChecked[index].toggle()
+                print("체크된 값 \(categoryData[index].title), \(isChecked[index])")
+            })
         }
-        .onTapGesture(perform: {
-            filter.checked.toggle()
-        })
     }
 }
 
@@ -57,10 +62,10 @@ struct CardView: View {
 
 struct PickCategory_Previews: PreviewProvider {
     struct PickCategoryHolder: View {
-        @State var checked = false
-
+        @State var checkboxPop = false
+        @State var checkbox = false
         var body: some View {
-            PickCategoryModal(checked: $checked)
+            PickCategoryModal()
         }
     }
 

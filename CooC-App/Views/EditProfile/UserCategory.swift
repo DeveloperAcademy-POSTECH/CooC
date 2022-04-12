@@ -10,7 +10,7 @@ import SwiftUI
 struct UserCategory: View {
     @State private var userInterest: String = ""
     @State private var showCategoryModal: Bool = false
-    @State private var checked = true
+//    @State private var checkboxPop = true
 
     
     var body: some View {
@@ -26,7 +26,7 @@ struct UserCategory: View {
             }) {
                 Text("카테고리 고르기 모달 팝업")
             }.sheet(isPresented: self.$showCategoryModal) {
-                PickCategoryModal(checked: $checked)
+                PickCategoryModal()
             }
 
             
