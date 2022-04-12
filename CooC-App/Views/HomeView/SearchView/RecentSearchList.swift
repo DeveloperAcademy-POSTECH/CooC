@@ -13,14 +13,7 @@ struct RecentSearchList: View {
             GridItem(.flexible(), spacing: 30),
     ]
     
-    let recentSearchText = [
-        "iPhone 13",
-        "MacBook Pro",
-        "Air Pods",
-        "iPods",
-        "Apple TV",
-        "Home Pod",
-    ]
+    @EnvironmentObject var searchViewState: SearchViewState
     
     var body: some View {
         VStack {
@@ -31,7 +24,8 @@ struct RecentSearchList: View {
                 Spacer()
                 
                 Button(action: {
-                    // TODO: 모두 지우기
+                    searchViewState.recentSearchTexts = []
+                    UserDefaults.standard.set(searchViewState.recentSearchTexts, forKey: "recentSearch")
                 }) {
                     Image(systemName: "trash.fill")
                 }
@@ -41,11 +35,8 @@ struct RecentSearchList: View {
             
             ScrollView {
                 LazyVGrid(columns: columns,  spacing: 15) {
-                    ForEach(recentSearchText, id: \.self) { text in
-                        NavigationLink(destination: SearchResultView(searchText: text)) {
-                            RecentSearchItem(text: text)
-                                .foregroundColor(.black)
-                        }
+                    ForEach(searchViewState.recentSearchTexts, id: \.self) { text in
+                        RecentSearchItem(text: text)
                     }
                 }
                 .padding(.top, 20)
@@ -60,6 +51,7 @@ struct RecentSearchList: View {
 
 struct RecentSearchList_Previews: PreviewProvider {
     static var previews: some View {
-        RecentSearchList()
+//        RecentSearchList()
+        Text("")
     }
 }
