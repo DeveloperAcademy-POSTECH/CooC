@@ -40,7 +40,8 @@ struct EditProfileNavigationBar: View {
                     .foregroundColor(Color.orange)
                     .padding()
             }
-        }.accentColor(ColorManager.mainOrange)
+        }
+        .accentColor(ColorManager.mainOrange)
     }
 }
 

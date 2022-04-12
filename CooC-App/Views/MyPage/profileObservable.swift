@@ -11,5 +11,6 @@ import SwiftUI
 final class UserProfileData: ObservableObject{
     @Published var profileName: String = "Jun"
     @Published var profileIntroduce: String = "반갑습니다"
+//    @Published var profilePicture = UIImage(named: "profileImageDefault")
 }
 

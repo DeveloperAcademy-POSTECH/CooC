@@ -15,7 +15,7 @@ struct CooC_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TopicResultDetailPage()
+//            TopicResultDetailPage()
 //            ContentView()
             ContentView()
                 .environmentObject(userProfileData)
