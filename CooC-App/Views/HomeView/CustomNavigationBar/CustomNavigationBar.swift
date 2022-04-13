@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomNavigationBar: View {
+    @State private var showModal = false
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct CustomNavigationBar: View {
                 }
                 
                 Button(action: {
-                    // TODO: 업로드 페이지 불러오기
+                    self.showModal = true
                 }) {
                     Image(systemName: "square.and.pencil")
                         .resizable()
@@ -62,7 +63,7 @@ extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate 
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
     }
-
+    
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }
