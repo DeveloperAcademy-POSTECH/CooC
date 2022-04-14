@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CustomNavigationBar: View {
+    @State private var showModal = false
     
     var body: some View {
-        VStack {
+        return VStack {
             ZStack(alignment: .trailing) {
                 HStack {
                     Spacer()
@@ -23,7 +24,7 @@ struct CustomNavigationBar: View {
                 }
                 
                 Button(action: {
-                    // TODO: 업로드 페이지 불러오기
+                    self.showModal = true
                 }) {
                     Image(systemName: "square.and.pencil")
                         .resizable()
@@ -31,6 +32,9 @@ struct CustomNavigationBar: View {
                         .frame(width: 24, height: 24)
                         .padding(.bottom, 3)
                         .padding(.trailing, 15)
+                }
+                .sheet(isPresented: self.$showModal) {
+                    ModalView()
                 }
             }
             .padding(.top, 30)
@@ -62,7 +66,7 @@ extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate 
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
     }
-
+    
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }
