@@ -21,10 +21,10 @@ struct ModalView: View {
                         Text("취소")
                             .foregroundColor(Color.orange)
                     }, trailing: Button(action: {
-                        print("Edit button pressed...")
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("제출")
-                            .foregroundColor(Color.gray)
+                            .foregroundColor(Color.orange)
                     })
                     .background(NavigationConfigurator { nc in
                         nc.navigationBar.barTintColor = .gray
