@@ -13,6 +13,7 @@ struct ModalContents: View {
     @State var selectedCategory = 0
     @State var title: String = ""
     @State var Contents: String = ""
+    @S
     @State private var longAnswerToggle = false
     @State private var personalInfoToggle = false
     
@@ -56,9 +57,9 @@ struct ModalContents: View {
                         Text("Choice Options")
                             .font(.system(size: 17, weight: .regular))
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 0))
-                        Text("Please enter at least two.")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(ColorManager.subCobaltBlue)
+                        Text("(Please enter at least two.)")
+                            .font(.system(size: 10, weight: .regular))
+                            .padding(EdgeInsets(top: 0, leading: -5, bottom: 0, trailing: 0))
                     }
                     HStack(){
                         TextField("Edit Option 1", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
