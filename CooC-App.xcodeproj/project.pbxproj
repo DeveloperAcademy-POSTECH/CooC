@@ -25,6 +25,11 @@
 		5DA2566427FF9420009E41BA /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2566327FF9420009E41BA /* UserImage.swift */; };
 		5DA25666280015DD009E41BA /* PickCategoryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA25665280015DD009E41BA /* PickCategoryModal.swift */; };
 		5DA2566828016464009E41BA /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2566728016464009E41BA /* CategoryModel.swift */; };
+		75A69B732806C301003E8D83 /* ModalContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B6E2806C300003E8D83 /* ModalContents.swift */; };
+		75A69B742806C301003E8D83 /* ModalUserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */; };
+		75A69B762806C301003E8D83 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B712806C300003E8D83 /* ModalView.swift */; };
+		75A69B772806C301003E8D83 /* AddContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B722806C300003E8D83 /* AddContents.swift */; };
+		75FA24072807B4D60098B0A7 /* TopicPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */; };
 		B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */; };
 		B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689927FC3A9F0002BA0F /* ContentView.swift */; };
 		B7C3689C27FC3AA10002BA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7C3689B27FC3AA10002BA0F /* Assets.xcassets */; };
@@ -88,6 +93,11 @@
 		5DA2566327FF9420009E41BA /* UserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		5DA25665280015DD009E41BA /* PickCategoryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickCategoryModal.swift; sourceTree = "<group>"; };
 		5DA2566728016464009E41BA /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		75A69B6E2806C300003E8D83 /* ModalContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalContents.swift; sourceTree = "<group>"; };
+		75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalUserImageView.swift; sourceTree = "<group>"; };
+		75A69B712806C300003E8D83 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		75A69B722806C300003E8D83 /* AddContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContents.swift; sourceTree = "<group>"; };
+		75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPhotoPicker.swift; sourceTree = "<group>"; };
 		B7C3689427FC3A9F0002BA0F /* CooC-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CooC-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CooC_AppApp.swift; sourceTree = "<group>"; };
 		B7C3689927FC3A9F0002BA0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +188,18 @@
 			path = TopicResultDetailPage;
 			sourceTree = "<group>";
 		};
+		75A69B6D2806C300003E8D83 /* AddTopicView */ = {
+			isa = PBXGroup;
+			children = (
+				75A69B6E2806C300003E8D83 /* ModalContents.swift */,
+				75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */,
+				75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */,
+				75A69B712806C300003E8D83 /* ModalView.swift */,
+				75A69B722806C300003E8D83 /* AddContents.swift */,
+			);
+			path = AddTopicView;
+			sourceTree = "<group>";
+		};
 		B7C3688B27FC3A9F0002BA0F = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +265,7 @@
 				5DB873A72805794A00084898 /* MyPage */,
 				B7C368CB27FD6A650002BA0F /* HomeView */,
 				5DA2565E27FEA433009E41BA /* EditProfile */,
+				75A69B6D2806C300003E8D83 /* AddTopicView */,
 				B7C3689927FC3A9F0002BA0F /* ContentView.swift */,
 				B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */,
 				5D10C0EC280571F90080FF28 /* ProfileExample.swift */,
@@ -451,6 +474,7 @@
 				B7C368C527FC3AFD0002BA0F /* LookAroundView.swift in Sources */,
 				5D10C0EA280571BE0080FF28 /* UserQuestionList.swift in Sources */,
 				5DA2566227FECE84009E41BA /* PhotoPicker.swift in Sources */,
+				75A69B742806C301003E8D83 /* ModalUserImageView.swift in Sources */,
 				B7C3689A27FC3A9F0002BA0F /* ContentView.swift in Sources */,
 				5DA25666280015DD009E41BA /* PickCategoryModal.swift in Sources */,
 				B7C368D027FD73580002BA0F /* ChoiceButton.swift in Sources */,
@@ -470,15 +494,19 @@
 				5D10C0E72805712C0080FF28 /* HomeViewState.swift in Sources */,
 				B7C368EB27FDDDED0002BA0F /* SearchView.swift in Sources */,
 				B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */,
+				75A69B772806C301003E8D83 /* AddContents.swift in Sources */,
 				5D10C0F1280572EC0080FF28 /* detailData.swift in Sources */,
 				B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */,
 				5D10C0DD280543130080FF28 /* EditProfileNavigationBar.swift in Sources */,
+				75FA24072807B4D60098B0A7 /* TopicPhotoPicker.swift in Sources */,
 				B7C368C327FC3AF40002BA0F /* HomeView.swift in Sources */,
 				B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */,
 				5D10C0EF280572C40080FF28 /* TopicResultDetailPage.swift in Sources */,
 				5D0148E227FDB903000699D5 /* UserCategory.swift in Sources */,
+				75A69B762806C301003E8D83 /* ModalView.swift in Sources */,
 				5D8F1AAA27FD6A8D003B149E /* EditProfileView.swift in Sources */,
 				B7C368EF27FEA9750002BA0F /* RecentSearchList.swift in Sources */,
+				75A69B732806C301003E8D83 /* ModalContents.swift in Sources */,
 				5D10C0E3280556270080FF28 /* CategoryNavigationBar.swift in Sources */,
 				5D10C0ED280571F90080FF28 /* ProfileExample.swift in Sources */,
 				B7C368DE27FD87870002BA0F /* FilterButtonList.swift in Sources */,
