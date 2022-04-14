@@ -41,7 +41,6 @@ struct TextView : UIViewRepresentable{
 }
 
 struct Post: Identifiable {
-    var isOn : Bool
     var PostIndex : Int
     var id = UUID().uuidString
     var postImage: String
@@ -138,6 +137,8 @@ struct LookAroundView: View {
     @Namespace var animation
     @State var isOn = [true]
     var body: some View {
+        
+        NavigationView{
         VStack(spacing: 15){
             
             VStack(alignment: .leading, spacing:12){
@@ -162,6 +163,13 @@ struct LookAroundView: View {
                                 .resizable()
                                 .frame(width: isOn[post.PostIndex] ? size.width : size.width-50, height: isOn[post.PostIndex] ? 300 : 250 )
                                 .cornerRadius(12).padding(EdgeInsets(top:0, leading: 0,bottom:0,trailing:0))
+                          
+                            if post.transitionView1 == false && isOn[post.PostIndex] == true {
+                            NavigationLink(destination:  TopicResultDetailPage(index: $currentIndex) ){
+                            Image(systemName: "note.text.badge.plus").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)
+                            }.offset(x:-100,y:100)
+                            }
+                            
                             
                             Button(action:{
                                 
@@ -169,13 +177,13 @@ struct LookAroundView: View {
                             }){
                                 
                                 if post.transitionView1 == false && isOn[post.PostIndex] == true {
-                                    
+                  
                                     Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}
                             }.offset(x:100,y:100)
                             if post.transitionView1 == true {
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20).foregroundColor(Color.white).overlay(RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.orange, lineWidth: 4))
+                                        .stroke(Color.orange, lineWidth: 1)    .shadow(radius: 2))
                                     
                                     .frame(height: UIScreen.main.bounds.height * 0.1)
                                     .transition(AnyTransition.scale.animation(.easeInOut))
@@ -208,12 +216,13 @@ struct LookAroundView: View {
                             .ignoresSafeArea(edges: .bottom))
                         
                         Text(post.TScontent).frame(width: 250, height:80, alignment: .topLeading ).font(.system(size:15))
-                        
+                      
                         
                         ForEach((1...post.TSoption2.count), id: \.self) {
+                         
                             let k = $0
-                            if post.TSoption2[k]! == false { Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 4)).overlay(
+                            if post.TSoption2[k]! == false {   Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)    .shadow(radius: 2)).overlay(
                                     Button(action:{
                                         
                                         for i in 1...posts[post.PostIndex].TSoption.count{
@@ -229,10 +238,7 @@ struct LookAroundView: View {
                                               
                                             }
                                         }
-                                        
                                     }){
-                                        
-                                        
                                         if post.TSoption2[k]! == false{  Rectangle().cornerRadius(15).frame(width: 250, height:30).border(Color.purple).opacity(0)
                                         }
                                         
@@ -245,7 +251,7 @@ struct LookAroundView: View {
                             }
                             else{
                                 Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.orange, lineWidth: 4)).overlay(
+                                    .stroke(Color.orange, lineWidth: 1)    .shadow(radius: 2)).overlay(
                                         Button(action:{
                                             posts[post.PostIndex].TSoption2[k] = !posts[post.PostIndex].TSoption2[k]!
                                             for i in 1...posts[post.PostIndex].TSoption.count{
@@ -269,7 +275,7 @@ struct LookAroundView: View {
                         
                         
                     }.frame(width: size.width , height : 580 ,alignment : .top).padding(EdgeInsets(top:20, leading: 5,bottom:20,trailing:5)).overlay(RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.orange, lineWidth: 1))
+                        .stroke(Color.gray, lineWidth: 1).shadow(radius: 4))
                 }
                 }
             }
@@ -279,21 +285,35 @@ struct LookAroundView: View {
         }
         .frame(maxHeight:.infinity, alignment: .top)
         .onAppear{
+             // TStitle -> title  TScontent -> detail   TSoption -> vote_list   이미지명 
+            posts.append(Post(PostIndex: 0 , postImage: "food", TStitle : "오늘 뭐 먹지" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요 추천해주세요 추천해주세요 추천해주세요", TSoption : [1:"돈까스"  , 2:"치킨"],TSoption2 : [1: false  , 2: false ], TSoption3 : [1: 150  , 2: 100 ], TSoption4 : [1:"돈까스"  , 2:"치킨"],TSoption4sum:250,  transitionView1 : false ))
             
-            posts.append(Post(isOn : false, PostIndex: 0 , postImage: "post1", TStitle : "셔츠 봐주세요." ,TScontent: "주황셔츠 괜찮나요?", TSoption : [1:"주황셔츠 입는다."  , 2: "입지 않는다."],TSoption2 : [1: false  , 2: false ], TSoption3 : [1: 333  , 2: 123 ], TSoption4 : [1:"주황셔츠 입는다."  , 2: "입지 않는다."],TSoption4sum:456,  transitionView1 : false ))
-            posts.append(Post(isOn: false, PostIndex: 1,postImage: "post2", TStitle : "티 봐주세요." ,TScontent: "노랑티 괜찮나요?", TSoption : [1: "노랑티 입는다." , 2: "입지 않는다.", 3: "옷을 버린다."], TSoption2 : [1: false  , 2: false , 3: false], TSoption3 : [1: 22  , 2: 2 , 3: 4] , TSoption4 : [1: "노랑티 입는다." , 2: "입지 않는다.", 3: "옷을 버린다."],TSoption4sum:28,transitionView1 : false  ))
+            posts.append(Post (PostIndex: 1,postImage: "game", TStitle : "무슨 게임할까" ,TScontent: "스트레스 해소용 게임 추천해주세요", TSoption : [1: "서든어택" , 2: "오버워치", 3: "롤"], TSoption2 : [1: false  , 2: false , 3: false], TSoption3 : [1: 200  , 2: 100 , 3: 400] , TSoption4 :[1: "서든어택" , 2: "오버워치", 3: "롤"],TSoption4sum:700 ,transitionView1 : false  ))
             
-            posts.append(Post(isOn : false, PostIndex: 2,postImage: "post3", TStitle : "청청 패션인데 어떤가요?" ,TScontent: "평소 나름 옷을 잘 입는다고 자부하는 사람입니다. 여러분의 평가를 듣고 싶어서 이렇게 글을 적습니다. 이렇게 입고 소개팅 나가도 될까요?", TSoption : [1: "너무 멋지다" , 2: "진짜 멋지다" , 3: "정말 멋지다"  , 4: "옷을불태운다" ] , TSoption2 : [1: false , 2:false , 3: false  , 4: false ],TSoption3 :[1:  31  , 2 :  22, 3:  1 , 4:20], TSoption4 : [1: "너무 멋지다" , 2: "진짜 멋지다" , 3: "정말 멋지다"  , 4: "옷을불태운다" ] ,TSoption4sum:74, transitionView1 : false ))
+            posts.append(Post( PostIndex: 2,postImage: "movie", TStitle : "드라마 뭐가 재밌지",TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요", TSoption : [1: "파친코" , 2: "너의 목소리가 들려" ] , TSoption2 : [1: false , 2:false ],TSoption3 :[1:  200  , 2 :  150], TSoption4 : [1: "파친코" , 2: "너의 목소리가 들려" ]  ,TSoption4sum:350, transitionView1 : false ))
             
-            posts.append(Post(isOn : false, PostIndex: 3,postImage: "post4", TStitle : "아…..흑흑" ,TScontent: "4", TSoption : [ 1: "value" ,2:  ""], TSoption2 : [ 1: false , 2:  false ], TSoption3 :[1:  34  , 2 :  10],  TSoption4 : [ 1: "value" ,2:  ""],TSoption4sum:44, transitionView1 : false))
-            posts.append(Post(isOn : false, PostIndex: 4,postImage: "post5", TStitle : "살려주세요." ,TScontent: "5", TSoption : [1:  "value"  , 2 :  "", 3:  "2"],TSoption2 : [1:  false  , 2 :  false, 3:  false],TSoption3 :[1:  1  , 2 :  2, 3:  1],TSoption4 : [1:  "value"  , 2 :  "", 3:  "2"],TSoption4sum:4, transitionView1 : false))
+            posts.append(Post( PostIndex: 3,postImage: "fruit", TStitle : "과일 뭐 먹을까" ,TScontent: "후식용 과일 추천해주세요", TSoption : [ 1: "사과" ,2:  "배"], TSoption2 : [ 1: false , 2:  false ], TSoption3 :[1:  200  , 2 :  100],  TSoption4 : [ 1: "사과" ,2:  "배"],TSoption4sum:300, transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 4,postImage: "shorts", TStitle : "오늘 룩 어떄?" ,TScontent: "너무 배가 고픈데 오늘은 뭐 입을까요? 추천해주세요", TSoption : [1:  "반바지"  , 2 :  "긴바지", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "반바지"  , 2 :  "긴바지", ],TSoption4sum:300, transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 5,postImage: "phone", TStitle : "핸드폰 살까?" ,TScontent: "둘다 사고싶은데 추천해주세요", TSoption : [1:  "아이폰"  , 2 :  "갤럭시", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "아이폰"  , 2 :  "갤럭시", ],TSoption4sum:300, transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 6,postImage: "AI", TStitle : "앞으로 뭐 해먹고 살까?" ,TScontent: "무슨 직업이 뜰까요? 추천해주세요", TSoption : [1:  "AI" , 2 :  "치킨집", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "AI" , 2 :  "치킨집", ],TSoption4sum:300 , transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 7,postImage: "run", TStitle : "노래 추천해줘",TScontent: "오늘 날씨 좋은데 조깅할 예정입니다. 무슨 노래가 좋을까요?", TSoption : [1:  "루시-조깅" , 2 :  "한비-위켄더" ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "루시-조깅" , 2 :  "한비-위켄더" ],TSoption4sum:300 , transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 8,postImage: "chicken", TStitle :  "저녁메뉴 추천 좀" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요", TSoption : [1:  "돈까스"  , 2 :  "치킨", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "돈까스"  , 2 :  "치킨", ],TSoption4sum: 300 , transitionView1 : false))
+            
+            
+            
+            
             for _ in 1...posts.count{
                     isOn.append(false)
             }
         }
     }
 }
-
+}
 
 
 struct LookAroundView_Previews: PreviewProvider {
