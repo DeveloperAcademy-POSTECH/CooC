@@ -14,7 +14,7 @@ struct AddContents: View {
 }
 
 struct AddContents_Previews: PreviewProvider {
-    static var previews: some View {
+    
         AddContents()
     }
 }

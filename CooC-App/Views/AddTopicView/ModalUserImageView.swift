@@ -20,15 +20,11 @@ struct ModalUserImageView: View {
 //                .imageScale(.large)
                 .resizable()
                 .frame(width:128, height: 128)
-                .foregroundColor(Color.orange )
-                .background(Color.white)
-            //                    .overlay(
-            //                        RoundedRectangle(cornerRadius: 15)
-            //                    )
+                .foregroundColor(ColorManager.mainOrange)
+                .background(Color.white)                  
                 .cornerRadius(10)
-                .padding()
+                .padding(EdgeInsets(top: 18, leading: 20, bottom: 5, trailing: 0))
                 .onTapGesture {
-                    print("tapped")
                    isShowingPhotoPicker = true
                 }
         }
