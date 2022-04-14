@@ -10,7 +10,8 @@ import SwiftUI
 struct TopicPhotoPicker : UIViewControllerRepresentable {
     
     // @Binding var avatarImage: UIImage
-    @EnvironmentObject var imagePicker : ImagePicker
+//    @EnvironmentObject var imagePicker : ImagePicker
+    @EnvironmentObject var imagePicker : UserProfileData
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()

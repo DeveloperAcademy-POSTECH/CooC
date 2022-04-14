@@ -12,7 +12,7 @@ struct ModalUserImageView: View {
     @State private var isShowingPhotoPicker = false
     // @State private var avatarImage = UIImage(systemName: "camera.fill")!
     
-    @EnvironmentObject var imagePicker : ImagePicker
+    @EnvironmentObject var imagePicker : UserProfileData
     
     var body: some View {
         VStack(){
@@ -21,7 +21,7 @@ struct ModalUserImageView: View {
                 .resizable()
                 .frame(width:128, height: 128)
                 .foregroundColor(Color.orange )
-                .background(Color.gray)
+                .background(Color.white)
             //                    .overlay(
             //                        RoundedRectangle(cornerRadius: 15)
             //                    )

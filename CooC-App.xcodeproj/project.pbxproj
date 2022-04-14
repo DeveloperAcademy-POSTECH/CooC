@@ -27,7 +27,6 @@
 		5DA2566828016464009E41BA /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA2566728016464009E41BA /* CategoryModel.swift */; };
 		75A69B732806C301003E8D83 /* ModalContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B6E2806C300003E8D83 /* ModalContents.swift */; };
 		75A69B742806C301003E8D83 /* ModalUserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */; };
-		75A69B752806C301003E8D83 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B702806C300003E8D83 /* ImagePicker.swift */; };
 		75A69B762806C301003E8D83 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B712806C300003E8D83 /* ModalView.swift */; };
 		75A69B772806C301003E8D83 /* AddContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B722806C300003E8D83 /* AddContents.swift */; };
 		75FA24072807B4D60098B0A7 /* TopicPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */; };
@@ -96,7 +95,6 @@
 		5DA2566728016464009E41BA /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		75A69B6E2806C300003E8D83 /* ModalContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalContents.swift; sourceTree = "<group>"; };
 		75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalUserImageView.swift; sourceTree = "<group>"; };
-		75A69B702806C300003E8D83 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		75A69B712806C300003E8D83 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		75A69B722806C300003E8D83 /* AddContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContents.swift; sourceTree = "<group>"; };
 		75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPhotoPicker.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				75A69B6E2806C300003E8D83 /* ModalContents.swift */,
 				75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */,
 				75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */,
-				75A69B702806C300003E8D83 /* ImagePicker.swift */,
 				75A69B712806C300003E8D83 /* ModalView.swift */,
 				75A69B722806C300003E8D83 /* AddContents.swift */,
 			);
@@ -512,7 +509,6 @@
 				75A69B732806C301003E8D83 /* ModalContents.swift in Sources */,
 				5D10C0E3280556270080FF28 /* CategoryNavigationBar.swift in Sources */,
 				5D10C0ED280571F90080FF28 /* ProfileExample.swift in Sources */,
-				75A69B752806C301003E8D83 /* ImagePicker.swift in Sources */,
 				B7C368DE27FD87870002BA0F /* FilterButtonList.swift in Sources */,
 				5D10C0DF280544770080FF28 /* profileObservable.swift in Sources */,
 			);
