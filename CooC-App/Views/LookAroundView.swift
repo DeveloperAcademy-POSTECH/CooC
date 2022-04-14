@@ -139,35 +139,42 @@ struct LookAroundView: View {
     var body: some View {
         
         NavigationView{
-        VStack(spacing: 15){
-            
-            VStack(alignment: .leading, spacing:12){
+        VStack{
+            VStack(alignment: .leading){
                 Text("Topic Series")
                     .font(.title)
                     .fontWeight(.black)
             }
             .frame(maxWidth: .infinity)
-            .padding()
+            .padding(EdgeInsets(top: -50, leading: 0, bottom: 50, trailing: 0))
             
             SnapCarousel(index: $currentIndex, items: posts, isOn : $isOn ){ post in
                 
                 GeometryReader{proxy in
                     let size = proxy.size
-                    
+                    ZStack{
+                        Rectangle().foregroundColor(Color.white)
+                            .cornerRadius(buttonRadius)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, horizontalDefaultPadding)
+                            .background(.white)
+                            .cornerRadius(cardRadius)
+                            .shadow(radius: 4)
                     VStack{
-                    VStack{
+                        VStack{
                         Text(post.TStitle).frame(width: 300, height:20)
-                        ZStack{
                         
+                        ZStack{
+                  
                             Image(post.postImage)
                                 .resizable()
-                                .frame(width: isOn[post.PostIndex] ? size.width : size.width-50, height: isOn[post.PostIndex] ? 300 : 250 )
+                                .frame(width: isOn[post.PostIndex] ? size.width : size.width-100, height: isOn[post.PostIndex] ? 200 : 150 )
                                 .cornerRadius(12).padding(EdgeInsets(top:0, leading: 0,bottom:0,trailing:0))
                           
                             if post.transitionView1 == false && isOn[post.PostIndex] == true {
                             NavigationLink(destination:  TopicResultDetailPage(index: $currentIndex) ){
                             Image(systemName: "note.text.badge.plus").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)
-                            }.offset(x:-100,y:100)
+                            }.offset(x:-110,y:75)
                             }
                             
                             
@@ -179,11 +186,11 @@ struct LookAroundView: View {
                                 if post.transitionView1 == false && isOn[post.PostIndex] == true {
                   
                                     Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}
-                            }.offset(x:100,y:100)
+                            }.offset(x:110,y:75)
                             if post.transitionView1 == true {
                                 ZStack{
-                                    RoundedRectangle(cornerRadius: 20).foregroundColor(Color.white).overlay(RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.orange, lineWidth: 1)    .shadow(radius: 2))
+                                  
+                                    RoundedRectangle(cornerRadius: 20).foregroundColor(Color.black).border(Color.red)
                                     
                                     .frame(height: UIScreen.main.bounds.height * 0.1)
                                     .transition(AnyTransition.scale.animation(.easeInOut))
@@ -215,7 +222,7 @@ struct LookAroundView: View {
                         }
                             .ignoresSafeArea(edges: .bottom))
                         
-                        Text(post.TScontent).frame(width: 250, height:80, alignment: .topLeading ).font(.system(size:15))
+                        Text(post.TScontent).frame(width: 250, height:40, alignment: .topLeading ).font(.system(size:15))
                       
                         
                         ForEach((1...post.TSoption2.count), id: \.self) {
@@ -274,19 +281,19 @@ struct LookAroundView: View {
                         }
                         
                         
-                    }.frame(width: size.width , height : 580 ,alignment : .top).padding(EdgeInsets(top:20, leading: 5,bottom:20,trailing:5)).overlay(RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 1).shadow(radius: 4))
+                    }.frame(width: size.width , height : 500 ,alignment : .top)
+                            .padding(EdgeInsets(top:20, leading: 5,bottom:20,trailing:5))
+//                            .overlay(RoundedRectangle(cornerRadius: 20)
+//                            .shadow(color: .gray, radius: 2, y: 3)
                 }
-                }
+                    }.frame(height: 500)
+                }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             }
-         
-            Spacer()
-            
         }
         .frame(maxHeight:.infinity, alignment: .top)
         .onAppear{
              // TStitle -> title  TScontent -> detail   TSoption -> vote_list   이미지명 
-            posts.append(Post(PostIndex: 0 , postImage: "food", TStitle : "오늘 뭐 먹지" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요 추천해주세요 추천해주세요 추천해주세요", TSoption : [1:"돈까스"  , 2:"치킨"],TSoption2 : [1: false  , 2: false ], TSoption3 : [1: 150  , 2: 100 ], TSoption4 : [1:"돈까스"  , 2:"치킨"],TSoption4sum:250,  transitionView1 : false ))
+            posts.append(Post(PostIndex: 0 , postImage: "food", TStitle : "오늘 뭐 먹지" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요 추천해주세요 추천해주세요 추천해주세요", TSoption : [1:"돈까스"  , 2:"치킨",3:"피자",4:"족발"],TSoption2 : [1: false  , 2: false,3:false , 4: false ], TSoption3 : [1: 150  , 2: 100 ,3:200, 4: 250], TSoption4 : [1:"돈까스"  , 2:"치킨",3:"피자",4:"족발"],TSoption4sum:700,  transitionView1 : false ))
             
             posts.append(Post (PostIndex: 1,postImage: "game", TStitle : "무슨 게임할까" ,TScontent: "스트레스 해소용 게임 추천해주세요", TSoption : [1: "서든어택" , 2: "오버워치", 3: "롤"], TSoption2 : [1: false  , 2: false , 3: false], TSoption3 : [1: 200  , 2: 100 , 3: 400] , TSoption4 :[1: "서든어택" , 2: "오버워치", 3: "롤"],TSoption4sum:700 ,transitionView1 : false  ))
             
