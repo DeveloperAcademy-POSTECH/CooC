@@ -23,7 +23,7 @@ struct PickCategoryModal: View {
                             .stroke(userProfileData.isChecked[index] ? ColorManager.mainOrange : Color.gray, lineWidth: 1)
                             .frame(width: 20, height: 20)
                         
-                        if userProfileData.isChecked[index] {
+                        if userProfileData.isChecked[index]{
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.system(size: 20))
                                 .foregroundColor(ColorManager.mainOrange)
@@ -37,7 +37,6 @@ struct PickCategoryModal: View {
                 }
                 .onTapGesture(perform: {
                     userProfileData.isChecked[index].toggle()
-//                    print("체크된 값 \(categoryData[index].title), \(isChecked[index])")
                 })
             }
         }
