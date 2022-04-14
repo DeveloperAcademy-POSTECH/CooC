@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct Detail : Identifiable{
-    let id = UUID()
+struct Detail {
+    //let id = UUID()
     var name: String
     var image: String
     var title: String
@@ -24,7 +24,7 @@ struct Detail : Identifiable{
 
 let detailData : [Detail] = [
     Detail(name: "T.O.P",image: "food", title: "오늘 뭐 먹지",category:"Food", progress:"진행중", date:"2022.04.09",
-           detail:"너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요 추천해주세요 추천해주세요 추천해주세요",
+           detail:"너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요",
            etc:["불고기 전골!!","아무거나 먹으세요","난 모르겠다"],vote_list:["돈까스","치킨"], vote: [150,100]),
     Detail(name: "T.O.P",image: "game", title: "무슨 게임할까",category:"Game", progress:"진행중", date:"2022.03.29",
            detail:"스트레스 해소용 게임 추천해주세요",
@@ -35,13 +35,13 @@ let detailData : [Detail] = [
     Detail(name: "T.O.P",image: "fruit", title: "과일 뭐 먹을까",category:"Food", progress:"진행중", date:"2022.01.11",
            detail:"후식용 과일 추천해주세요",
            etc:["딸기"],vote_list:["사과","배"],vote: [200,100]),
-    Detail(name: "T.O.P",image: "shorts", title: "오늘 룩 어떄?",category:"Fashion", progress:"진행중", date:"2022.04.05",
+    Detail(name: "T.O.P",image: "shorts", title: "오늘 룩 어때?",category:"Fashion", progress:"진행중", date:"2022.04.05",
            detail:"너무 배가 고픈데 오늘은 뭐 입을까요? 추천해주세요",
            etc:["둘다 별로인데.."],vote_list:["반바지","긴바지"],vote: [200,100]),
     Detail(name: "T.O.P",image: "phone", title: "핸드폰 살까?",category:"Life", progress:"진행중", date:"2022.02.12",
            detail:"둘다 사고싶은데 추천해주세요",
            etc:["LG","블랙베리"],vote_list:["아이폰","갤럭시"],vote: [200,100]),
-    Detail(name: "T.O.P",image: "AI", title: "앞으로 뭐 해먹고 살까?",category:"Life", progress:"진행중", date:"2022.01.30",
+    Detail(name: "T.O.P",image: "AI", title: "앞으로 뭐 하지?",category:"Life", progress:"진행중", date:"2022.01.30",
            detail:"무슨 직업이 뜰까요? 추천해주세요",
            etc:["결국은 치킨집"],vote_list:["AI","치킨집"],vote: [200,100]),
     Detail(name: "T.O.P",image: "run", title: "노래 추천해줘",category:"Life", progress:"진행중", date:"2022.01.01",
