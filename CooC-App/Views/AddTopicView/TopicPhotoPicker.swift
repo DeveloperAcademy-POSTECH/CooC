@@ -1,13 +1,14 @@
 //
-//  PhotoPicker.swift
+//  TopicPhotoPicker.swift
 //  CooC-App
 //
-//  Created by JungHoonPark on 2022/04/12.
+//  Created by JungHoonPark on 2022/04/14.
 //
 
 import SwiftUI
 
-struct  : UIViewControllerRepresentable {
+struct TopicPhotoPicker : UIViewControllerRepresentable {
+    
     // @Binding var avatarImage: UIImage
     @EnvironmentObject var imagePicker : ImagePicker
     
@@ -21,21 +22,21 @@ struct  : UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(photoPicker: self)
+        return Coordinator(topicPhotoPicker: self)
     }
 
     final class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
-        let photoPicker: PhotoPicker
+        let topicPhotoPicker: TopicPhotoPicker
         
-        init(photoPicker: PhotoPicker){
-            self.photoPicker = photoPicker
+        init(topicPhotoPicker: TopicPhotoPicker){
+            self.topicPhotoPicker = topicPhotoPicker
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.editedImage] as? UIImage{
 //                guard let data = image.jpegData(compressionQuality: 0.1), let compressedImage = UIImage(data:data) else {return}
-                photoPicker.imagePicker.avatarImage = image
+                topicPhotoPicker.imagePicker.avatarImage = image
             } else {
                 // return an error show an alert
                 

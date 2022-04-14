@@ -32,7 +32,7 @@ struct ModalUserImageView: View {
                    isShowingPhotoPicker = true
                 }
         }
-        .sheet(isPresented: $isShowingPhotoPicker, content: {PhotoPicker()})
+        .sheet(isPresented: $isShowingPhotoPicker, content: {TopicPhotoPicker()})
     }
 }
 
