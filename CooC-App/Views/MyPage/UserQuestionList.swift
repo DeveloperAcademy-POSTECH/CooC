@@ -14,7 +14,7 @@ struct UserQuestionList: View {
     
     @EnvironmentObject var userProfileData: UserProfileData
 
-    @State private var currentIndex: Int = 0 
+    @State private var currentIndex2: Int = 0
     
     @State private var clickCheck = true
     
@@ -51,22 +51,22 @@ struct UserQuestionList: View {
 
         if self.clickCheck {
             List{
-                ForEach(0..<detailData.count-5){ currentIndex in
-                    NavigationLink(destination: TopicResultDetailPage(dataIndex: .constant(currentIndex))){
-                            Text(detailData[currentIndex].title)
+                ForEach(0..<detailData.count-5){ currentIndex2 in
+                    NavigationLink(destination: TopicResultDetailPage(dataIndex: .constant(currentIndex2))){
+                            Text(detailData[currentIndex2].title)
                                 .frame(width: 200, alignment: .leading)
-                            Text(detailData[currentIndex].date)
+                            Text(detailData[currentIndex2].date)
                                 .foregroundColor(Color.gray)
                         }
                 }
             }
         } else {
             List{
-                ForEach(4..<detailData.count){ currentIndex in
-                    NavigationLink(destination: TopicResultDetailPage(dataIndex: .constant(currentIndex))){
-                            Text(detailData[currentIndex].title)
+                ForEach(4..<detailData.count){ currentIndex2 in
+                    NavigationLink(destination: TopicResultDetailPage(dataIndex: .constant(currentIndex2))){
+                            Text(detailData[currentIndex2].title)
                                 .frame(width: 200, alignment: .leading)
-                            Text(detailData[currentIndex].date)
+                            Text(detailData[currentIndex2].date)
                                 .foregroundColor(Color.gray)
                         }
                 }

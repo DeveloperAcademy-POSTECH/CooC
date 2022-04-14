@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct TopicResultDetailPage: View {
-    @Binding var index : Int
-    let vote_seq: [String] =     ["A", "B", "C","D"] // 투표는 최대 4개가능하므로 4개 생성
+    let vote_seq: [String] = ["A", "B", "C","D"] // 투표는 최대 4개가능하므로 4개 생성
     func sum(numbers: [Float]) -> Float{
         return numbers.reduce(0, +)
     }
