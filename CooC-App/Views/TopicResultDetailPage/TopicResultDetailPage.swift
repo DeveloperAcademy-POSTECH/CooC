@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TopicResultDetailPage: View {
+    @Binding var index : Int
     let vote_seq: [String] =     ["A", "B", "C","D"] // 투표는 최대 4개가능하므로 4개 생성
     func sum(numbers: [Float]) -> Float{
         return numbers.reduce(0, +)
@@ -17,21 +18,22 @@ struct TopicResultDetailPage: View {
             
                     ScrollView() {
                     VStack{ //이미지
-                        Image("food")
+                        Image("\(detailData[index].image)")
                             .resizable()
                             .frame(width: 392, height: 300)
                             .clipShape(RoundedRectangle(cornerRadius: 0))
                         VStack{ //Title
                             HStack{
-                                Text("\(detailData[0].title)") //8자넘으면 밑으로 내려감
+                                Text("\(detailData[index].title)") //8자넘으면 밑으로 내려감
                                     .font(.system(size: 30))
                                     .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 Spacer()
                                 Button(action: {
-                                    print(sum(numbers: detailData[0].vote))
+                                    print(sum(numbers: detailData[index].vote))
                                 }) {
                                     HStack {
-                                        Text("\(detailData[0].category)")
+                                        Text("\(detailData[index].category)")
+                                            .foregroundColor(ColorManager.mainOrange)
                                             .fontWeight(.semibold)
                                             .frame(width: 72, height: 30)
                                     }
@@ -63,14 +65,16 @@ struct TopicResultDetailPage: View {
                         //.padding(.horizontal)
                         HStack{ //날짜
                             Text("게시날짜 |")
+                                .foregroundColor(ColorManager.mainOrange)
                                 //.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            Text("\(detailData[0].date)")
+                            Text("\(detailData[index].date)")
+                                .foregroundColor(ColorManager.mainOrange)
                             Spacer()
                         }
                         .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
                         
                             HStack{ //내용
-                            Text("\(detailData[0].detail)")
+                            Text("\(detailData[index].detail)")
                                 .font(.system(size: 18))
                                 .frame(width: 300)
                                 .lineSpacing(4)
@@ -87,7 +91,7 @@ struct TopicResultDetailPage: View {
                                     .navigationBarHidden(true)
                             }
                             .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 10))
-                            Text("\(detailData[0].name)")
+                            Text("\(detailData[index].name)")
                             Spacer()
                         }
                         .padding(.init(top: 0, leading: 10, bottom: 20, trailing: 0))
@@ -96,16 +100,16 @@ struct TopicResultDetailPage: View {
                             
                             //HStack{
 
-                            ForEach(0 ..< detailData[0].vote.count){ number in
+                            ForEach(0 ..< detailData[index].vote.count){ number in
                                     VStack{
                                         HStack{
-                                            Text("\(vote_seq[number]). \(detailData[0].vote_list[number]) \(Int(detailData[0].vote[number]/sum(numbers:detailData[0].vote)*100))%")
+                                            Text("\(vote_seq[number]). \(detailData[index].vote_list[number]) \(Int(detailData[index].vote[number]/sum(numbers:detailData[index].vote)*100))%")
                                                 .padding(.leading)
                                             Spacer()
                                         }
                                     }
                                     HStack{ // 투표 프로그래스뷰
-                                        ProgressView(value: detailData[0].vote[number] ,total : sum(numbers:detailData[0].vote))
+                                        ProgressView(value: detailData[index].vote[number] ,total : sum(numbers:detailData[index].vote))
                                             .progressViewStyle(LinearProgressViewStyle(tint: .red))
                                             .padding(.leading)
                                             .scaleEffect(x:1,y:4,anchor: .center)
@@ -123,12 +127,12 @@ struct TopicResultDetailPage: View {
                         .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                         ScrollView (.horizontal, showsIndicators: false,content: {
                             HStack{
-                                ForEach(0..<detailData[0].etc.count) {number in
+                                ForEach(0..<detailData[index].etc.count) {number in
                                     Button(action: {
                                         print("Delete tapped!")
                                     }) {
                                         HStack {
-                                            Text("\(detailData[0].etc[number])")
+                                            Text("\(detailData[index].etc[number])")
                                                 .fontWeight(.semibold)
                                                 .frame(width: 160, height: 50)
                                         }
@@ -148,7 +152,7 @@ struct TopicResultDetailPage: View {
                             }
                         })
                         }
-                        .padding(.leading)
+                        .padding(.horizontal)
                     Spacer()
                             }
                     .frame(maxWidth: .infinity)
@@ -156,10 +160,3 @@ struct TopicResultDetailPage: View {
         }
 }
     
-
-
-struct TopicResultDetailPage_Previews: PreviewProvider {
-    static var previews: some View {
-        TopicResultDetailPage()
-    }
-}

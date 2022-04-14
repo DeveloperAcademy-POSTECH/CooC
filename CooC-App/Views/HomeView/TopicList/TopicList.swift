@@ -49,7 +49,7 @@ struct TopicList: View {
             
             HStack(spacing: spacing) {
                 ForEach(list.indices, id: \.self) { currentListIndex in
-                    TopicItem(topic: $list[currentListIndex], isOn: $isOn[currentListIndex])
+                    TopicItem(topic: $list[currentListIndex], isOn: $isOn[currentListIndex], itemKind: self.itemKind)
                         .padding(.leading, homeViewState.currentIndices[itemKind] == 0 ? (UIScreen.main.bounds.width - 280) / 2 : 0) // 첫 번째 토픽에만 왼쪽에 패딩값을 주어 가운데에 배치시킵니다.
                         .frame(width: (proxy.size.width - trailingSpace))
                 }

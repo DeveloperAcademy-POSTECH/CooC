@@ -33,3 +33,14 @@ let topicData: [Topic] = [
     Topic(image: "umbagog", title: "요즘 게임 뭐가 핫함?", contents: "아 할거없다", choices: ["롤", "피파", "앨든링"], category: "Game", isEnd: false, answerNumber: 7, choicePercentages: [20, 70, 10]),
     Topic(image: "hiddenlake", title: "소개팅 나가는데, 의상 함 봐주세요", contents: "이번에 잘 보이고 싶네요ㅎㅎ 아 너무 두근되는데 어떡하지 하 너무 떨려 후후ㅜ훟후", choices: ["굳", "우엑"], category: "Life", isEnd: true, answerNumber: 25, choicePercentages: [11, 89]),
 ]
+
+let topicData2: [Topic] = [
+    Topic(image: "chincoteague", title: "진로 뭐할까?", contents: "곧 졸업인데 뭐하지", choices: ["iOS", "Android", "Web"], category: "Life", isEnd: true, answerNumber: 4, choicePercentages: [11, 50, 39]),
+    Topic(image: "lakemcdonald", title: "나이키 신발 이쁘지", contents: "어때?어때?", choices: ["괜찮음", "이쁨"], category: "Fashion", isEnd: false, answerNumber: 6, choicePercentages: [58, 42]),
+    Topic(image: "umbagog", title: "데이트 어디로 갈까", contents: "참고로 남자 둘이서 감", choices: ["국밥집", "쿠우쿠우"], category: "Life", isEnd: false, answerNumber: 41, choicePercentages: [98, 2]),
+    Topic(image: "stmarylake", title: "여사친 생일 선물 추천", contents: "그런 사이 아니에요", choices: ["향수", "옷"], category: "Life", isEnd: true, answerNumber: 2, choicePercentages: [57, 43]),
+    Topic(image: "stmarylake", title: "여행가는데 숙소 어디가 좋을까", contents: "2~3명 기준", choices: ["민박", "텐트", "호텔"], category: "Travel", isEnd: true, answerNumber: 2, choicePercentages: [15, 3, 82]),
+    Topic(image: "umbagog", title: "킬링타임용 영화", contents: "3시간동안 할게 없음", choices: ["소셜 네트워크", "빅쇼트"], category: "Movie", isEnd: false, answerNumber: 41, choicePercentages: [68, 32]),
+    Topic(image: "stmarylake", title: "피파 선수 추천좀", contents: "가성비 좋은 선수 플리즈", choices: ["드록바", "셰바", "에투", "반니"], category: "Game", isEnd: true, answerNumber: 2, choicePercentages: [78, 5, 12, 5]),
+    Topic(image: "stmarylake", title: "외식 어디갈까", contents: "회식 아닌 외식입니다", choices: ["고기집", "포장마차", "곱창집"], category: "Food", isEnd: true, answerNumber: 2, choicePercentages: [58, 10, 32]),
+]

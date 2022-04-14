@@ -9,9 +9,7 @@ import SwiftUI
 
 
 struct EditProfileView: View {
-//    @State private var userName: String = ""
-//    @State private var userEmail: String = ""
-//    @State private var userAboutMe: String = ""
+
     @EnvironmentObject var userProfileData: UserProfileData
 
     
