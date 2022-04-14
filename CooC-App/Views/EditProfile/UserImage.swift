@@ -10,7 +10,9 @@ import SwiftUI
 struct UserImage: View {
     
     @State private var isShowingPhotoPicker = false
-    @State private var avatarImage = UIImage(named: "profileImageDefault")!
+    @EnvironmentObject var userProfileData: UserProfileData
+
+//    @State private var avatarImage = UIImage(named: "profileImageDefault")!
     
     var body: some View {
         ZStack{
@@ -24,7 +26,7 @@ struct UserImage: View {
                     RoundedRectangle(cornerRadius: 25)
                         .frame(width: 170, height: 170, alignment: .center)
                         .foregroundColor(.white)
-                    Image(uiImage: avatarImage)
+                    Image(uiImage: userProfileData.profilePicture)
                         .resizable()
                         .frame(width: 160, height: 160, alignment: .center)
                         .clipShape(RoundedRectangle(cornerRadius: 25))
@@ -41,7 +43,7 @@ struct UserImage: View {
                 .frame(width: 42, height: 42)
                 .accentColor(.white)
                 .sheet(isPresented: $isShowingPhotoPicker, content: {
-                    PhotoPicker(avatarImage: $avatarImage)
+                    PhotoPicker()
                 })
             }
         }
