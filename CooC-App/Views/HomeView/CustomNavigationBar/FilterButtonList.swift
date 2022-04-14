@@ -30,7 +30,7 @@ struct FilterButtonList: View {
                             homeViewState.updateList()
                             homeViewState.popularTopicIsOn = [Bool](repeating: false, count: homeViewState.topicLists.count)
                             homeViewState.popularTopicIsOn[0] = true
-                            homeViewState.recentTopicIsOn = [Bool](repeating: false, count: homeViewState.topicLists.count)
+                            homeViewState.recentTopicIsOn = [Bool](repeating: false, count: homeViewState.topicLists2.count)
                             homeViewState.recentTopicIsOn[0] = true
                         }
                         .padding(.trailing, index == (categoryText.count - 1) ? horizontalDefaultPadding : 5)

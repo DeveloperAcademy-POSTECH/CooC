@@ -34,7 +34,7 @@ struct HomeView: View {
                             
                         TopicListTitle(title: "⏰The Most Recent Topics⏰")
                             .padding(.horizontal, horizontalDefaultPadding)
-                        TopicList(index: $homeViewState.recentTopicIndex, items: $homeViewState.topicLists, itemKind: 1, isOn: $homeViewState.recentTopicIsOn)
+                        TopicList(index: $homeViewState.recentTopicIndex, items: $homeViewState.topicLists2, itemKind: 1, isOn: $homeViewState.recentTopicIsOn)
                             .padding(.top, 6)
                     }
                     .offset(y: hideNavigationBar ? -60 : 20)
