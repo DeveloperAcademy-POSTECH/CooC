@@ -137,6 +137,8 @@ struct LookAroundView: View {
     @Namespace var animation
     @State var isOn = [true]
     var body: some View {
+        
+        NavigationView{
         VStack(spacing: 15){
             
             VStack(alignment: .leading, spacing:12){
@@ -161,6 +163,13 @@ struct LookAroundView: View {
                                 .resizable()
                                 .frame(width: isOn[post.PostIndex] ? size.width : size.width-50, height: isOn[post.PostIndex] ? 300 : 250 )
                                 .cornerRadius(12).padding(EdgeInsets(top:0, leading: 0,bottom:0,trailing:0))
+                          
+                            if post.transitionView1 == false && isOn[post.PostIndex] == true {
+                            NavigationLink(destination:  TopicResultDetailPage(index: $currentIndex) ){
+                            Image(systemName: "note.text.badge.plus").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)
+                            }.offset(x:-100,y:100)
+                            }
+                            
                             
                             Button(action:{
                                 
@@ -168,7 +177,7 @@ struct LookAroundView: View {
                             }){
                                 
                                 if post.transitionView1 == false && isOn[post.PostIndex] == true {
-                                    
+                  
                                     Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}
                             }.offset(x:100,y:100)
                             if post.transitionView1 == true {
@@ -304,7 +313,7 @@ struct LookAroundView: View {
         }
     }
 }
-
+}
 
 
 struct LookAroundView_Previews: PreviewProvider {
