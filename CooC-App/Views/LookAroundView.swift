@@ -174,7 +174,7 @@ struct LookAroundView: View {
                             if post.transitionView1 == true {
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20).foregroundColor(Color.white).overlay(RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.orange, lineWidth: 4))
+                                        .stroke(Color.orange, lineWidth: 1)    .shadow(radius: 2))
                                     
                                     .frame(height: UIScreen.main.bounds.height * 0.1)
                                     .transition(AnyTransition.scale.animation(.easeInOut))
@@ -207,13 +207,13 @@ struct LookAroundView: View {
                             .ignoresSafeArea(edges: .bottom))
                         
                         Text(post.TScontent).frame(width: 250, height:80, alignment: .topLeading ).font(.system(size:15))
-                        
+                      
                         
                         ForEach((1...post.TSoption2.count), id: \.self) {
                          
                             let k = $0
-                            if post.TSoption2[k]! == false { Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black, lineWidth: 4)).overlay(
+                            if post.TSoption2[k]! == false {   Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)    .shadow(radius: 2)).overlay(
                                     Button(action:{
                                         
                                         for i in 1...posts[post.PostIndex].TSoption.count{
@@ -229,10 +229,7 @@ struct LookAroundView: View {
                                               
                                             }
                                         }
-                                        
                                     }){
-                                        
-                                        
                                         if post.TSoption2[k]! == false{  Rectangle().cornerRadius(15).frame(width: 250, height:30).border(Color.purple).opacity(0)
                                         }
                                         
@@ -245,7 +242,7 @@ struct LookAroundView: View {
                             }
                             else{
                                 Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.orange, lineWidth: 4)).overlay(
+                                    .stroke(Color.orange, lineWidth: 1)    .shadow(radius: 2)).overlay(
                                         Button(action:{
                                             posts[post.PostIndex].TSoption2[k] = !posts[post.PostIndex].TSoption2[k]!
                                             for i in 1...posts[post.PostIndex].TSoption.count{
@@ -269,7 +266,7 @@ struct LookAroundView: View {
                         
                         
                     }.frame(width: size.width , height : 580 ,alignment : .top).padding(EdgeInsets(top:20, leading: 5,bottom:20,trailing:5)).overlay(RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.orange, lineWidth: 1))
+                        .stroke(Color.gray, lineWidth: 1).shadow(radius: 4))
                 }
                 }
             }
