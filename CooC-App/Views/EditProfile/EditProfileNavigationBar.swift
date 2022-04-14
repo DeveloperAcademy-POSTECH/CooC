@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct EditProfileNavigationBar: View {
-    // @EnvironmentObject var userProfileData: UserProfileData
     
     @Environment(\.presentationMode) var presentationMode
     
