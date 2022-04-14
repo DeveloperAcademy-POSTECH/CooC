@@ -31,7 +31,7 @@ struct TopicItem: View {
                     Text("Submitted")
                         .bold()
                         .frame(width: topic.isSubmitted ? 255 : 0, height: topic.isSubmitted ? 255 : 0)
-                        .background(.ultraThinMaterial)
+                            .background(.ultraThinMaterial)
                         .cornerRadius(imageRadius)
                 } else {
                     Text(topic.isSubmitted ? "Submitted" : "")
