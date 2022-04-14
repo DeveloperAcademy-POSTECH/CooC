@@ -28,7 +28,6 @@
 		75A69B732806C301003E8D83 /* ModalContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B6E2806C300003E8D83 /* ModalContents.swift */; };
 		75A69B742806C301003E8D83 /* ModalUserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */; };
 		75A69B762806C301003E8D83 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B712806C300003E8D83 /* ModalView.swift */; };
-		75A69B772806C301003E8D83 /* AddContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A69B722806C300003E8D83 /* AddContents.swift */; };
 		75FA24072807B4D60098B0A7 /* TopicPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */; };
 		8B7E93D1280808C10063C234 /* DetailPageNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E93D0280808C10063C234 /* DetailPageNavigationBar.swift */; };
 		B7C3689827FC3A9F0002BA0F /* CooC_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3689727FC3A9F0002BA0F /* CooC_AppApp.swift */; };
@@ -97,7 +96,6 @@
 		75A69B6E2806C300003E8D83 /* ModalContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalContents.swift; sourceTree = "<group>"; };
 		75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalUserImageView.swift; sourceTree = "<group>"; };
 		75A69B712806C300003E8D83 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		75A69B722806C300003E8D83 /* AddContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContents.swift; sourceTree = "<group>"; };
 		75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPhotoPicker.swift; sourceTree = "<group>"; };
 		8B7E93D0280808C10063C234 /* DetailPageNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageNavigationBar.swift; sourceTree = "<group>"; };
 		B7C3689427FC3A9F0002BA0F /* CooC-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CooC-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +197,6 @@
 				75A69B6F2806C300003E8D83 /* ModalUserImageView.swift */,
 				75FA24062807B4D60098B0A7 /* TopicPhotoPicker.swift */,
 				75A69B712806C300003E8D83 /* ModalView.swift */,
-				75A69B722806C300003E8D83 /* AddContents.swift */,
 			);
 			path = AddTopicView;
 			sourceTree = "<group>";
@@ -498,7 +495,6 @@
 				5D10C0E72805712C0080FF28 /* HomeViewState.swift in Sources */,
 				B7C368EB27FDDDED0002BA0F /* SearchView.swift in Sources */,
 				B7C368F427FED4F10002BA0F /* SearchResultView.swift in Sources */,
-				75A69B772806C301003E8D83 /* AddContents.swift in Sources */,
 				5D10C0F1280572EC0080FF28 /* detailData.swift in Sources */,
 				B7C368FE27FF3DD80002BA0F /* Constants.swift in Sources */,
 				5D10C0DD280543130080FF28 /* EditProfileNavigationBar.swift in Sources */,

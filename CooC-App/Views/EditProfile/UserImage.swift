@@ -11,15 +11,12 @@ struct UserImage: View {
     
     @State private var isShowingPhotoPicker = false
     @EnvironmentObject var userProfileData: UserProfileData
-
-//    @State private var avatarImage = UIImage(named: "profileImageDefault")!
     
     var body: some View {
         ZStack{
             Rectangle()
                 .frame(width: nil, height: 250, alignment: .center)
                 .foregroundColor(ColorManager.grayBackground)
-//                .edgesIgnoringSafeArea(.top)
             
             ZStack(alignment: .bottomTrailing) {
                 ZStack{

@@ -21,22 +21,26 @@ struct UserCategory: View {
             HStack(spacing: 10){
                 ForEach(0..<9){ row in
                     if userProfileData.isChecked[row] == true {
+                        
                         Text("\(categoryData[row].title)")
                             .padding(4)
                             .foregroundColor(ColorManager.mainOrange)
                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
                     }
                 }
-            }
-            Button(action: {
-                self.showCategoryModal = true
                 
-            }) {
-                Text("Click to add category preferences")
+                Spacer()
+                Button(action: {
+                    self.showCategoryModal = true
+                    
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                }
+                .sheet(isPresented: self.$showCategoryModal) {
+                    PickCategoryModal(showCategoryModal: $showCategoryModal)
+                }
             }
-            .sheet(isPresented: self.$showCategoryModal) {
-                PickCategoryModal(showCategoryModal: $showCategoryModal)
-            }
+            
             
             Divider()
             
