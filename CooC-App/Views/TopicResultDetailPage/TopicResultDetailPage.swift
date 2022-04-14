@@ -17,7 +17,7 @@ struct TopicResultDetailPage: View {
             
                     ScrollView() {
                     VStack{ //이미지
-                        Image("food")
+                        Image("\(detailData[0].image)")
                             .resizable()
                             .frame(width: 392, height: 300)
                             .clipShape(RoundedRectangle(cornerRadius: 0))
@@ -32,6 +32,7 @@ struct TopicResultDetailPage: View {
                                 }) {
                                     HStack {
                                         Text("\(detailData[0].category)")
+                                            .foregroundColor(ColorManager.mainOrange)
                                             .fontWeight(.semibold)
                                             .frame(width: 72, height: 30)
                                     }
@@ -63,8 +64,10 @@ struct TopicResultDetailPage: View {
                         //.padding(.horizontal)
                         HStack{ //날짜
                             Text("게시날짜 |")
+                                .foregroundColor(ColorManager.mainOrange)
                                 //.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             Text("\(detailData[0].date)")
+                                .foregroundColor(ColorManager.mainOrange)
                             Spacer()
                         }
                         .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
@@ -148,7 +151,7 @@ struct TopicResultDetailPage: View {
                             }
                         })
                         }
-                        .padding(.leading)
+                        .padding(.horizontal)
                     Spacer()
                             }
                     .frame(maxWidth: .infinity)
