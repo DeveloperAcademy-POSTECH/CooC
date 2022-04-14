@@ -52,9 +52,8 @@ struct Post: Identifiable {
     var TSoption4 : [ Int : String]
     var TSoption4sum : Double
     var transitionView1 : Bool
-    
-    
 }
+
 struct  SnapCarousel<Content: View, T: Identifiable> : View{
     
     var content: (T) -> Content
@@ -137,7 +136,6 @@ struct LookAroundView: View {
     @Namespace var animation
     @State var isOn = [true]
     var body: some View {
-        
         NavigationView{
         VStack{
             VStack(alignment: .leading){
@@ -163,9 +161,7 @@ struct LookAroundView: View {
                     VStack{
                         VStack{
                         Text(post.TStitle).frame(width: 300, height:20)
-                        
                         ZStack{
-                  
                             Image(post.postImage)
                                 .resizable()
                                 .frame(width: isOn[post.PostIndex] ? size.width : size.width-100, height: isOn[post.PostIndex] ? 200 : 150 )
@@ -176,7 +172,6 @@ struct LookAroundView: View {
                             Image(systemName: "note.text.badge.plus").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)
                             }.offset(x:-110,y:75)
                             }
-                            
                             
                             Button(action:{
                                 
@@ -269,22 +264,14 @@ struct LookAroundView: View {
                                             if post.TSoption2[k]! == false{  Rectangle().cornerRadius(15).frame(width: 250, height:30).border(Color.purple).opacity(0)
                                      
                                             }
-                                            
                                             else{
                                                 Rectangle().cornerRadius(15).frame(width: 250, height:30).border(Color.purple).opacity(0)
                                             }
-                                            
                                         } )
-                                
-                                
                             }
                         }
-                        
-                        
                     }.frame(width: size.width , height : 500 ,alignment : .top)
                             .padding(EdgeInsets(top:20, leading: 5,bottom:20,trailing:5))
-//                            .overlay(RoundedRectangle(cornerRadius: 20)
-//                            .shadow(color: .gray, radius: 2, y: 3)
                 }
                     }.frame(height: 500)
                 }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
@@ -311,20 +298,10 @@ struct LookAroundView: View {
             
             posts.append(Post( PostIndex: 8,postImage: "chicken", TStitle :  "저녁메뉴 추천 좀" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요", TSoption : [1:  "돈까스"  , 2 :  "치킨", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "돈까스"  , 2 :  "치킨", ],TSoption4sum: 300 , transitionView1 : false))
             
-            
-            
-            
             for _ in 1...posts.count{
                     isOn.append(false)
             }
         }
     }
 }
-}
-
-
-struct LookAroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        LookAroundView()
-    }
 }

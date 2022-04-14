@@ -14,8 +14,7 @@ struct UserQuestionList: View {
     
     @EnvironmentObject var userProfileData: UserProfileData
 
-    
-    @State private var profileName : String = "Jun"
+    @State private var currentIndex2: Int = 0
     
     @State private var clickCheck = true
     
@@ -52,24 +51,24 @@ struct UserQuestionList: View {
 
         if self.clickCheck {
             List{
-                ForEach(0..<questionList[0].count){ row in
-                        NavigationLink(destination: Text(questionList[0][row].detail)){
-                            Text(questionList[0][row].title)
+                ForEach(0..<detailData.count-5){ currentIndex2 in
+                    NavigationLink(destination: TopicResultDetailPage(dataIndex: .constant(currentIndex2))){
+                            Text(detailData[currentIndex2].title)
                                 .frame(width: 200, alignment: .leading)
-                            Text(String(questionList[0][row].date))
+                            Text(detailData[currentIndex2].date)
                                 .foregroundColor(Color.gray)
                         }
-                    }
+                }
             }
         } else {
             List{
-                ForEach(0..<questionList[1].count){ row in
-                        NavigationLink(destination: Text(questionList[1][row].detail)){
-                            Text(questionList[1][row].title)
+                ForEach(4..<detailData.count){ currentIndex2 in
+                    NavigationLink(destination: TopicResultDetailPage(dataIndex: .constant(currentIndex2))){
+                            Text(detailData[currentIndex2].title)
                                 .frame(width: 200, alignment: .leading)
-                            Text(String(questionList[1][row].date))
+                            Text(detailData[currentIndex2].date)
                                 .foregroundColor(Color.gray)
-                    }
+                        }
                 }
             }
         }

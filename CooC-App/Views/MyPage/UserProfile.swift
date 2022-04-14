@@ -35,14 +35,19 @@ struct UserProfile: View {
                     HStack(spacing: 30){
                         Spacer().frame(width: 10)
                         
-                        Image(uiImage: userProfileData.profilePicture)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(20)
-                            .frame(width: 130, height: 130)
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
-                            .padding(EdgeInsets(top: 10, leading: -80, bottom: 20, trailing: 0))
-                        
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 25)
+                                .frame(width: 140, height: 140)
+                                .foregroundColor(.white)
+                            Image(uiImage: userProfileData.profilePicture)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .cornerRadius(25)
+                                .frame(width: 130, height: 130)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                        }
+                        .frame(width: 140, alignment: .leading)
+                        .padding(EdgeInsets(top: 10, leading: -20, bottom: 20, trailing: 0))
                         
                         VStack(alignment: .leading){
                             Text(userProfileData.profileName)
@@ -61,19 +66,18 @@ struct UserProfile: View {
                             Spacer().frame(height: 10)
 
                             HStack(spacing: 10){
-                                ForEach(profileData[2].category, id: \.self){
-                                    Text($0)
-                                        .font(.system(size: 12))
-                                        .foregroundColor(Color.black)
-                                        .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .stroke(Color.orange, lineWidth: 2)
-                                            )
+                                ForEach(0..<9){ row in
+                                    if userProfileData.isChecked[row] == true {
+                                        Text("\(categoryData[row].title)")
+                                            .padding(4)
+                                            .foregroundColor(ColorManager.mainOrange)
+                                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(color: .gray, radius: 2, x: 0, y: 2))
+                                    }
                                 }
                             }
                             Spacer().frame(height: 10)
                         }
+                        .frame(width: 200, alignment: .leading)
                     }
                 }
             }

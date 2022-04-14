@@ -8,48 +8,51 @@
 import SwiftUI
 
 struct TopicResultDetailPage: View {
-    @Binding var index : Int
-    let vote_seq: [String] =     ["A", "B", "C","D"] // 투표는 최대 4개가능하므로 4개 생성
+    let vote_seq: [String] = ["A", "B", "C","D"] // 투표는 최대 4개가능하므로 4개 생성
     func sum(numbers: [Float]) -> Float{
         return numbers.reduce(0, +)
     }
+    @Binding var dataIndex : Int
+    @EnvironmentObject var userProfileData: UserProfileData
+
         var body: some View {
-                //NavigationView{
+            DetailPageNavigationBar()
             
                     ScrollView() {
                     VStack{ //이미지
-                        Image("\(detailData[index].image)")
+                        Image("\(detailData[dataIndex].image)")
                             .resizable()
                             .frame(width: 392, height: 300)
                             .clipShape(RoundedRectangle(cornerRadius: 0))
-                        VStack{ //Title
+                        VStack(alignment: .leading){ //Title
                             HStack{
-                                Text("\(detailData[index].title)") //8자넘으면 밑으로 내려감
-                                    .font(.system(size: 30))
+                                Text("\(detailData[dataIndex].title)") //8자넘으면 밑으로 내려감
+                                    .font(.title)
+                                    .bold()
                                     .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                                 Spacer()
                                 Button(action: {
-                                    print(sum(numbers: detailData[index].vote))
+                                    print(sum(numbers: detailData[dataIndex].vote))
                                 }) {
                                     HStack {
-                                        Text("\(detailData[index].category)")
-                                            .foregroundColor(ColorManager.mainOrange)
+                                        Text("\(detailData[dataIndex].category)")
+                                            .foregroundColor(Color.white)
                                             .fontWeight(.semibold)
                                             .frame(width: 72, height: 30)
                                     }
                                     .foregroundColor(.black)
-                                    .background(.white)
-                                    .cornerRadius(20)
+                                    .background(ColorManager.mainOrange)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 5)
-                                            .stroke(Color.gray, lineWidth: 2)
+                                            .stroke(Color.white, lineWidth: 2)
                                     )
                                 }
                                 Button(action: {
                                     print("진행중")
                                 }) {
                                     HStack {
-                                        Text("\(detailData[0].progress)")
+                                        Text("\(detailData[dataIndex].progress)")
+                                            .foregroundColor(Color.black)
                                             .fontWeight(.semibold)
                                             .frame(width: 72, height: 30)
                                     }
@@ -58,41 +61,50 @@ struct TopicResultDetailPage: View {
                                     .cornerRadius(20)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 5)
-                                            .stroke(Color.gray, lineWidth: 2)
+                                            .stroke(ColorManager.mainOrange, lineWidth: 2)
                                     )
-                                }
+                                }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                             }
                         //.padding(.horizontal)
                         HStack{ //날짜
                             Text("게시날짜 |")
-                                .foregroundColor(ColorManager.mainOrange)
-                                //.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            Text("\(detailData[index].date)")
-                                .foregroundColor(ColorManager.mainOrange)
+                                .foregroundColor(ColorManager.subCobaltBlue)
+                            Text("\(detailData[dataIndex].date)")
+                                .foregroundColor(ColorManager.subCobaltBlue)
                             Spacer()
                         }
-                        .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
+                        .padding(.init(top: -10, leading: 0, bottom: 10, trailing: 0))
                         
-                            HStack{ //내용
-                            Text("\(detailData[index].detail)")
-                                .font(.system(size: 18))
-                                .frame(width: 300)
-                                .lineSpacing(4)
-                                Spacer()
-                        }
-                        .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
+//                            HStack{ //내용
+//                            Text("\(detailData[dataIndex].detail)")
+//                                .font(.system(size: 18))
+//                                .frame(width: 300)
+//                                .lineSpacing(4)
+//                                .padding(EdgeInsets(top: 0, leading: -20, bottom: 0, trailing: 0))
+//                        }
+                        Text("\(detailData[dataIndex].detail)")
+                            .font(.system(size: 18))
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                         
-                            HStack{
-                            NavigationLink(destination: LookAroundView()){
-                                Image("top")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                    .clipShape(Circle())
-                                    .navigationBarHidden(true)
-                            }
+                            HStack(){
+                                ZStack{
+                                    Circle()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(ColorManager.subCobaltBlue)
+                                    Image(uiImage: userProfileData.profilePicture)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .cornerRadius(25)
+                                        .frame(width: 45, height: 45)
+                                        .clipShape(Circle())
+                                        .navigationBarHidden(true)
+                                }
                             .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 10))
-                            Text("\(detailData[index].name)")
+                            Text("\(userProfileData.profileName)")
                             Spacer()
+                            }
+                            
+                            
                         }
                         .padding(.init(top: 0, leading: 10, bottom: 20, trailing: 0))
                         
@@ -100,23 +112,23 @@ struct TopicResultDetailPage: View {
                             
                             //HStack{
 
-                            ForEach(0 ..< detailData[index].vote.count){ number in
+                            ForEach(0 ..< detailData[dataIndex].vote.count){ number in
                                     VStack{
                                         HStack{
-                                            Text("\(vote_seq[number]). \(detailData[index].vote_list[number]) \(Int(detailData[index].vote[number]/sum(numbers:detailData[index].vote)*100))%")
+                                            Text("\(vote_seq[number]). \(detailData[dataIndex].vote_list[number]) \(Int(detailData[dataIndex].vote[number]/sum(numbers:detailData[dataIndex].vote)*100))%")
                                                 .padding(.leading)
                                             Spacer()
                                         }
                                     }
+                                
                                     HStack{ // 투표 프로그래스뷰
-                                        ProgressView(value: detailData[index].vote[number] ,total : sum(numbers:detailData[index].vote))
-                                            .progressViewStyle(LinearProgressViewStyle(tint: .red))
+                                        ProgressView(value: detailData[dataIndex].vote[number] ,total : sum(numbers:detailData[dataIndex].vote))
+                                            .progressViewStyle(LinearProgressViewStyle(tint: ColorManager.mainOrange))
                                             .padding(.leading)
                                             .scaleEffect(x:1,y:4,anchor: .center)
                                         Spacer()
                                     }
-                                }
-                                Spacer()
+                                }.padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                             //}
                         } // VStack끝
                         HStack{
@@ -127,26 +139,36 @@ struct TopicResultDetailPage: View {
                         .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                         ScrollView (.horizontal, showsIndicators: false,content: {
                             HStack{
-                                ForEach(0..<detailData[index].etc.count) {number in
+                                ForEach(0..<detailData[dataIndex].etc.count) {number in
                                     Button(action: {
                                         print("Delete tapped!")
                                     }) {
-                                        HStack {
-                                            Text("\(detailData[index].etc[number])")
-                                                .fontWeight(.semibold)
-                                                .frame(width: 160, height: 50)
+                                        HStack(spacing: 10){
+                                            ZStack{
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(ColorManager.subCobaltBlue)
+                                                    .frame(width: 165, height: 60)
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Color.white)
+                                                    .frame(width: 160, height: 55)
+                                                Text("\(detailData[dataIndex].etc[number])")
+                                                    .foregroundColor(.black)
+                                                    .fontWeight(.semibold)
+                                            }
                                         }
-                                        .padding()
-                                        .foregroundColor(.black)
-                                        .background(.white)
-                                        .cornerRadius(20)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .stroke(Color.gray, lineWidth: 5)
-                                                //.shadow(radius: 5)
-                                        )
+                                        
+//                                        HStack {
+//                                            Text("\(detailData[dataIndex].etc[number])")
+//                                                .fontWeight(.semibold)
+//                                                .frame(width: 160, height: 45)
+//                                        }
+//                                        .padding()
+//                                        .foregroundColor(.black)
+//                                        .background(.white)
+//                                        .cornerRadius(20)
                                     }
                                 }
+//                                .shadow(color: .gray, radius: 2)
                                 .padding(.leading)
                                 Spacer()
                             }
@@ -157,6 +179,6 @@ struct TopicResultDetailPage: View {
                             }
                     .frame(maxWidth: .infinity)
                 }
-        }
+        
 }
     
