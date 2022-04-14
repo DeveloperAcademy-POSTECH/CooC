@@ -13,7 +13,6 @@ struct ModalContents: View {
     @State var selectedCategory = 0
     @State var title: String = ""
     @State var Contents: String = ""
-    @S
     @State private var longAnswerToggle = false
     @State private var personalInfoToggle = false
     
