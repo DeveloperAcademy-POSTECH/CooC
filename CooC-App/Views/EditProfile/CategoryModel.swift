@@ -25,4 +25,4 @@ var categoryData = [
     Category(title: "WorkOut")
 ]
 
-
+// true 값을 받으면 배열에 추가하고, 추가된 값만 화면에 데이터를 넘기게

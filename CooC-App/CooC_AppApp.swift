@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct CooC_AppApp: App {
     @StateObject private var userProfileData = UserProfileData()

@@ -10,8 +10,8 @@ import SwiftUI
 
 struct PickCategoryModal: View {
     @Binding var showCategoryModal: Bool
-//    @State private var isChecked: [Bool] = [false, false, false, false, false, false, false, false, false]
     @EnvironmentObject var userProfileData: UserProfileData
+    @State var selectedCount = 0
     
     var body: some View {
         CategoryNavigationBar()
@@ -37,11 +37,21 @@ struct PickCategoryModal: View {
                 }
                 .onTapGesture(perform: {
                     userProfileData.isChecked[index].toggle()
-//                    print("체크된 값 \(categoryData[index].title), \(isChecked[index])")
+                    userProfileData.isCountChecked += userProfileData.isChecked[index] ? 1 : -1
+                    if userProfileData.isCountChecked > 2 {
+                        userProfileData.isChecked[index] = false
+                        userProfileData.isCountChecked -= 1
+                    }
+                    print(userProfileData.isCountChecked)
                 })
             }
         }
         .listStyle(PlainListStyle())
+        
+        Text("Select maximum of 2 preference categories")
+            .font(.subheadline)
+            .foregroundColor(ColorManager.subCobaltBlue)
+            .padding(.bottom, 30)
     }
     
 }

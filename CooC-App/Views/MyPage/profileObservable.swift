@@ -14,6 +14,7 @@ final class UserProfileData: ObservableObject{
     @Published var profileEmail: String = "oldman45@gmail.com"
     @Published var profilePicture : UIImage = UIImage(named: "profileImageDefault")!
     @Published var isChecked : [Bool] = [false, true, false, false, true, false, false, false, false]
+    @Published var isCountChecked : Int = 2
     @Published var avatarImage: UIImage = UIImage(named: "default-upload")!
 }
 

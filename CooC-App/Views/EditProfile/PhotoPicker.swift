@@ -5,12 +5,14 @@
 //  Created by Youngseo Yoon on 2022/04/07.
 //
 
+
+// class: ImagePicker var: avatarImage
+
 import SwiftUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
 
     @EnvironmentObject var userProfileData: UserProfileData
-//    @Binding var avatarImage: UIImage
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
