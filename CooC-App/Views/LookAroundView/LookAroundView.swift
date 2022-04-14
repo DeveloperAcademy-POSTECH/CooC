@@ -181,15 +181,16 @@ struct LookAroundView: View {
                                 if post.transitionView1 == false && isOn[post.PostIndex] == true {
                   
                                     Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}
-                            }.offset(x:110,y:75)
+                            }.offset(x:100,y:75)
                             if post.transitionView1 == true {
                                 ZStack{
                                   
-                                    RoundedRectangle(cornerRadius: 20).foregroundColor(Color.black).border(Color.red)
+                                    RoundedRectangle(cornerRadius: 20).foregroundColor(Color.white)  .overlay(RoundedRectangle(cornerRadius: 20)
+                                        .stroke(ColorManager.mainOrange, lineWidth: 2))
                                     
                                     .frame(height: UIScreen.main.bounds.height * 0.1)
                                     .transition(AnyTransition.scale.animation(.easeInOut))
-                                    TextView(text: $textContent).frame(width: 230, height: 75).offset(x:-18)
+                                    TextView(text: $textContent).frame(width: 200, height: 75).offset(x:-18)
                                     
                                     
                                     
@@ -198,18 +199,18 @@ struct LookAroundView: View {
                                         textContent = ""
                                     }) {
                                         if post.transitionView1 == true {Image(systemName: "x.circle.fill").resizable().foregroundColor(Color.white).background(Color.orange).cornerRadius(15).frame(width: 15, height:15)}
-                                    }.offset(x:135,y:-60)
+                                    }.offset(x:124,y:-60)
                                     Button(action:{
                                         posts[post.PostIndex].transitionView1 = true
                                         textContent = ""
                                     }) {
                                         if post.transitionView1 == true {Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}
-                                    }.offset(x:125,y:-20)
+                                    }.offset(x:115,y:-20)
                                     Button(action:{
                                         posts[post.PostIndex].transitionView1 = false
                                         textContent = ""
-                                    }){Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}.offset(x:125,y:-20)
-                                }
+                                    }){Image(systemName: "paperplane.circle.fill").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)}.offset(x:115,y:-20)
+                                }.foregroundColor(Color.white)
                             }
                         }
                         .overlay(    ZStack(alignment: .top) {
@@ -217,7 +218,7 @@ struct LookAroundView: View {
                         }
                             .ignoresSafeArea(edges: .bottom))
                         
-                        Text(post.TScontent).frame(width: 250, height:40, alignment: .topLeading ).font(.system(size:15))
+                            Text(post.TScontent).frame(width: 250, height:40, alignment: .topLeading ).font(.system(size:15))
                       
                         
                         ForEach((1...post.TSoption2.count), id: \.self) {
