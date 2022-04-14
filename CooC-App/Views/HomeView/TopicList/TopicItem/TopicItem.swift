@@ -11,6 +11,7 @@ struct TopicItem: View {
     @Binding var topic: Topic
     @Binding var isOn: Bool
     @EnvironmentObject var homeViewState: HomeViewState
+    var itemKind: Int
     
     var body: some View {
         VStack(spacing: 5) {
@@ -71,14 +72,14 @@ struct TopicItem: View {
             
             VStack(alignment: .leading, spacing: 10) {
                 HStack(alignment: .center, spacing: 15) {
-                    ChoiceButton(topicId: topic.id, text: topic.choices[0], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn)
-                    ChoiceButton(topicId: topic.id, text: topic.choices[1], percentage: topic.choicePercentages[1], isTapped: $topic.isSubmitted, isOn: $isOn)
+                    ChoiceButton(topicId: topic.id, text: topic.choices[0], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn, itemKind: self.itemKind)
+                    ChoiceButton(topicId: topic.id, text: topic.choices[1], percentage: topic.choicePercentages[1], isTapped: $topic.isSubmitted, isOn: $isOn, itemKind: self.itemKind)
                 }
                 if topic.choices.count > 2 {
                     HStack(alignment: .center, spacing: 15) {
-                        ChoiceButton(topicId: topic.id, text: topic.choices[2], percentage: topic.choicePercentages[2], isTapped: $topic.isSubmitted, isOn: $isOn)
+                        ChoiceButton(topicId: topic.id, text: topic.choices[2], percentage: topic.choicePercentages[2], isTapped: $topic.isSubmitted, isOn: $isOn, itemKind: self.itemKind)
                         if topic.choices.count == 4 {
-                            ChoiceButton(topicId: topic.id, text: topic.choices[3], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn)
+                            ChoiceButton(topicId: topic.id, text: topic.choices[3], percentage: topic.choicePercentages[0], isTapped: $topic.isSubmitted, isOn: $isOn, itemKind: self.itemKind)
                         }
                     }
                 }
