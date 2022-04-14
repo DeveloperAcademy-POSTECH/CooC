@@ -210,6 +210,7 @@ struct LookAroundView: View {
                         
                         
                         ForEach((1...post.TSoption2.count), id: \.self) {
+                         
                             let k = $0
                             if post.TSoption2[k]! == false { Text( post.TSoption[k]! ).frame(width: 250, height:30).overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.black, lineWidth: 4)).overlay(
@@ -279,43 +280,34 @@ struct LookAroundView: View {
         .frame(maxHeight:.infinity, alignment: .top)
         .onAppear{
              // TStitle -> title  TScontent -> detail   TSoption -> vote_list   이미지명 
-            posts.append(Post(PostIndex: 0 , postImage: "post1", TStitle : "오늘 뭐 먹지" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요 추천해주세요 추천해주세요 추천해주세요", TSoption : [1:"돈까스"  , 2:"치킨"],TSoption2 : [1: false  , 2: false ], TSoption3 : [1: 150  , 2: 100 ], TSoption4 : [1:"돈까스"  , 2:"치킨"],TSoption4sum:456,  transitionView1 : false ))
-            posts.append(Post (PostIndex: 1,postImage: "post2", TStitle : "무슨 게임할까" ,TScontent: "스트레스 해소용 게임 추천해주세요", TSoption : [1: "서든어택" , 2: "오버워치", 3: "롤"], TSoption2 : [1: false  , 2: false , 3: false], TSoption3 : [1: 200  , 2: 100 , 3: 400] , TSoption4 :[1: "서든어택" , 2: "오버워치", 3: "롤"],TSoption4sum:28,transitionView1 : false  ))
+            posts.append(Post(PostIndex: 0 , postImage: "food", TStitle : "오늘 뭐 먹지" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요 추천해주세요 추천해주세요 추천해주세요", TSoption : [1:"돈까스"  , 2:"치킨"],TSoption2 : [1: false  , 2: false ], TSoption3 : [1: 150  , 2: 100 ], TSoption4 : [1:"돈까스"  , 2:"치킨"],TSoption4sum:250,  transitionView1 : false ))
             
-            posts.append(Post( PostIndex: 2,postImage: "post3", TStitle : "드라마 뭐가 재밌지",TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요", TSoption : [1: "파친코" , 2: "너의 목소리가 들려" ] , TSoption2 : [1: false , 2:false ],TSoption3 :[1:  200  , 2 :  150], TSoption4 : [1: "파친코" , 2: "너의 목소리가 들려" ]  ,TSoption4sum:74, transitionView1 : false ))
+            posts.append(Post (PostIndex: 1,postImage: "game", TStitle : "무슨 게임할까" ,TScontent: "스트레스 해소용 게임 추천해주세요", TSoption : [1: "서든어택" , 2: "오버워치", 3: "롤"], TSoption2 : [1: false  , 2: false , 3: false], TSoption3 : [1: 200  , 2: 100 , 3: 400] , TSoption4 :[1: "서든어택" , 2: "오버워치", 3: "롤"],TSoption4sum:700 ,transitionView1 : false  ))
             
-            posts.append(Post( PostIndex: 3,postImage: "post4", TStitle : "아…..흑흑" ,TScontent: "4", TSoption : [ 1: "value" ,2:  ""], TSoption2 : [ 1: false , 2:  false ], TSoption3 :[1:  34  , 2 :  10],  TSoption4 : [ 1: "value" ,2:  ""],TSoption4sum:44, transitionView1 : false))
-            posts.append(Post( PostIndex: 4,postImage: "post5", TStitle : "살려주세요." ,TScontent: "5", TSoption : [1:  "value"  , 2 :  "", 3:  "2"],TSoption2 : [1:  false  , 2 :  false, 3:  false],TSoption3 :[1:  1  , 2 :  2, 3:  1],TSoption4 : [1:  "value"  , 2 :  "", 3:  "2"],TSoption4sum:4, transitionView1 : false))
+            posts.append(Post( PostIndex: 2,postImage: "movie", TStitle : "드라마 뭐가 재밌지",TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요", TSoption : [1: "파친코" , 2: "너의 목소리가 들려" ] , TSoption2 : [1: false , 2:false ],TSoption3 :[1:  200  , 2 :  150], TSoption4 : [1: "파친코" , 2: "너의 목소리가 들려" ]  ,TSoption4sum:350, transitionView1 : false ))
+            
+            posts.append(Post( PostIndex: 3,postImage: "fruit", TStitle : "과일 뭐 먹을까" ,TScontent: "후식용 과일 추천해주세요", TSoption : [ 1: "사과" ,2:  "배"], TSoption2 : [ 1: false , 2:  false ], TSoption3 :[1:  200  , 2 :  100],  TSoption4 : [ 1: "사과" ,2:  "배"],TSoption4sum:300, transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 4,postImage: "shorts", TStitle : "오늘 룩 어떄?" ,TScontent: "너무 배가 고픈데 오늘은 뭐 입을까요? 추천해주세요", TSoption : [1:  "반바지"  , 2 :  "긴바지", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "반바지"  , 2 :  "긴바지", ],TSoption4sum:300, transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 5,postImage: "phone", TStitle : "핸드폰 살까?" ,TScontent: "둘다 사고싶은데 추천해주세요", TSoption : [1:  "아이폰"  , 2 :  "갤럭시", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "아이폰"  , 2 :  "갤럭시", ],TSoption4sum:300, transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 6,postImage: "AI", TStitle : "앞으로 뭐 해먹고 살까?" ,TScontent: "무슨 직업이 뜰까요? 추천해주세요", TSoption : [1:  "AI" , 2 :  "치킨집", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "AI" , 2 :  "치킨집", ],TSoption4sum:300 , transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 7,postImage: "run", TStitle : "노래 추천해줘",TScontent: "오늘 날씨 좋은데 조깅할 예정입니다. 무슨 노래가 좋을까요?", TSoption : [1:  "루시-조깅" , 2 :  "한비-위켄더" ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "루시-조깅" , 2 :  "한비-위켄더" ],TSoption4sum:300 , transitionView1 : false))
+            
+            posts.append(Post( PostIndex: 8,postImage: "chicken", TStitle :  "저녁메뉴 추천 좀" ,TScontent: "너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요", TSoption : [1:  "돈까스"  , 2 :  "치킨", ],TSoption2 : [1:  false  , 2 :  false],TSoption3 :[1:  200  , 2 :  100],TSoption4 :  [1:  "돈까스"  , 2 :  "치킨", ],TSoption4sum: 300 , transitionView1 : false))
+            
+            
+            
+            
             for _ in 1...posts.count{
                     isOn.append(false)
             }
         }
     }
 }
-[
 
-    Detail(id: 1003, name: "T.O.P", title: "드라마 뭐가 재밌지",category:"Movie", progress:"진행중", date:"2022.02.13",
-           detail:"너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요",
-           etc:["불고기 전골!!","넷플릭스"],vote_list:[,],vote: [200,150]),
-    Detail(id: 1004, name: "T.O.P", title: "과일 뭐 먹을까",category:"Food", progress:"진행중", date:"2022.01.11",
-           detail:"후식용 과일 추천해주세요",
-           etc:["아무거나 먹어"],vote_list:["사과","배"],vote: [200,100]),
-    Detail(id: 1005, name: "T.O.P", title: "오늘 룩 어떄?",category:"Fashion", progress:"진행중", date:"2022.04.05",
-           detail:"너무 배가 고픈데 오늘은 뭐 입을까요? 추천해주세요",
-           etc:["둘다 별로"],vote_list:["반바지","긴바지"],vote: [200,100]),
-    Detail(id: 1006, name: "T.O.P", title: "핸드폰 살까?",category:"Life", progress:"진행중", date:"2022.02.12",
-           detail:"둘다 사고싶은데 추천해주세요",
-           etc:["불고기 전골!!","블랙베리"],vote_list:["아이폰","갤럭시"],vote: [200,100]),
-    Detail(id: 1007, name: "T.O.P", title: "앞으로 뭐 해먹고 살까?",category:"Life", progress:"진행중", date:"2022.01.30",
-           detail:"무슨 직업이 뜰까요? 추천해주세요",
-           etc:["월급쟁이 ㄱㄱ"],vote_list:["AI","치킨집"],vote: [200,100]),
-    Detail(id: 1008, name: "T.O.P", title: "노래 추천해줘",category:"Life", progress:"진행중", date:"2022.01.01",
-           detail:"오늘 날씨 좋은데 조깅할 예정입니다. 무슨 노래가 좋을까요?",
-           etc:["일단 나가"],vote_list:["루시-조깅","한비-위켄더"],vote: [200,100]),
-    Detail(id: 1009, name: "T.O.P", title: "저녁메뉴 추천 좀",category:"Food", progress:"진행중", date:"2021.12.15",
-           detail:"너무 배가 고픈데 오늘은 뭐 먹을까요? 추천해주세요",
-           etc:["치돈이 진리지"],vote_list:["돈까스","치킨"],vote: [200,100])
-]
 
 
 struct LookAroundView_Previews: PreviewProvider {
