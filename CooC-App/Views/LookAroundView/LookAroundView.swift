@@ -168,7 +168,7 @@ struct LookAroundView: View {
                                 .cornerRadius(12).padding(EdgeInsets(top:0, leading: 0,bottom:0,trailing:0))
                           
                             if post.transitionView1 == false && isOn[post.PostIndex] == true {
-                            NavigationLink(destination:  TopicResultDetailPage(index: $currentIndex) ){
+                            NavigationLink(destination:  TopicResultDetailPage(dataIndex: $currentIndex) ){
                             Image(systemName: "note.text.badge.plus").resizable().foregroundColor(Color.orange).background(Color.white).cornerRadius(15).frame(width: 30, height:30)
                             }.offset(x:-110,y:75)
                             }

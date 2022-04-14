@@ -268,7 +268,7 @@
 				5DA2565E27FEA433009E41BA /* EditProfile */,
 				75A69B6D2806C300003E8D83 /* AddTopicView */,
 				B7C3689927FC3A9F0002BA0F /* ContentView.swift */,
-				B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */,
+				BAFA3EB728086FCC008B950D /* LookAroundView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,6 +336,14 @@
 				B7C368FB27FEF59A0002BA0F /* SearchTopicItem.swift */,
 			);
 			path = SearchResultView;
+			sourceTree = "<group>";
+		};
+		BAFA3EB728086FCC008B950D /* LookAroundView */ = {
+			isa = PBXGroup;
+			children = (
+				B7C368C427FC3AFD0002BA0F /* LookAroundView.swift */,
+			);
+			path = LookAroundView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
