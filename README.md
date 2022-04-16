@@ -1,17 +1,19 @@
-![Logo](/로고 경로/)
+<p><img src="Images/teamLogo.png" width="500" height="250"></p>
 
 
 # :iphone: A&A
 
-A brief description of what this project does and who it's for
+"What should I have for lunch today?" Ask questions whenever you're hesitated with concerns in daily life.
 
 
 ## :pushpin: Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- See popular/recent topics
+- Search topics
+- Upload topic
+- Real-time voting
+- Edit profile
+- View the list of topics users have posted and responded to
 
 
 ## :people_hugging: Authors
